@@ -1,0 +1,53 @@
+<style type="text/css">
+	.center{
+  display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+	.img-responsive{
+/*height: auto;
+max-width: 100%;
+*/
+width: 100%;
+height: auto;
+}
+
+</style>
+<ion-modal-view  hide-back-button="false" cache-view="true" >
+	<ion-nav-bar class="bar-positive"  style="border: none !important;">
+		 <ion-nav-title>
+			Compare
+		</ion-nav-title> 
+	<!--  <ion-nav-buttons side="right">
+      	   	<div class="col s6">
+      		  <img ng-click="closeModal()" src="images/close.svg" width="20" height="20">
+      		</div>
+       </ion-nav-buttons>  -->
+   <ion-nav-buttons side="right">
+       <button class="button button-icon button-clear ion-close-round" ng-click="closeModal()" style="color: #FFF !important;">
+         </button>
+     </ion-nav-buttons>
+	</ion-nav-bar>
+
+<br>
+  <ion-content class="center">
+           <div class="row">
+  <div class="col">
+  	<ion-slide-box on-slide-changed="slideHasChanged($index)">
+   		<ion-slide ng-repeat="images in image_url">
+	  			<img src="images/vehicle-placeholder.png" ng-src="{{images}}" width="100%">
+	  	</ion-slide>
+	 </ion-slide-box>
+  </div>
+</div>
+    </ion-content>

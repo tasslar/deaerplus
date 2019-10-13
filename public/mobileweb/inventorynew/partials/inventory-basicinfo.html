@@ -1,0 +1,883 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+.modal-content {
+    padding: 12px !important;
+}
+
+
+.modal .modal-content {
+    padding: 5px 10px 0px 10px !important;
+}
+
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ .scroll-height {
+    height: 500px;
+  overflow-y: scroll;
+ }}
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+    height: 510px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+    height: 582px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+    /*height: 600px;*/
+    height: 605px;
+    padding-top: 0px;
+  overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+    height: 675px;
+    padding-top: 0px;
+  overflow-y: scroll;
+ }}
+
+
+  @media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+ .scroll-height {
+    height: 675px;
+  
+  overflow-y: scroll;
+ }}
+
+
+   @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+ .scroll-height {
+    height: 920px;
+  
+  overflow-y: scroll;
+ }}
+
+
+
+/*   @media only screen 
+and (min-device-width : 1080px) 
+and (max-device-height : 1920px) {
+ .scroll-height {
+    height: 800px;
+  
+  overflow-y: scroll;
+ }}
+*/
+
+.modal-padding { border-bottom: 1px solid #CCC; }
+
+
+/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+
+/* sathish code*/
+
+.positionTest{
+	top:0 !important;
+}
+
+</style>
+
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s8" align="center">
+		   		<span style="font-weight: 600; font-size: 17px;">Add Inventory</span>
+		     </div>
+		       <div class="col s2">
+		   		
+		     </div>
+		    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div> 
+
+ 
+		
+		<div  style="padding-bottom: 0px !important; position: relative;">
+			<form class="col s12" name="basicForm" basic-form novalidate="" ng-submit="basicForm.$valid && basicInfoSubmit()" id="basicForm">
+					<div class="row" style="margin-top: 65px;">
+						<h5 align="center">VIN LOOKUP</h5>
+							<div class="row">
+								<div class="col s12 input-field">
+									<input type="text" name="Register Number" ng-model="regNum" id="registernumber" no-special-char>
+									<label for="registernumber">Registration Number</label>
+								</div>
+								<div class="col s12 input-field">
+									<input type="text" name="Engine Number" ng-model="engineNumber" id="engineNumber" no-special-char>
+									<label for="engineNumber">Engine Number</label>
+								</div>
+								<div class="col s12 input-field">
+									<input type="text" name="Chassis Number" ng-model="chasisNumber" id="chasisNumber" no-special-char>
+									<label for="chasisNumber">Chassis Number</label>
+								</div>
+								<div class="col s6" style="margin-top:10px;">
+									<button type="button" class="btn waves-effect waves-light btn-blue col s12">Reset</button>
+								</div>
+								<div class="col s6" style="margin-top:10px;">
+									<button type="button" class="btn waves-effect waves-light btn-green col s12" ng-click="fetch()">Fetch</button>
+								</div>
+							</div>
+							<!-- <h5 align="center"> <a href="#/test">  test </a> </h5> -->
+							<h5 align="center">Basic Info</h5>
+
+
+							<div class="row">
+								<div class="col s12 input-field">
+									<input type="text" name="registerYear" id="Register Year" ng-model="registerYear" data-target='register' modal required="" readonly="">
+									<label for="Register">Register Year</label>
+								</div>
+							</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text"  id="Make" name="make" readonly="" ng-model="make"  data-target='make' modal required="">
+								<label for="Make">Make</label>
+
+								<!-- <div ng-show="(submitted && basicForm.make.$error.required) || basicForm.make.$dirty || basicForm.make.$touched">
+									<span ng-show="basicForm.make.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" id="Model" name="model" readonly="" ng-model="modal" data-target='modal' modal required="">
+								<label for="Modal">Model</label>
+
+								<!-- <div ng-show="(submitted && basicForm.modal.$error.required) || basicForm.modal.$dirty || basicForm.modal.$touched">
+									<span ng-show="basicForm.modal.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" id="Variant" name="Variant" readonly="" ng-model="varient" data-target='varient' modal required="">
+								<label for="Varient">Variant</label>
+
+								<!-- <div ng-show="(submitted && basicForm.varient.$error.required) || basicForm.varient.$dirty || basicForm.varient.$touched">
+									<span ng-show="basicForm.varient.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="bodyType" ng-model="bodyType" id="Body Type" readonly="" required="" data-target='bodyType' modal>
+								<label for="Body">Body Type</label>
+
+								<!-- <div ng-show="(submitted && basicForm.bodyType.$error.required) || basicForm.bodyType.$dirty || basicForm.bodyType.$touched">
+									<span ng-show="basicForm.bodyType.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="transmission" id="Transmission" ng-model="transmission" readonly="" required="">
+								<label for="Transmission">Transmission</label>
+
+								<!-- <div ng-show="(submitted && basicForm.transmission.$error.required) || basicForm.transmission.$dirty || basicForm.transmission.$touched">
+									<span ng-show="basicForm.transmission.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row"> 
+					<div class="col s12 input-field">
+
+						<input type="tel" id="Total Distance" name="tDistance" ng-model="tDistance" required=""  pattern="[0-9]*" maxlength="6" no-special-char>
+						<label for="Total">Total Distance</label>
+
+								<!-- <div ng-show="(submitted && basicForm.tDistance.$error.required) || basicForm.tDistance.$dirty || basicForm.tDistance.$touched">
+									<span ng-show="basicForm.tDistance.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<!-- <div class="row">
+						 <div class="input-field col m6 s12">
+	                              <input id="email" type="email" class="validate" required>
+	                            <label for="email">Email</label>
+	                        </div>
+	                    </div> -->
+					
+
+								<div class="row">
+					<div class="col s12 input-field">
+
+					<!--	<input type="number" id="Mileage" name="mileage" ng-model="mileage" required="">
+						<label for="Mileage">Mileage</label>-->
+
+						<input type="tel" id="Mileage" name="mileage" ng-model="mileage" required=""  pattern="[0-9]*" maxlength="2" no-special-char>
+								<label for="Mileage">Mileage</label>
+
+
+								<!-- <div ng-show="(submitted && basicForm.mileage.$error.required) || basicForm.mileage.$dirty || basicForm.mileage.$touched">
+									<span ng-show="basicForm.mileage.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="ownership" id="Ownership" ng-model="ownership"  readonly=""  data-target='ownership' modal required="">
+								<label for="Ownership">Ownership</label>
+
+								<!-- <div ng-show="(submitted && basicForm.ownership.$error.required) || basicForm.ownership.$dirty || basicForm.ownership.$touched">
+									<span ng-show="basicForm.ownership.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="carStatus" id="Car Status" readonly="" ng-model="carstatus" data-target='carstatus' modal required="">
+								<label for="Car">Car Status</label>
+
+								<!-- <div ng-show="(submitted && basicForm.carStatus.$error.required) || basicForm.carStatus.$dirty || basicForm.carStatus.$touched">
+									<span ng-show="basicForm.carStatus.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="color" id="Color" readonly="" ng-model="color"  data-target='color' modal required="">
+								<label for="Color">Color</label>
+
+								<!-- <div ng-show="(submitted && basicForm.color.$error.required) || basicForm.color.$dirty || basicForm.color.$touched">
+									<span ng-show="basicForm.color.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" id="City" name="city" readonly="" ng-model="city" data-target="city" modal ng-click="openCity()" required="">
+								<label for="City">City</label>
+
+								<!-- <div ng-show="(submitted && basicForm.city.$error.required) || basicForm.city.$dirty || basicForm.city.$touched">
+									<span ng-show="basicForm.city.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+
+						<!-- 		<div class="row">
+							<div class="col s12 input-field">
+								<input type="text" name="text-basic" id="text-basic" value="">
+							</div>
+						</div> -->
+
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" name="branch" id="Branch"  readonly="" ng-model="branch"  data-target='branch' modal>
+								<label for="Branch">Branch</label>
+
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col s12 input-field">
+
+								<input type="text" id="Fuel" name="fuelType" readonly="" ng-model="fuelType"  required="">
+								<label for="Fuel">Fuel Type</label>
+
+								<!-- <div ng-show="(submitted && basicForm.fuelType.$error.required) || basicForm.fuelType.$dirty || basicForm.fuelType.$touched">
+									<span ng-show="basicForm.fuelType.$error.required" class="error">field is mandotory</span>
+								</div> -->
+
+							</div>
+						</div>
+					
+				<br>
+				<div id="footer-bottom" style="height: 30px; bottom: 0 !important; position: relative !important;">
+					<div class="row">
+						<div class="col s6">
+							<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="back()">Cancel</button>
+						</div>
+						<div class="col s6">
+							<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="submitted=true">Next</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		
+		</div>
+	
+
+	
+
+
+<!-- register -->
+
+ <div id="register" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    		<div class="col s2" align="center" >
+				 	
+				</div>
+				<div class="col s8" align="center" >
+				 	<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Register year</span>
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+	  	<div  class="scroll-height">
+			<div class="modal-content">
+				<div ng-show="itemLoader">
+					<div class="page-loader">
+					    <div class="preloader pls-blue">
+					        <img src="images/loader.gif" width="50" height="50">
+					        <p>Please wait...</p>
+					    </div>
+					</div>
+				</div>
+				<div class="col s12" ng-repeat="year in getBasicData.Year" ng-if="getBasicData.Year.length!=0">
+					<p class="modal-padding" ng-click="pickRegister(year.master_reg_year_id,year.master_reg_year)">{{year.master_reg_year}}</p>
+				</div>
+				<div ng-if="getBasicData.Year.length==0" style="text-align: center; margin-top: 40%;">
+					<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+				</div>
+			</div>
+	   </div>
+</div> 
+
+<!-- make -->
+ <div id="make" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    		<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+				<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Make</span>
+				 	
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+	  <div class="scroll-height">
+			<div class="modal-content" >
+			<div ng-show="itemLoader">
+					<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+			<div class="col s12" ng-repeat="make in getBasicData.Make" ng-if="getBasicData.Make.length!=0">
+				<p class="modal-padding" class="model-padding" ng-click="pickMake(make.make_id,make.makename)">{{make.makename}}</p>
+			</div>
+			<div ng-if="getBasicData.Make.length==0" style="vertical-align: middle; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+			</div>
+		</div>
+	   </div>
+</div> 
+
+
+<!-- modal -->
+ <div id="modal" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    		<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+				<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Model</span>
+				 	
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+	  <div class="scroll-height">
+		 <div class="modal-content">
+		 	<div ng-show="itemLoader">
+				<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+			<div>
+				<div class="col s12" ng-repeat="modal in modelData" ng-if="modelData.length!=0">
+					<p class="modal-padding" class="model-padding" ng-click="pickModal(modal.model_id,modal.model_name)">{{modal.model_name}}</p>
+				</div>
+			</div>
+			<div ng-if="modelData.length==0 && make!=''" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+			</div>
+
+			<div ng-if="modelData.length==0 && make==''" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>Please Choose "Make"</h5>
+			</div>
+
+		</div>
+	   </div>
+</div> 
+
+
+
+<!-- varient -->
+ <div id="varient" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    	<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+				<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Variant</span>
+				 
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+	  <div class="scroll-height">
+		 <div class="modal-content">
+		 	<div ng-show="itemLoader">
+				<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+			<div >
+				<div class="col s12" ng-repeat="varient in variantData" ng-if="variantData.length!=0">
+					<p class="modal-padding" class="model-padding" ng-click="pickVarient(varient.variant_id,varient.variant_name)">{{varient.variant_name}}</p>
+				</div>
+			</div>
+			<div ng-if="variantData.length==0 && modal!=''" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+			</div>
+
+			<div ng-if="variantData.length==0 && modal==''" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>Please Choose "Model"</h5>
+			</div>
+		</div>
+	   </div>
+</div> 
+
+<!-- body type -->
+
+<div id="bodyType" class="modal modal-center">
+	<div class="row model-header" style="background-color: #173E84 !important;">
+		<div class="col s2" align="center">
+	    		</div>
+		<div class="col s8" align="center" style="padding: 10px;">
+		<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Body Type</span>
+			
+		</div>
+		<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="15" height="15" style="margin-top: 18px;">
+				</div>
+	</div>
+	<div class="modal-content">
+		<div ng-show="itemLoader">
+			<div class="page-loader">
+			    <div class="preloader pls-blue">
+			        <img src="images/loader.gif" width="50" height="50">
+			        <p>Please wait...</p>
+			    </div>
+			</div>
+		</div>
+		<div ng-show="getBasicData.Owenertype.length!=0">
+				<div class="col s12" ng-repeat="basic in getBasicData.Bodytype">
+					<p class="modal-padding" class="model-padding" ng-click="pickBodyType(basic.category_description)">{{basic.category_description}}</p>
+				</div>
+			</div>
+			<div ng-show="getBasicData.Owenertype.length==0" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+			</div>		
+	</div>
+</div>
+
+
+<!-- ownership -->
+<div id="ownership" class="modal modal-center">
+	<div class="row model-header" style="background-color: #173E84 !important;">
+		<div class="col s2" align="center">
+	    		</div>
+		<div class="col s8" align="center" style="padding: 10px;">
+		<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Ownership</span>
+			
+		</div>
+		<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="15" height="15" style="margin-top: 18px;">
+				</div>
+	</div>
+	<div class="modal-content">
+		<div ng-show="itemLoader">
+			<div class="page-loader">
+			    <div class="preloader pls-blue">
+			        <img src="images/loader.gif" width="50" height="50">
+			        <p>Please wait...</p>
+			    </div>
+			</div>
+		</div>
+		<div ng-show="getBasicData.Owenertype.length!=0">
+				<div class="col s12" ng-repeat="owner in getBasicData.Owenertype">
+					<p class="modal-padding" class="model-padding" ng-click="pickOwner(owner.id,owner.owner)">{{owner.id}}</p>
+				</div>
+			</div>
+			<div ng-show="getBasicData.Owenertype.length==0" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+			</div>		
+	</div>
+</div>
+
+<!-- car stAtus -->
+<div id="carstatus" class="modal modal-center">
+	<div class="row model-header" style="background-color: #173E84 !important;" >
+		<div class="col s2" align="center">
+	    		</div>
+		<div class="col s8" align="center" style="padding: 10px;">
+			<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Car Status</span>
+			
+		</div>
+		<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="15" height="15" style="margin-top: 16px;">
+				</div>
+	</div>
+	<div class="modal-content">
+		<div ng-show="itemLoader">
+			<div class="page-loader">
+			    <div class="preloader pls-blue">
+			        <img src="images/loader.gif" width="50" height="50">
+			        <p>Please wait...</p>
+			    </div>
+			</div>
+		</div>
+		<div ng-show="getBasicData.Cartype.length!=0">
+			<div class="col s12" ng-repeat="car in getBasicData.Cartype">
+				<p class="modal-padding" class="model-padding" ng-click="pickCar(car.id,car.type)">{{car.type}}</p>
+			</div>
+		</div>
+		<div ng-show="getBasicData.Cartype.length==0" style="text-align: center; margin-top: 40%;">
+			<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+		</div>
+	</div>
+</div>
+
+<!-- car color -->
+ <div id="color" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    	<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+					<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Color</span>
+			
+				 	
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+	  <div class="scroll-height">
+		<div class="modal-content">
+			<div ng-show="itemLoader">
+				<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+				<div ng-show="getBasicData.Color.length!=0">
+					<div class="col s12" ng-repeat="color in getBasicData.Color">
+						<p class="modal-padding" class="model-padding" ng-click="pickColor(color.colour_id,color.colour_name)">{{color.colour_name}}</p>
+					</div>
+				</div>
+				<div ng-show="getBasicData.Color.length==0" style="text-align: center; margin-top: 40%;">
+					<img src="images/nodatafound.png" />
+					<h5>No Data Found...!</h5>
+				</div>
+		</div>
+	  </div>
+</div> 
+
+
+<!-- <div id="city" style="top: 0; height: 200px; vertical-align: top; widows: unset; background-color: #f2f2f2; z-index: 999;" class="modal modalfulscreen">
+ <nav style="top: 0;">
+		    <div class="nav-wrapper">
+		    	<div class="row">
+		    		<div class="col s2" align="center">
+	    		</div>
+					<div class="col s8" align="center">
+					<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">City</span>
+					 
+					</div>
+					<div class="col s2" ng-click="closeCity()">
+			 		<img src="images/close.svg" class="" width="18" height="15" style="margin-top: 22px;">
+				</div>
+				</div>
+			</div>
+	 </nav>
+	 	<div class="row ">
+					<div class="col s11 max-device-height max-device-width">
+						<input type="text" ng-model="searchCity" placeholder="Search City" modal>
+					</div>
+					<div class="col s1" style="padding-top: 15px; margin-left:-10px;">
+						<img src="images/search.svg" width="18" height="18">
+					</div>
+			</div>
+	  <div >
+
+		<div >
+
+		<div class="row" >
+					<div >
+						<div ng-show="cities.length!=0">
+							<div ng-repeat="city in cities | filter : searchCity" style="position: relative;">
+								<p style="border-bottom: 1px solid #CCC; padding-bottom: 10px;" ng-click="pickCity(city.city_id,city.city_name)">{{city.city_name}}</p>
+							</div>
+						</div>
+						<div ng-show="(cities | filter:searchCity).length == 0" style="text-align: center; margin-top: 40%;">
+				            <img src="images/nodatafound.png" />
+								<h5>No Data Found...!</h5>     
+			          	</div>
+					</div>
+				</div>
+			
+		</div>
+	  </div>
+
+</div> -->
+
+
+<!-- city -->
+<div id="city" class="modal modalfulscreen" style="overflow:hidden; top: 0 !important; left: 0 !important; width: 100% !important">
+	 <nav>
+		    <div class="nav-wrapper">
+		    	<div class="row">
+		    		<div class="col s2" align="center">
+	    		</div>
+					<div class="col s8" align="center">
+					<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">City</span>
+					 
+					</div>
+					<div class="col s2" ng-click="closeCity()">
+			 		<img src="images/close.svg" class="" width="18" height="15" style="margin-top: 22px;">
+				</div>
+				</div>
+			</div>
+	 </nav>
+	 	<div class="row">
+					<div class="col s11">
+						<input type="text" id="cityInp" ng-model="searchCity" placeholder="Search City" modal>
+					</div>
+					<div class="col s1" style="padding-top: 15px; margin-left:-10px;">
+						<img src="images/search.svg" width="18" height="18">
+					</div>
+			</div>
+	  <div class="scroll-height">
+
+		<div class="modal-content" style="padding: 0px 12px 0 12px !important;">
+		<div ng-show="itemLoader">
+				<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+		<div class="row" >
+					<div >
+						<div ng-show="cities.length!=0">
+							<div ng-repeat="city in cities | filter : searchCity" style="position: relative;">
+								<p style="border-bottom: 1px solid #CCC; padding-bottom: 10px;" ng-click="pickCity(city.city_id,city.city_name)">{{city.city_name}}</p>
+							</div>
+						</div>
+						<div ng-show="(cities | filter:searchCity).length == 0" style="text-align: center; margin-top: 40%;">
+				            <img src="images/nodatafound.png" />
+								<h5>No Data Found...!</h5>     
+			          	</div>
+					</div>
+				</div>
+			
+		</div>
+	  </div>
+</div> 
+
+
+
+<!-- branch -->
+<div id="branch" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    		<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+				<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Branch</span>
+				 
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+	  <div class="scroll-height">
+		<div class="modal-content">
+			<div ng-show="itemLoader">
+				<div class="page-loader">
+				    <div class="preloader pls-blue">
+				        <img src="images/loader.gif" width="50" height="50">
+				        <p>Please wait...</p>
+				    </div>
+				</div>
+			</div>
+			<div ng-show="branchData.branchname.length!=0 || branchData.length!=0">
+				<div class="col s12" ng-repeat="branch in branchData.branchname">
+					<p class="modal-padding" ng-click="pickBranch(branch.dealer_name,branch.branch_id)">{{branch.dealer_name}}</p>
+				</div>
+			</div>
+			<div ng-show="branchData.branchname.length==0 || branchData.length==0" style="text-align: center; margin-top: 40%;">
+				<img src="images/nodatafound.png" />
+				<h5>Add a New Branch</h5>    
+			</div>
+		</div>
+	  </div>
+</div> 
+
+<script type="text/javascript">
+	if ('ontouchstart' in window) {
+	    /* cache dom references */ 
+	    var $body = $('body'); 
+
+	    /* bind events */
+	    $(document)
+	    .on('focus', 'input', function() {
+	        $body.addClass('fixfixed');
+	    })
+	    .on('blur', 'input', function() {
+	        $body.removeClass('fixfixed');
+	    });
+	}
+
+	/*$('#cityInp').focus(function(){
+		$('html,body').scrollTop(0);
+	})*/
+
+	
+</script>
+
+
+<!-- <script type="text/javascript">
+	$(document).on("focus", "#text-basic", function(event){
+    var boxheight =  $(window).height() - 1000;
+    $("#mycontntent").append("<div id='blank' style='height:"+boxheight+"px;'"+"></div>");
+$('html, body').animate({scrollTop: $('#text-basic').offset().top - 100}, 500); 
+});
+
+$(document).on("focusout", "#text-basic", function(event){
+$('#blank').remove();
+});
+</script> -->
+

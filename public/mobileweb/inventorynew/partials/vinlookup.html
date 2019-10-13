@@ -1,0 +1,424 @@
+<style type="text/css">
+.modal-content {
+padding: 12px 12px 0 12px !important;
+}
+.collapsible-titlefont { font-size: 12px; }
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+.scroll-height {
+		height: 450px;
+	overflow-y: scroll;
+}
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+.scroll-height {
+		height: 465px;
+	
+	overflow-y: scroll;
+}
+}
+@media only screen
+and (min-device-width : 360px)
+and (max-device-width : 640px) {
+.scroll-height {
+		height: 545px;
+	
+	overflow-y: scroll;
+}
+}
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+.scroll-height {
+		/*height: 600px;*/
+		height: 560px;
+		padding-top: 0px;
+	overflow-y: scroll;
+}
+}
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px) {
+.scroll-height {
+		height: 634px;
+		padding-top: 0px;
+	overflow-y: scroll;
+}
+.chkprice { margin-top: 10px; }
+}
+@media only screen
+and (min-device-width : 412px)
+and (max-device-width : 732px) {
+.scroll-height {
+		height: 630px;
+		overflow-y: scroll;
+}
+}
+/*@media only screen
+and (min-device-width : 1080px)
+and (max-device-height : 1920px) {
+.scroll-height {
+height: 800px;
+overflow-y: scroll;
+}
+}*/
+.bordered { border-bottom:1px solid #CCC; }
+td { font-size: 12px; }
+.model-font { margin-left: 50px; font-size: 17px; font-weight: 600; padding-top: 3px;"  }
+/*Nav Bar*/
+.header {
+position: fixed;
+}
+.fixfixed .header{
+position: absolute;
+}
+.total-font2 { font-size: 14px !important; font-weight:bold; }
+.aster { color: #FF0000 !important; font-size: 18px;}
+</style>
+<!--Loader-->
+<div class="page-loader" ng-show="loader">
+	<div class="preloader pls-blue">
+		<img src="images/loader.gif" width="50" height="50">
+		<p>Please wait...</p>
+	</div>
+</div>
+<div class="header" style="width:100%; top: 0; z-index: 999; position: fixed;">
+	<nav>
+		<div class="nav-wrapper">
+			<div class="col s12">
+				<div class="row">
+					<div class="col s2" align="center" ng-click="BackToBasic()">
+						<img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+					</div>
+					<div class="col s8" align="center" >
+						<span style="font-weight: 600; font-size: 17px;">VinLook Up</span>
+					</div>
+					<div class="col s2" align="center">
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+</div>
+
+
+		<div class="scroll-height" style="padding-bottom: 0px !important; position: relative; margin-top: 50px;">
+			<div class="modal-content">
+				
+				<div class="row">
+					
+					<ul class="collapsible" data-collapsible="accordion">
+						<li>
+							<div class="collapsible-header">
+								<div class="col s10">
+									<span class="collapsible-titlefont"><b>Registration Module</b></span>
+								</div>
+								<div class="col s2" style="padding-top: 15px; text-align: right;">
+									<img src="images/down-arrow.svg" width="15" height="15">
+									
+								</div>
+							</div>
+							<div class="collapsible-body">
+								<table class="bordered">
+									<tbody>
+										<tr>
+											<td>Registration Number</td>
+											<td>{{vinlookupData.vehicle.regn_no}}</td>
+										</tr>
+										<tr>
+											<td>Engine Number</td>
+											<td>{{vinlookupData.vehicle.eng_no}}</td>
+										</tr>
+										<tr>
+											<td>State Code</td>
+											<td>{{vinlookupData.vehicle.state_cd}}</td>
+										</tr>
+										<tr>
+											<td>Date of Registration</td>
+											<td>{{vinlookupData.vehicle.regn_dt}}</td>
+										</tr>
+										<tr>
+											<td>RTO Code</td>
+											<td>{{vinlookupData.vehicle.rto_cd}}</td>
+										</tr>
+										<tr>
+											<td>Date of Purchase</td>
+											<td>{{vinlookupData.vehicle.purchase_dt}}</td>
+										</tr>
+										<tr>
+											<td>RTO Name</td>
+											<td>{{vinlookupData.vehicle.rto_name}}</td>
+										</tr>
+										<tr>
+											<td>Vehicle Class</td>
+											<td>{{vinlookupData.vehicle.vh_class_desc}}</td>
+										</tr>
+										<tr>
+											<td>Chassis Number</td>
+											<td>{{vinlookupData.vehicle.chasi_no}}</td>
+										</tr>
+										<tr>
+											<td><span style="color: #31ade6">FLA Vehicle Class</span><span style="color: #FF0000">*</span></td>
+											<td>{{vinlookupData.vehicle.fla_vh_class_desc}}</td>
+										</tr>
+										
+									</tbody>
+								</table>
+								
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<div class="col s10">
+									<span class="collapsible-titlefont"><b>Advanced Registration Module</b></span>
+								</div>
+								<div class="col s2" style="padding-top: 15px; text-align: right;">
+									<img src="images/down-arrow.svg" width="15" height="15">
+								</div>
+							</div>
+							<div class="collapsible-body">
+								<table class="bordered">
+									<tbody>
+										<tbody>
+											<tr>
+												<td>Used vehicle Indicator</td>
+												<td>{{vinlookupData.vehicle.owner_cd_desc}}</td>
+											</tr>
+											<tr>
+												<td>Registration Type Code</td>
+												<td>{{vinlookupData.vehicle.regn_type}}</td>
+											</tr>
+											<tr>
+												<td>Owner Type</td>
+												<td>{{vinlookupData.vehicle.owner_sr}}</td>
+											</tr>
+											<tr>
+												<td>Registration Type Description</td>
+												<td>{{vinlookupData.vehicle.regn_type_desc}}</td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">
+									<div class="col s10">
+										<span class="collapsible-titlefont"><b>Address Module</b></span>
+									</div>
+									<div class="col s2" style="padding-top: 15px; text-align: right;">
+										<img src="images/down-arrow.svg" width="15" height="15">
+									</div>
+								</div>
+								<div class="collapsible-body">
+									<table class="bordered">
+										<tbody>
+											<tr>
+												<td>Registered Address - City</td>
+												<td>{{vinlookupData.vehicle.c_city}}</td>
+											</tr>
+											<tr>
+												<td>Registered Address - Pincode</td>
+												<td>{{vinlookupData.vehicle.c_pincode}}</td>
+											</tr>
+											<tr>
+												<td>Permanent Address - City</td>
+												<td>{{vinlookupData.vehicle.p_city}}</td>
+											</tr>
+											<tr>
+												<td>Permanent Address - Pincode</td>
+												<td>{{vinlookupData.vehicle.p_pincode}}</td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">
+									<div class="col s10">
+										<span class="collapsible-titlefont"><b>Vehicle Module</b></span>
+									</div>
+									<div class="col s2" style="padding-top: 15px; text-align: right;">
+										<img src="images/down-arrow.svg" width="15" height="15">
+									</div>
+								</div>
+								<div class="collapsible-body">
+									<table class="bordered">
+										<tbody>
+											<tr>
+												<td>Brand</td>
+												<td>{{vinlookupData.vehicle.maker_desc}}</td>
+											</tr>
+											<tr>
+												<td>Fuel Type</td>
+												<td>{{vinlookupData.vehicle.fuel_type_desc}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Brand</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_maker_desc}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Fuel Type</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_fuel_type_desc}}</td>
+											</tr>
+											<tr>
+												<td>Model</td>
+												<td>{{vinlookupData.vehicle.maker_model}}</td>
+											</tr>
+											<tr>
+												<td>Cubic Capacity</td>
+												<td>{{vinlookupData.vehicle.cubic_cap}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Model</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_model_desc}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Cubic Capacity</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_cubic_cap}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Variant</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_variant}}</td>
+											</tr>
+											<tr>
+												<td>Manufacturer Year</td>
+												<td>{{vinlookupData.vehicle.manu_yr}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Subvariant</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_sub_variant}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">Number of Seats</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.seat_cap}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6 ">Series</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.series}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Number of Seats</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.fla_seat_cap}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">Color</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.vehicle.color}}</td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</li>
+							
+							<li>
+								<div class="collapsible-header">
+									<div class="col s10">
+										<span class="collapsible-titlefont"><b>Hypothecation Module</b></span>
+									</div>
+									<div class="col s2" style="padding-top: 15px; text-align: right;">
+										<img src="images/down-arrow.svg" width="15" height="15">
+									</div>
+								</div>
+								<div class="collapsible-body">
+									<table class="bordered">
+										<tbody>
+											<tr>
+												<td>Hypothecation Date</td>
+												<td>{{vinlookupData.hypth.from_dt}}</td>
+											</tr>
+											<tr>
+												<td>Hypothecation Type</td>
+												<td>{{vinlookupData.hypth.hp_type}}</td>
+											</tr>
+											<tr>
+												<td>Financier Name</td>
+												<td>{{vinlookupData.hypth.fncr_name}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6 ">FLA Financier Name</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.hypth.fla_fncr_name}}</td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">
+									<div class="col s10">
+										<span class="collapsible-titlefont"><b>Insurance Module</b></span>
+									</div>
+									<div class="col s2" style="padding-top: 15px; text-align: right;">
+										<img src="images/down-arrow.svg" width="15" height="15">
+									</div>
+								</div>
+								<div class="collapsible-body">
+									<table class="bordered">
+										<tbody>
+											<tr>
+												<td>Insurance Date</td>
+												<td>{{vinlookupData.insurance.ins_from}}</td>
+											</tr>
+											<tr>
+												<td>Insurance Type</td>
+												<td>{{vinlookupData.insurance.ins_type_desc}}</td>
+											</tr>
+											<tr>
+												<td>Insurance Company</td>
+												<td>{{vinlookupData.insurance.comp_cd_desc}}</td>
+											</tr>
+											<tr>
+												<td><span style="color: #31ade6">FLA Insurance Company</span><span style="color: #FF0000">*</span></td>
+												<td>{{vinlookupData.insurance.fla_ins_name}}</td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</li>
+							
+					</ul>
+						
+				</div>
+			
+			</div>
+
+				<div id="footer-bottom" style="height: 50px; bottom: 0 !important; position: fixed !important;">
+		<div class="row">
+			<div class="col s6">
+				<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="BackToBasic()">Cancel</button>
+			</div>
+			<div class="col s6">
+				<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="populate()">Populate</button>
+			</div>
+		</div>
+		</div>
+		</div>
+	
+	
+
+	
+	<!--header-->
+	<script type="text/javascript">
+	if ('ontouchstart' in window) {
+	/* cache dom references */
+	var $body = $('body');
+	/* bind events */
+	$(document)
+	.on('focus', 'input', function() {
+	$body.addClass('fixfixed');
+	})
+	.on('blur', 'input', function() {
+	$body.removeClass('fixfixed');
+	});
+	}
+	$(document).ready(function(){
+	$('.collapsible').collapsible();
+	});
+	</script>

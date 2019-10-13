@@ -1,0 +1,444 @@
+<div id="rect">
+	<div id="content1">
+		<div id="inputContainer" ng-cloak>
+			<!-- Top title -->
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-xs flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<md-toolbar class="_md _md-toolbar-transitions">
+						<div class="md-toolbar-tools">
+							<h4 class="inventitle">Listing-id : DPLID_1486098127</h4>
+						</div>
+					
+					</md-toolbar>
+				</div>
+			</section>
+			
+			<!-- Type of Inventory -->
+			
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-xs layout-padding layout-align="center" layout="column">
+					<md-button class="{'btn-warning': started, 'btn-danger': !started}" class="md-primary md-raised md-hue-2 md-button md-ink-ripple" ng-class="started == true ? 'btn-blue1' : 'btn-red'" ng-click="testDrive()">
+					<span style="color;#FFF !important;">Test Drive</span></md-button>
+				</div>
+			</section>
+			
+			
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-xs layout-padding flex-gt-xs="50" layout-align="center" layout="column" >
+					<div flex-gt-xs="50" layout="column" >
+						<div layout layout-align="left">
+							<div flex="50"><md-checkbox ng-disabled="!started" ng-model="AtDealerpoint" class="md-caption">At Dealer Point</md-checkbox></div>
+							<div flex="50"><md-checkbox ng-disabled="!started" ng-model="AtDoorstep" class="md-caption">At Door Step</md-checkbox></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<br>
+			
+			
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<div ng-cloak>
+						<md-content>
+						<md-tabs md-dynamic-height md-border-bottom>
+						<md-tab label="Park and Sell">
+						<div layout-padding layout-align="left">
+							<h3>Purchase Information</h3>
+							<span>Recieved From</span>
+							<md-input-container class="md-block" >
+								<label>Customer</label>
+								<md-select name="RecieveFrm" ng-model="RecieveFrm">
+									<md-option value="Dealer">Dealer</md-option>
+									<md-option value="Broker">Broker</md-option>
+									<md-option value="Car ale">Car ale</md-option>
+									<md-option value="OLX">OLX</md-option>
+								</md-select>
+							</md-input-container>
+							
+							
+							<md-input-container class="md-block md-icon-left md-input-placeholder">
+								<input style="border-color:#CCC;" ng-model="name" name="name" placeholder="Name" aria-label="Name" type="text">
+							</md-input-container>
+							
+							<!-- <md-input-container class="md-block md-icon-left md-input-placeholder">
+								<input style="border-color:#CCC;" name="fromDate" ng-model="fromDate" placeholder="From Date" aria-label="From Date" type="text">
+
+							</md-input-container> -->
+
+							<md-datepicker  ng-model="fromDate" md-placeholder="From Date" md-open-on-focus></md-datepicker>
+							
+							<md-input-container class="md-block md-icon-left md-input-placeholder">
+							<input style="border-color:#CCC;" ng-model="startKm" name="startKm" placeholder="Starting Km" aria-label="Starting Km" type="text">
+							</md-input-container>
+							
+							<md-input-container class="md-block flex-gt-sm md-input-has-value" >
+								<label>Fuel Indication</label>
+									<md-select name="fuelIndication" ng-model="fuelIndication">
+									<md-option value="Yes">Yes</md-option>
+									<md-option value="No">No</md-option>
+								</md-select>
+							</md-input-container>
+							<br>
+							
+							<md-input-container class="md-block md-icon-left md-input-placeholder">
+								<input style="border-color:#CCC;" ng-model="CustomerAskPrice" name="CustomerAskPrice" placeholder="Customer Asking Price" aria-label="Customer Asking Price" type="text">
+							</md-input-container>
+							
+							<md-input-container class="md-block md-icon-left md-input-placeholder">
+								<input style="border-color:#CCC;" ng-model="dealerMarkPrice" name="dealerMarkPrice" placeholder="Dealer Markup Price" aria-label="Dealer Markup Price" type="text">
+							</md-input-container>
+							
+							<div flex-gt-xs="50" layout="column" >
+								<div layout layout-align="left end">
+									<span flex="50">Keys Received</span>
+									<div flex="30">
+										<md-radio-group ng-model="pkeysRecieved">
+											<md-radio-button value="Yes" class="md-primary">
+												<span class="md-subhead">Yes</span>
+											</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div flex="10">
+										<md-radio-group ng-model="pkeysRecieved">
+											<md-radio-button value="No" class="md-primary">
+												<span class="md-subhead">No</span>
+											</md-radio-button>
+										</md-radio-group>
+									</div>
+								</div>
+							</div>
+							<br>
+							
+							
+							<div flex-gt-xs="50" layout="column" >
+								<div layout layout-align="left end" >
+									<span flex="50">Document Received</span>
+									<div flex="30">
+										<md-radio-group ng-model="pdocumentRecieved">
+										<md-radio-button value="Yes" class="md-primary">
+										<span class="md-subhead">Yes</span>
+										</md-radio-button>
+										</md-radio-group>
+									</div>
+									<div flex="10">
+										<md-radio-group ng-model="pdocumentRecieved">
+										<md-radio-button value="No" class="md-primary">
+										<span class="md-subhead">No</span>
+										</md-radio-button>
+										</md-radio-group>
+									</div>
+								</div>
+							</div>
+							<br>
+							</md-content>
+							
+							
+							
+							</md-tab>
+							
+							
+							<md-tab label="Own">
+							<md-content >
+							<div layout-padding layout-align="left">
+								
+								<h3>Purchase Information</h3>
+								<span>Purchased From</span>
+								<md-input-container md-no-float="" class="md-block" >
+									<label>Customer</label>
+									<md-select name="purchaseFrm" ng-model="purchaseFrm">
+										<md-option value="Dealer">Dealer</md-option>
+										<md-option value="Broker">Broker</md-option>
+										<md-option value="Car ale">Car ale</md-option>
+										<md-option value="OLX">OLX</md-option>
+									</md-select>
+								</md-input-container>
+								<br>
+								
+								<md-input-container class="md-block md-icon-left md-input-placeholder">
+									<input style="border-color:#CCC;" name="oname" ng-model="oname" placeholder="Name" aria-label="Name" type="text">
+								</md-input-container>
+								
+								<md-input-container class="md-block md-icon-left md-input-placeholder">
+									<input style="border-color:#CCC;" name="purchasePrice" ng-model="purchasePrice" placeholder="Purchase Price" aria-label="Purchase Price" type="text">
+								</md-input-container>
+								
+								<md-input-container class="md-block md-icon-left md-input-placeholder">
+								<input style="border-color:#CCC;" name="purchaseDate" ng-model="purchaseDate" placeholder="Purchased Date" aria-label="Purchased Date" type="text">
+								</md-input-container>
+								
+								<div flex-gt-xs="50" layout="column" >
+									<div layout layout-align="left end">
+										<span flex="50">Keys Received</span>
+										<div flex="30">
+											<md-radio-group ng-model="okeysRecieved">
+											<md-radio-button value="Yes" class="md-primary">
+											<span class="md-subhead">Yes</span>
+											</md-radio-button>
+											</md-radio-group>
+										</div>
+										<div flex="10">
+											<md-radio-group ng-model="okeysRecieved">
+											<md-radio-button value="No" class="md-primary">
+											<span class="md-subhead">No</span>
+											</md-radio-button>
+											</md-radio-group>
+										</div>
+									</div>
+								</div>
+								<br>
+								
+								
+								<div flex-gt-xs="50" layout="column" >
+									<div layout layout-align="left end" >
+										<span flex="50">Document Received</span>
+										<div flex="30">
+											<md-radio-group ng-model="odocRecieved">
+											<md-radio-button value="Yes" class="md-primary">
+											<span class="md-subhead">Yes</span>
+											</md-radio-button>
+											</md-radio-group>
+										</div>
+										<div flex="10">
+											<md-radio-group ng-model="odocRecieved">
+											<md-radio-button value="No" class="md-primary">
+											<span class="md-subhead">No</span>
+											</md-radio-button>
+											</md-radio-group>
+										</div>
+									</div>
+								</div>
+								<br>
+								</md-content>
+								</md-tab>
+								
+								</md-tabs>
+								
+								
+								<!--Scroll
+								<md-button class="md-fab md-fab-bottom-right docs-scroll-fab md-button md-ink-ripple scrolling" type="button"  docs-scroll-class="scrolling" ng-click="scrollTop()" aria-label="Back to Top">
+										<md-icon md-svg-src="images/up-arrow.svg" class="ng-scope" aria-hidden="true"></md-icon>
+								</md-button>-->
+								</md-content>
+							</div>
+						</div>
+					</section>
+					
+					
+					
+					
+					
+					
+					
+					<!-- OWN -->
+					
+					<!-- <md-tab label="Own">
+					<md-content >
+					<div layout-padding layout-align="left">
+						
+						<h3>Purchase Information</h3>
+						<span>Purchased From</span>
+						<md-input-container md-no-float="" class="md-block" >
+						<label>Customer</label>
+						<md-select name="opurchaseFrm" ng-model="opurchaseFrm">
+						<md-option value="Dealer">Dealer</md-option>
+						<md-option value="Broker">Broker</md-option>
+						<md-option value="Car ale">Car ale</md-option>
+						<md-option value="OLX">OLX</md-option>
+						</md-select>
+						</md-input-container>
+						<br>
+						
+						<md-input-container class="md-block md-icon-left md-input-placeholder">
+							<input style="border-color:#CCC;" name="oname" ng-model="oname"  placeholder="Name" aria-label="Name" type="text">
+						</md-input-container>
+						
+						<md-input-container class="md-block md-icon-left md-input-placeholder">
+							<input style="border-color:#CCC;" name="opurchasePrice" ng-model="opurchasePrice"  placeholder="Purchase Price" aria-label="Purchase Price" type="text">
+						</md-input-container>
+						
+						<md-input-container class="md-block md-icon-left md-input-placeholder">
+						<input style="border-color:#CCC;" name="opurchaseDate" ng-model="opurchaseDate" placeholder="Purchased Date" aria-label="Purchased Date" type="text">
+						</md-input-container>
+						
+						<div flex-gt-xs="50" layout="column" >
+							<div layout layout-align="left end">
+								<span flex="50">Keys Received</span>
+								<div flex="30">
+									<md-radio-group name="okeysRcvd" ng-model="okeysRcvd">
+										<md-radio-button value="Yes" class="md-primary">
+											<span class="md-subhead">Yes</span>
+										</md-radio-button>
+									</md-radio-group>
+								</div>
+								<div flex="10">
+									<md-radio-group  name="okeysRcvd" ng-model="okeysRcvd">
+										<md-radio-button value="No" class="md-primary">
+											<span class="md-subhead">No</span>
+										</md-radio-button>
+									</md-radio-group>
+								</div>
+							</div>
+						</div>
+						<br>
+						
+						
+						<div flex-gt-xs="50" layout="column" >
+							<div layout layout-align="left end" >
+								<span flex="50">Document Received</span>
+								<div flex="30">
+									<md-radio-group  name="odocumentRcvd" ng-model="odocumentRcvd">
+									<md-radio-button value="Yes" class="md-primary">
+									<span class="md-subhead">Yes</span>
+									</md-radio-button>
+									</md-radio-group>
+								</div>
+								<div flex="10">
+									<md-radio-group name="odocumentRcvd" ng-model="odocumentRcvd">
+										<md-radio-button value="No" class="md-primary">
+											<span class="md-subhead">No</span>
+										</md-radio-button>
+									</md-radio-group>
+								</div>
+							</div>
+						</div>
+						<br>
+						</md-content>
+						</md-tab> -->
+						</md-tabs>
+						</md-content>
+					</div>
+				</div>
+			</section>
+			<section layout="row"  layout="column" layout-align="center center">
+				<div layout-padding flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<h3>Expenses</h3>
+					<div flex-gt-xs="50" layout="column" >
+						<div layout layout-align="left" >
+							<h5 flex="40">Refurbishment Cost</h5>
+							<div flex="60">
+								<md-input-container class="md-block  md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" ng-model="RefurbishmentCost"  placeholder="Expense Name" type="value">
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					
+					<div  flex-gt-xs="50" layout="column" >
+						<div layout layout-align="left" >
+							<h5 flex="40">Transport Cost</h5>
+							<div flex="60">
+								<md-input-container class="md-block md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" ng-model="TransportCost" placeholder="Rs" type="value">
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+					
+					<br>
+					
+					<div flex-gt-xs="50" layout="column" ng-repeat="expense in expenseRow">
+						<div layout layout-align="left" >
+							<div flex="40">
+								<md-input-container class="md-block md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" placeholder="Rs" type="value">
+								</md-input-container>
+							</div>
+							<div flex="40">
+								<md-input-container class="md-block md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" placeholder="Rs" type="value">
+								</md-input-container>
+							</div>
+							<div flex="20">
+								<button class="md-fab md-primary md-button md-ink-ripple" type="button" ng-click="dynamicExpence()" ng-if="$index+0==0">
+								<md-icon md-svg-src="images/add.svg" class="ng-scope" aria-hidden="true"></md-icon>
+								</button>
+
+								<button class="md-fab md-red md-button md-ink-ripple" type="button" ng-click="removeExpence($index+0)" ng-if="$index+0!=0">
+								<md-icon md-svg-src="images/close.svg" class="ng-scope" aria-hidden="true"></md-icon>
+								</button>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+				</div>
+			</section>
+			
+			
+			<section layout="row" layout="column" layout-align="center center" layout-wrap="">
+				<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<md-card>
+					<div class="card-body card-padding">
+						<div class="lightbox photos">
+							<div class="lightbox-item p-item space">
+								<img src="images/meter.png" alt="">
+							</div>
+						</div>
+						</md-card>
+					</div>
+				</section>
+				
+				
+				<section layout="row"  layout="column" layout-align="center center">
+					<div layout-padding flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+						
+						
+						<h3>Markup Price</h3>
+						<br>
+						<div flex-gt-xs="50" layout="column" >
+							<div layout layout-align="left" >
+								<h5 flex="40">Percentage (%)</h5>
+								<div flex="60">
+									<md-input-container md-no-float="" class="md-block  md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" placeholder="%" type="value">
+									</md-input-container>
+								</div>
+							</div>
+						</div>
+						
+						<br>
+						
+						<div flex-gt-xs="50" layout="column" >
+							<div layout layout-align="left" >
+								<h5 flex="40">Absolute (Rs)</h5>
+								<div flex="60">
+									<md-input-container md-no-float="" class="md-block md-input-placeholder md-contain">
+									<input style="border-color:#CCC;" placeholder="Rs" type="value">
+									</md-input-container>
+								</div>
+							</div>
+						</div>
+						
+						<div flex-gt-xs="50" layout="column" >
+							<md-input-container class="md-block md-input-has-value md-contain" >
+							<h5>Sales Price</h5>
+							<input  required="" md-no-asterisk="" name="Sales Price" disabled="" >
+							</md-input-container>
+						</div>
+						
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		
+		
+		<div id="footer-bottom">
+			
+			
+			<section layout="row" layout="column" layout-align="center center" >
+				
+				<a href="inventory-documnet.html"><button class="md-warn md-raised md-hue-2 md-button md-ink-ripple layout-padding" type="button">
+					<span style="color;#FFF !important;" >Documents</span></button></a>
+					
+					<a href="inventory-engine.html"><button class="md-primary md-raised md-hue-2 md-button md-ink-ripple layout-padding" type="button">
+						<span style="color;#FFF !important;" >Engine & Specification</span></button></a>
+						
+					</section>
+					
+					
+					
+					
+				</div>

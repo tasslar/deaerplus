@@ -1,0 +1,528 @@
+<style type="text/css">
+	.error{
+		color: red; font-size: 12px;
+	}
+
+
+</style>
+
+<div>
+<div class="navbar-fixed">
+	<nav>
+	  <div class="nav-wrapper">
+	    <h5 align="center">Basic Info</h5>
+	  </div>
+	</nav>
+</div>
+        
+
+<div id="rect">
+	<div id="content1">
+	<br>
+		<div class="col s12">
+			<div class="row">
+		   	<div class="col s6">
+					<h5 align="center">VIN LOOKUP</h5>
+				</div>
+				<div class="col s6">
+					<button ng-model="registerYear" data-target='lookup' modal required="" class="btn waves-effect waves-light btn-green col s12">Choose</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<form class="col s12" name="basicForm" accessible-form novalidate="" ng-submit="basicForm.$valid && basicInfoSubmit()" id="basicForm">
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="registerYear" placeholder="Register" ng-model="registerYear" data-target='register' modal required="" readonly="">
+
+						<div ng-show="(submitted && basicForm.registerYear.$error.required) || basicForm.registerYear.$dirty || basicForm.registerYear.$touched">
+							<span ng-show="basicForm.registerYear.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" placeholder="Make" name="make" readonly="" ng-model="make"  data-target='make' modal required="">
+
+						<div ng-show="(submitted && basicForm.make.$error.required) || basicForm.make.$dirty || basicForm.make.$touched">
+							<span ng-show="basicForm.make.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" placeholder="Model" name="modal" readonly="" ng-model="modal" data-target='modal' modal required="">
+
+						<div ng-show="(submitted && basicForm.modal.$error.required) || basicForm.modal.$dirty || basicForm.modal.$touched">
+							<span ng-show="basicForm.modal.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" placeholder="Varient" name="varient" readonly="" ng-model="varient" data-target='varient' modal required="">
+
+						<div ng-show="(submitted && basicForm.varient.$error.required) || basicForm.varient.$dirty || basicForm.varient.$touched">
+							<span ng-show="basicForm.varient.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="bodyType" ng-model="transmissionData.Body_type.category_description" placeholder="Body Type" readonly="" required="">
+
+						<div ng-show="(submitted && basicForm.bodyType.$error.required) || basicForm.bodyType.$dirty || basicForm.bodyType.$touched">
+							<span ng-show="basicForm.bodyType.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="transmission" ng-model="transmissionData.Transmission_type[0]" placeholder="Transmission" readonly="" required="">
+
+						<div ng-show="(submitted && basicForm.transmission.$error.required) || basicForm.transmission.$dirty || basicForm.transmission.$touched">
+							<span ng-show="basicForm.transmission.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="mileage" ng-model="mileage" placeholder="Mileage" required="">
+
+						<div ng-show="(submitted && basicForm.mileage.$error.required) || basicForm.mileage.$dirty || basicForm.mileage.$touched">
+							<span ng-show="basicForm.mileage.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="ownership" ng-model="ownership" placeholder="Ownership" readonly=""  data-target='ownership' modal required="">
+
+						<div ng-show="(submitted && basicForm.ownership.$error.required) || basicForm.ownership.$dirty || basicForm.ownership.$touched">
+							<span ng-show="basicForm.ownership.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="carStatus" placeholder="Car Status" readonly="" ng-model="carstatus" data-target='carstatus' modal required="">
+
+						<div ng-show="(submitted && basicForm.carStatus.$error.required) || basicForm.carStatus.$dirty || basicForm.carStatus.$touched">
+							<span ng-show="basicForm.carStatus.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="color" placeholder="Color" readonly="" ng-model="color"  data-target='color' modal required="">
+
+						<div ng-show="(submitted && basicForm.color.$error.required) || basicForm.color.$dirty || basicForm.color.$touched">
+							<span ng-show="basicForm.color.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="city" placeholder="City" readonly="" ng-model="city"  data-target='city' modal required="">
+
+						<div ng-show="(submitted && basicForm.city.$error.required) || basicForm.city.$dirty || basicForm.city.$touched">
+							<span ng-show="basicForm.city.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="branch" placeholder="Branch" readonly="" ng-model="branch"  data-target='branch' modal>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+
+						<input type="text" name="fuelType" placeholder="Fuel Type" readonly="" ng-model="transmissionData.Fuel_type.fuel_type"  data-target='demoModal' readonly="" modal required="">
+
+						<div ng-show="(submitted && basicForm.fuelType.$error.required) || basicForm.fuelType.$dirty || basicForm.fuelType.$touched">
+							<span ng-show="basicForm.fuelType.$error.required" class="error">field is mandotory</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="footer-bottom" style="height: 50px;">
+					<div class="row">
+						<div class="col s6">
+							<button type="button" class="btn waves-effect waves-light btn-red col s12">Cancel</button>
+						</div>
+						<div class="col s6">
+							<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="submitted=true">Save</button>
+						</div>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+
+</div>
+</div>
+
+<!-- VIN -->
+
+<div id="lookup" class="modal modal-center">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">VIN Lookup N</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s12">
+				<input type="text" name="Register Number"  placeholder="Register Number" required="">
+			</div>
+			<div class="col s12">
+				<input type="text" name="Engine Number"  placeholder="Engine Number" required="">
+			</div>
+			<div class="col s12">
+				<input type="text" name="Chassis Number"  placeholder="Chassis Number" required="">
+			</div>
+			<div class="col s6" style="margin-top:10px;">
+					<button type="button" class="btn waves-effect waves-light btn-red col s12">Reset</button>
+				</div>
+				<div class="col s6" style="margin-top:10px;">
+					<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="submitted=true">Fetch</button>
+				</div>
+			</div>
+	</div>
+</div>
+
+<!--FullScreen VIN Lookup-->
+<!-- <div id="lookup" class="modal modalfulscreen" style="width:100%;height:100%;">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">VIN Lookup</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s12">
+				<input type="text" name="Register Number"  placeholder="Register Number" required="">
+			</div>
+			<div class="col s12">
+				<input type="text" name="Engine Number"  placeholder="Engine Number" required="">
+			</div>
+			<div class="col s12">
+				<input type="text" name="Chassis Number"  placeholder="Chassis Number" required="">
+			</div>
+			<div class="col s6" style="margin-top:10px;">
+					<button type="button" class="btn waves-effect waves-light btn-red col s12">Reset</button>
+				</div>
+				<div class="col s6" style="margin-top:10px;">
+					<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="submitted=true">Fetch</button>
+				</div>
+			</div>
+			</div>
+		</div>
+ -->
+
+
+<!-- register -->
+
+<div id="register" class="modal modalfulscreen">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Register</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12" ng-repeat="year in getBasicData.Year">
+			<p ng-click="pickRegister(year.master_reg_year_id,year.master_reg_year)">{{year.master_reg_year}}</p>
+		</div>
+	</div>
+</div>
+
+<!-- make -->
+<div id="make" class="modal modalfulscreen">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Make</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+
+		
+
+			<div ng-show="getBasicData.Make.length != 0">
+				<div class="col s12" ng-repeat="make in getBasicData.Make">
+					<p ng-click="pickMake(make.make_id,make.makename)">{{make.makename}}</p>
+				</div>
+			</div>
+			<div ng-show="getBasicData.Make.length == 0">
+				<h4>No Data found</h4>
+			</div>
+		
+
+	</div>
+</div>
+
+<!-- modal -->
+<div id="modal" class="modal modalfulscreen" style="width:100%;height:100%;">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Modal</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+
+		
+
+
+			<div ng-show="modelData.length != 0">
+				<div class="col s12" ng-repeat="modal in modelData">
+					<p ng-click="pickModal(modal.model_id,modal.model_name)">{{modal.model_name}}</p>
+				</div>
+			</div>
+
+			<div ng-show="modelData.length == 0">
+				<h4>No Data found</h4>
+			</div>
+
+			<div ng-show="make==''">
+				<h4>Choose make</h4>
+			</div>
+
+
+	</div>
+</div>
+
+<!-- varient -->
+<div id="varient" class="modal modalfulscreen" style="width:100%;height:100%;">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Varient</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+
+		
+
+		
+			<div ng-show="variantData.length != 0">
+				<div class="col s12" ng-repeat="varient in variantData">
+					<p ng-click="pickVarient(varient.variant_id,varient.variant_name)">{{varient.variant_name}}</p>
+				</div>
+			</div>
+
+			<div ng-show="variantData.length == 0">
+				<h4>No Data found</h4>
+			</div>
+
+			<div ng-show="modal==''">
+				<h4>Choose modal</h4>
+			</div>
+	
+
+	</div>
+</div>
+
+<!-- ownership -->
+<div id="ownership" class="modal modal-center">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Ownership</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12" ng-repeat="owner in getBasicData.Owenertype">
+			<p ng-click="pickOwner(owner.id,owner.owner)">{{owner.owner}}</p>
+		</div>
+	</div>
+</div>
+
+<!-- car stAtus -->
+<div id="carstatus" class="modal modal-center">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Car Status</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div>
+			<div class="col s12" ng-repeat="car in getBasicData.Cartype">
+				<p ng-click="pickCar(car.id,car.type)">{{car.type}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- car color -->
+<div id="color" class="modal modalfulscreen">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Car Color</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12" ng-repeat="color in getBasicData.Color">
+			<p ng-click="pickColor(color.colour_id,color.colour_name)">{{color.colour_name}}</p>
+		</div>
+	</div>
+</div>
+
+<!-- city -->
+<div id="city" class="modal modalfulscreen">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">City</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" width="18" height="18">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s11">
+			<input type="text" ng-model="searchCity" placeholder="Search City">
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/search.svg" width="18" height="18">
+		</div>
+		
+		<div class="row">
+			<div class="col s12">
+				<div ng-repeat="city in cities | filter : searchCity" ng-show="cities!=0">
+					<p style="border-bottom: 1px solid #CCC; padding-bottom: 10px;" ng-click="pickCity(city.city_id,city.city_name)">{{city.city_name}}</p>
+				</div>
+
+				<div ng-show="cities==0">
+					no data found
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- branch -->
+<div id="branch" class="modal modalfulscreen" style="width:100%;height:100%;">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Choose Branch</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12" ng-repeat="branch in branchData.branchname">
+			<p ng-click="pickBranch(branch.dealer_name)">{{branch.dealer_name}}</p>
+		</div>
+	</div>
+</div>
+
+<!-- <script type="text/javascript">
+	
+$(document).ready(function() {
+
+	$("#basicForm").validate({
+
+		rules: {       
+		    registerYear: {
+		        required: true
+		    },
+		    make: {
+		        required: true
+		    },
+		    modal: {
+		        required: true
+		    },
+		    varient: {
+		        required: true
+		    },
+		    bodyType: {
+		        required: true
+		    },
+		    transmission: {
+		        required: true
+		    },
+		    mileage: {
+		        required: true
+		    },
+		    ownership: {
+		        required: true
+		    },
+		    carStatus: {
+		        required: true
+		    },
+		    color: {
+		        required: true
+		    },
+		    city: {
+		        required: true
+		    },
+		    branch: {
+		        required: true
+		    },
+		    fuelType: {
+		        required: true
+		    }
+		},
+		messages: {
+		    registerYear: {
+		        required: "Field is mandatory",
+		    }
+		},
+		errorElement : 'div',
+
+	});
+
+});
+</script> -->

@@ -1,0 +1,301 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+.modal-content {
+    padding: 12px !important;
+}
+
+
+.modal .modal-content {
+    padding: 5px 10px 0px 10px !important;
+}
+
+.label-top { margin-top: 10px; }
+
+.tabs .tab a { text-overflow:inherit !important; }
+
+
+
+.collapsible-header i {
+   float: right !important;
+
+}
+
+
+.modal-padding { border-bottom: 1px solid #CCC; }
+
+
+/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+
+/* sathish code*/
+
+.positionTest{
+	top:0 !important;
+}
+
+</style>
+
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+        
+</script>
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row" style="text-align: center !important;">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s10">
+		   		<span style="font-weight: 600; font-size: 17px;">SOLD</span>
+		     </div>
+		       
+		    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div>
+
+<br><br><br>
+
+<!--Content-->
+<form id="engineDetails"> 
+<div>
+	<div id="content1">
+	<div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a href="#test1" class="active">Vehicle</a></li>
+	        <li class="tab col s3"><a href="#test2">Expenses</a></li>
+	        <li class="tab col s3"><a href="#test3">Documents</a></li>
+	      </ul>
+	    </div>
+	    <div id="test1" class="col s12">
+	    	<br>
+			<div class="row">
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp1">
+					<label for="inp1">V.I.N</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp2">
+					<label for="inp2">Original Purchase Price</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp3">
+					<label for="inp3">Sale Date</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp4">
+					<label for="inp4">Purchaser</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp5">
+					<label for="inp5">Registration No</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp6">
+					<label for="inp6">Sale Price</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp7">
+					<label for="inp7">Sales Person</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp8">
+					<label for="inp8">Dealer MarkUp Price</label>
+				</div>
+				
+			</div>
+
+	    </div>
+
+
+	    <!-- Features -->
+	   <div id="test2" class="col s12">
+	   		<table class="centered striped">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+        </table>
+	   </div>
+
+
+	   <div id="test3" class="col s12">
+	   		<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+
+			<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+
+			<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+
+			<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+
+			<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+
+			<div>
+				<div class="dropify-wrapper">
+					<div class="dropify-message">
+						<div class="row">
+							<img src="images/upload.svg" width="25" height="25">
+						</div>
+						<div class="row">
+							<span class="md-caption img-text-height">Upload Document</span>
+						</div>
+					</div>
+					<input id="regCer" name="document[0]" type="file">
+				</div>	  	
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" id="inp9">
+					<label for="inp9">Enter Document Name </label>
+				</div>
+			</div>
+	   </div>
+	     <!--  <div id="test4" class="col s12">Test 4</div> -->
+	</div>
+</div>
+ </div>    
+
+
+<!--Footer-->
+
+<div id="footer-bottom" style="height: 50px;">
+	<div class="row">
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-red col s12">Back</button>
+		</div>
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="saveEngine()">Save</button>
+		</div>
+	</div>
+</div>
+
+</form>

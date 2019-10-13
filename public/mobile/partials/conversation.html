@@ -1,0 +1,101 @@
+<!-- <style type="text/css">
+	li {
+  height: 120px;
+  border-bottom: 1px solid gray;
+}
+
+#fixed {
+    height: 400px;
+    overflow: auto;
+}
+
+</style>
+ -->
+<div id="inputContainer" class="inputDemo" ng-cloak>
+	<br>
+	<section layout="row" layout-sm="row" layout-align="center" layout-wrap="">
+		<div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+			
+			<md-card-content _ngcontent-moy-131="">
+			
+				
+				<div id="fixed" when-scrolled="loadMore()">
+					<div ng-repeat="message in converstionMessage">
+						<div _ngcontent-moy-131="" class="chat-conversation-user them"  ng-if="message.id=='1'">
+							<div _ngcontent-moy-131="" class="chat-conversation-message">
+								<p _ngcontent-moy-131="" class="fnt">
+								
+									<!-- <img ng-src="data:image/jpg;base64,{{message.message}}" ng-if="message | checkFile " style="width: 100px;height: 100px"> -->
+									<span>{{message.message}}</span>
+								</p>
+								<!-- <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small> -->
+							</div>
+						</div>
+						
+						
+						<div _ngcontent-moy-131="" class="chat-conversation-user me " ng-if="message.id=='2'">
+							<div _ngcontent-moy-131="" class="chat-conversation-message">
+								<p _ngcontent-moy-131="" class="fnt" style="color:#333;">
+								
+									<!-- <img ng-src="data:image/jpg;base64,{{message.message}}" ng-if="message | checkFile " style="width: 100px;height: 100px"> -->
+									<span>{{message.message}}</span>
+								</p>
+								<!-- <small class="ms-date2"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small> -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- <div id="fixed" when-scrolled="nextPage()">
+			  <ul>
+			    <li ng-repeat="i in items">{{i.id}}</li>
+			  </ul>  
+			</div> -->
+
+
+			
+			<!-- <div _ngcontent-moy-131="" class="chat-conversation-user them">
+				<div _ngcontent-moy-131="" class="chat-conversation-message">
+					<p _ngcontent-moy-131="" class="fnt">Duis mollis, est non commodo luctus, nisi </p>
+					<small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+				</div>
+			</div>
+			
+			
+			<div _ngcontent-moy-131="" class="chat-conversation-user me ">
+				<div _ngcontent-moy-131="" class="chat-conversation-message">
+					<p _ngcontent-moy-131="" class="fnt" style="color:#333;"><img src="images/car.jpg"> </p>
+					<small class="ms-date2"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+				</div>
+			</div>
+			
+			<div _ngcontent-moy-131="" class="chat-conversation-user them">
+				<div _ngcontent-moy-131="" class="chat-conversation-message">
+					<p _ngcontent-moy-131="" class="fnt">Duis mollis, est non commodo luctus,</p>
+					<small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+				</div>
+			</div>
+			
+			
+			<div _ngcontent-moy-131="" class="chat-conversation-user me ">
+				<div _ngcontent-moy-131="" class="chat-conversation-message">
+					<p _ngcontent-moy-131="" class="fnt" style="color:#333;">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
+					<small class="ms-date2"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+				</div>
+			</div> -->
+			
+			<br>
+			</md-card-content>
+			
+			<div class="lv-footer ms-reply">
+				<md-icon class="browsebtn" md-svg-src="images/add-blue.svg"></md-icon>
+				<textarea placeholder="Enter the Message"></textarea>
+				<button type="button"><md-icon style="color:#FFF;" md-svg-src="images/send-message.svg"></md-icon></button>
+			</div>
+			
+		</div>
+		
+	</section>
+
+</div>

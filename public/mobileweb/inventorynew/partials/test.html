@@ -1,0 +1,23 @@
+<form id="fileUploadForm" method="post" enctype="multipart/form-data">
+<input type="file" name="file" id="file" value="dataFile" required="">
+<input type="submit" class="enter">
+</form>
+<script type="text/javascript">
+$("#fileUploadForm").submit(function() {
+  var bucketName = 'dealerplus';
+var bucket = new AWS.S3({params:{Bucket : bucketName}});
+//console.log(bucket);
+var fileChooser = document.getElementById('file');
+var file = fileChooser.files[0];
+if (file) {
+var params = {Key: 'uploadimages', ContentType: file.type, Body: file};
+console.log(bucket);
+bucket.upload(params).on('httpUploadProgress', function(evt) {
+console.log("Uploaded :: " + parseInt((evt.loaded * 100) / evt.total)+'%');
+}).send(function(err, data) {
+//alert("File uploaded successfully.");
+});
+}
+return false;
+});
+</script>

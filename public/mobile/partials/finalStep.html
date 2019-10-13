@@ -1,0 +1,89 @@
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+
+<div id="inputContainer" class="inputDemo" ng-cloak>
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="">
+				<!---ROW1-->
+		<div flex-xs="" flex-gt-xs="50" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-50">
+			<md-card>
+					<!--TOP Button-->
+				<section layout="row" layout-padding layout-sm="column" layout-align="center center" layout-wrap="" class="layout-wrap layout-sm-column layout-align-center-center layout-row">
+					<button class="dialog-demo-content md-primary md-raised md-hue-2 md-button md-ink-ripple btn-blue-light" type="button" ng-click="showAdvanced($event)">
+						<span flex="50" class="ng-scope">Plan Details</span>
+					</button>
+					<button class="md-warn md-raised md-hue-4 md-button md-ink-ripple btn-green-light"  type="button" ng-click="step2()">
+						<span flex="50" class="ng-scope">Change Plan</span>
+					</button>		
+				</section>
+						
+				<div layout padding layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="center">
+					<span align="center" class="md-headline">Your Choosed - {{dealerData.planHeader}}</span>
+					
+				</div>	
+				
+				<div layout-gt-sm="row" class="layout-gt-sm-row" layout-align="center">
+					<h2 align="center">{{dealerData.planDescription}} Rs.{{dealerData.unitCost}}</h2>
+				</div>	
+									
+				<form name="applyCoupon" accessible-form novalidate="" ng-submit="applyCoupon.$valid && ApplyCoupon()">	
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<input style="border-color:#CCC;" name="coupon" ng-model="coupon" placeholder="Have a Coupon ?" aria-label="Have a Coupon?" type="text" required>
+
+					<div ng-messages="applyCoupon.coupon.$error"  ng-messages-multiple>
+         				<div ng-message="required">Enter Your Coupon.</div>
+         			</div>
+				</md-input-container>
+								
+				<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" class="layout-wrap layout-sm-column layout-align-center-center layout-row">
+					<button layout-padding class="md-warn md-raised md-hue-2 md-button md-ink-ripple btn-blue1" type="submit"><span class="ng-scope">Apply</span></button>
+				</section>
+				</form>
+			</md-card>
+		</div>
+	</section>
+		
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="" style="height="100%;">
+		<div flex-xs="" flex-gt-xs="50" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-50">
+			<md-card layout-padding>			
+				<span class="md-title"><b>Your Order Total</bold></span>
+				<hr>
+				<md-card-content>
+				  	<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<span class="md-body-2">Subtotal</span>
+						<span class="md-body-1">Rs. {{dealerData.unitCost}}</span>
+					</div>
+			   </md-card-content>
+			   
+			   <md-card-content>
+				  	<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<span class="md-body-2">Coupon Discount</span>
+						<span class="md-body-1">{{couponAmount}}</span>
+					</div>
+			   </md-card-content>
+			   
+				<md-card-content>
+				  	<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<span class="md-body-2">Payable Amount</span>
+						<span class="md-body-1">Rs. {{dealerData.unitCost-couponAmount}} (Taxes)</span>
+					</div>
+			   </md-card-content>
+			   <hr>	
+				
+				<md-checkbox ng-model="tandc" aria-label="Checkbox 1" layout-padding>
+	             Terms and Conditions 
+	          	</md-checkbox>
+				
+				<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" class="layout-wrap layout-sm-column layout-align-center-center layout-row">
+					<button class="md-warn md-raised md-hue-2 md-button md-ink-ripple" type="button" ng-disabled="!tandc" ng-click="finalConfirm()"><span class="ng-scope">Submit</span></button>
+				</section>				
+			</md-card>
+		</div>			
+	</section>
+</div>

@@ -1,0 +1,12 @@
+<input type="file" name="image" id="image">
+
+<script type="text/javascript">
+    $(function() {
+        $('#image').picEdit();
+    });
+    $('#image').picEdit({
+  imageUpdated: function(img){
+     alert('Image updated!');
+  }
+});
+</script>

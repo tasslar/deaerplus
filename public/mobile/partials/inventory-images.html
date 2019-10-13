@@ -1,0 +1,337 @@
+<div id="rect">
+	<div id="content1">
+		<!-- Body -->
+		<div id="inputContainer" class="inputdemoErrors" ng-cloak>
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<md-toolbar class="_md _md-toolbar-transitions">
+					<div class="md-toolbar-tools">
+						<h4 class="inventitle">Listing-id : DPLID_1486098127</h4>
+					</div>
+					
+					</md-toolbar>
+				</div>
+			</section>
+			<!-- Top Image -->
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<md-card>
+					<div class="card-body card-padding">
+						<div class="lightbox photos">
+							<div class="lightbox-item p-item space">
+								<img src="images/car2.jpg">
+							</div>
+						</div>
+						
+						<div class="lightbox-item p-item">
+							<md-card-title>
+							<md-card-title-text>
+							<span class="md-headline">Hyundai i10 Era CC</span>
+							<span class="md-caption">Rs 4,50,000-6,00,000</span>
+							<span class="md-caption">2000 Kms | Petrol | 2015 | 2 Owners</span>
+							<span class="md-caption">Adyar, Chennai</span>
+							</md-card-title-text>
+							</md-card-title>
+						</div>
+					</div>
+					</md-card>
+				</div>
+			</section>
+			<!-- Image row -->
+			<section layout="row" layout="column" layout-align="center center">
+				<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+					<div class="card-body card-padding">
+						<div class="lightbox photos">
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Profile Picture</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputprofilePic">
+									</div>
+									<input id="profilePic" name="profilePic" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('profilePic')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front View (bumper, bonnet..)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfv">
+										
+									</div>
+									<input id="fv" name="frontView" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('fv')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Windscreen</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfw">
+										
+									</div>
+									<input id="fw" name="frontWindow" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('fw')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Underbody</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfu">
+										
+									</div>
+									<input id="fu" name="frontUnderBody" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('fu')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+							<!-- break 2-->
+						<div layout layout-align="center"  style="margin-top: 10px;">	
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Right Side (fender, doors..)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputrs">
+										
+									</div>
+									<input id="rs" name="rightSide" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('rs')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Right Quarter Panel</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputrq">
+										
+									</div>
+									<input id="rq" name="rightQuarterPanel" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('rq')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Right Side Interior View</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfrsiv">
+										
+									</div>
+									<input id="frsiv" name="frontRightInteriorView" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('frsiv')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Rear (bumper, dicky door..)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputrear">
+										
+									</div>
+									<input id="rear" name="rear" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('rear')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+							<!-- break 3-->
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Left Side (fender, doors, qtr Panel)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputls">
+										
+									</div>
+									<input id="ls" name="leftSide" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('ls')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Left Quarter Panel</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputlq">
+										
+									</div>
+									<input id="lq" name="leftQuarterPanel" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('lq')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Engine Compartment</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputec">
+										
+									</div>
+									<input id="ec" name="engineCompartment" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('ec')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Dashboard ( from rear seat)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputdashboard">
+										
+									</div>
+									<input id="dashboard" name="dashboard" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('dashboard')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+							<!-- break 4-->
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Odometer Reading (with engine on from driver seat)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputor">
+										
+									</div>
+									<input id="or" name="odometerReading" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('or')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">ABC Pedals ( from driver seat)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputabc">
+										
+									</div>
+									<input id="abc" name="abcPedals" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('abc')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Door Trim</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfdt">
+										
+									</div>
+									<input id="fdt" name="frontDoorTrim" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('fdt')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Right Tyre</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputfrt">
+										
+									</div>
+									<input id="frt" name="frontRightTyre" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('frt')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+							<!-- break 5-->
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Rear Right Tyre</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputrrt">
+										
+									</div>
+									<input id="rrt" name="rearRightTyre" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('rrt')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Boot / Dicky</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputboot">
+										
+									</div>
+									<input id="boot" name="bootDicky" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('boot')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						<div layout layout-align="center"  style="margin-top: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Front Left Tyre</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputflt">
+										
+									</div>
+									<input id="flt" name="frontLeftTyre" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('flt')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<span class="md-caption img-text-height">Odometer Reading (with engine on from driver seat)</span>
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<img src="images/compare.jpg" width="100%" id="outputordr">
+										
+									</div>
+									<input id="ordr" name="odometerReading" type="file">
+								</div>
+								<md-button class="md-raised md-primary" ng-click="removeimge('ordr')" style="margin-left: 20px;">Remove</md-button>
+							</div>
+						</div>
+						<br>
+
+						</div>
+						<div class="clearfix"></div>
+						<br>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div id="footer-bottom">
+	<section layout="row" layout="column" layout-align="center center">
+		<a href="inventory-basicinfo.html"><button class="md-warn md-raised md-hue-2 md-button md-ink-ripple layout-padding" type="button">
+			<span style="color;#FFF !important;">Basic Info</span></button>
+		</a>
+		<a href="inventory-documnet.html"><button class="md-primary md-raised md-hue-2 md-button md-ink-ripple layout-padding" type="button">
+			<span style="color;#FFF !important;" >Documents</span></button>
+		</a>
+	</section>
+</div>

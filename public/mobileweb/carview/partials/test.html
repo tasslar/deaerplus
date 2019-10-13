@@ -1,0 +1,121 @@
+<style type="text/css">
+  #mapCanvas {
+    width: 300px;
+    height: 300px;
+    float: left;
+  }
+  #infoPanel {
+    float: left;
+    margin-left: 10px;
+  }
+  #infoPanel div {
+    margin-bottom: 5px;
+  }
+</style>
+
+
+  <div id="panel">
+      <input class="newMap" type="text" ng-model="address" >
+      <input type="button" value="Geocode" onclick="codeAddress()">
+  </div>  
+  <div id="mapCanvas"></div>
+  <div id="infoPanel">
+    <b>Marker status:</b>
+    <div id="markerStatus"><i>Click and drag the marker.</i></div>
+    <b>Current position:</b>
+    <div id="info"></div>
+    <b>Closest matching address:</b>
+    <div id="address"></div>
+  </div>
+welcome
+  <a href='tel:9944630288'  style="color:black"> phone no tel:+1-800-555-5555</a>
+<!-- <script type="text/javascript">
+  var geocoder;
+var map;
+var marker;
+
+codeAddress = function () {
+    geocoder = new google.maps.Geocoder();
+  
+  var address = document.getElementById('city_country').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map = new google.maps.Map(document.getElementById('mapCanvas'), {
+    zoom: 16,
+            streetViewControl: false,
+          mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              mapTypeIds:[google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.ROADMAP] 
+    },
+    center: results[0].geometry.location,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+      map.setCenter(results[0].geometry.location);
+      marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          draggable: true,
+          title: 'My Title'
+      });
+      updateMarkerPosition(results[0].geometry.location);
+      geocodePosition(results[0].geometry.location);
+        
+      // Add dragging event listeners.
+  google.maps.event.addListener(marker, 'dragstart', function() {
+    updateMarkerAddress('Dragging...');
+  });
+      
+  google.maps.event.addListener(marker, 'drag', function() {
+    updateMarkerStatus('Dragging...');
+    updateMarkerPosition(marker.getPosition());
+  });
+  
+  google.maps.event.addListener(marker, 'dragend', function() {
+    updateMarkerStatus('Drag ended');
+    geocodePosition(marker.getPosition());
+      map.panTo(marker.getPosition()); 
+  });
+  
+  google.maps.event.addListener(map, 'click', function(e) {
+    updateMarkerPosition(e.latLng);
+    geocodePosition(marker.getPosition());
+    marker.setPosition(e.latLng);
+  map.panTo(marker.getPosition()); 
+  }); 
+  
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function geocodePosition(pos) {
+  geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      updateMarkerAddress(responses[0].formatted_address);
+    } else {
+      updateMarkerAddress('Cannot determine address at this location.');
+    }
+  });
+}
+
+function updateMarkerStatus(str) {
+  document.getElementById('markerStatus').innerHTML = str;
+}
+
+function updateMarkerPosition(latLng) {
+  document.getElementById('info').innerHTML = [
+    latLng.lat(),
+    latLng.lng()
+  ].join(', ');
+}
+
+function updateMarkerAddress(str) {
+  document.getElementById('address').innerHTML = str;
+}
+
+
+
+</script> -->

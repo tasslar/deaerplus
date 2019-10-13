@@ -1,0 +1,220 @@
+<style type="text/css">
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ .scroll-height {
+ 		height: 500px;
+ 	overflow: scroll;
+ }}
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+ 		height: 500px;
+ 		padding-top: 50px;
+ 	overflow: scroll;
+ }}
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+ 		height: 500px;
+ 	
+ 	overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+ 		height: 600px;
+ 		padding-top: 0px;
+ 	overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+ 		height: 675px;
+ 		padding-top: 10px;
+ 	overflow: scroll;
+ }}
+
+ /*Nav Bar*/
+.header-fixed {
+    background-color: #173E84 !important;
+    color: rgba(255, 255, 255, 0.87);
+    height: 56px;
+    line-height: 56px;
+    width: 100%;
+    bottom: 0px !important;
+    margin:0px !important;
+    top: 0px !important;
+    position: fixed !important;
+    z-index: 1000;
+}
+
+.row-padding { padding: 5px 8px 8px 0; }
+.hr{ color: #f2f2f2; }
+
+.row .col.s6 { padding: 8px !important; }
+
+.test{
+	background-color: black;
+}
+
+</style>
+<div class="row" style="text-align: center;">
+<div class="page-loader" ng-show="loader" >
+    <div class="preloader pls-blue">
+          <img src="images/loader.gif" width="50" height="50">
+        <p>Please wait...</p>
+    </div>
+</div>
+</div>
+
+
+	
+ 
+      <div class="row">
+	        <div class="col s12 m6">
+	          <div class="card" style="background-color: #f2f2f2;">
+	            <div>
+	            	<div class="row">
+	            		<div class="col s12" align="center">
+	              			<h5>Current Plan</h5>
+	              		</div>
+	              		<div class="col s12" align="center">	
+	              			<button class="btn btn-green">{{currentData.current_plan.plan_type_name}} {{currentData.current_plan.freq_desc}}</button>
+	              		</div>
+	             
+				   </div>
+	            </div>
+	            <br>
+					<div class="col s12 m12 l12" align="center">					
+						<span><b>Current Plan Duration</b></span>
+					</div>
+					<div class="row" align="center">
+					<div class="col s6">
+						{{currentData.current_detail.cur_startdate}} 
+					</div>
+					<div class="col s6">
+						{{currentData.current_detail.cur_enddate}}
+					</div>
+
+				</div>
+					<br>
+			<div class="row" align="center">
+				<div class="col s12 m12 l12">		
+					<span><b>Available Credit Balance </b></span>
+					<br>
+					<span>Rs.{{currentData.current_detail.cur_credit}}</span>
+				</div>
+	   		</div>
+	           	<br>
+	          </div>
+	        </div>
+      </div>
+
+
+<div class="row" ng-repeat="billing in transactionBilling" ng-show="transactionBilling.length!=0">
+	<div class="col s12 m6">
+		
+			<div class="row row-padding" >
+				<div class="col s6 m6">
+					<span>Plan</span>
+				</div>
+				<div class="col s6 m6 ">
+					<span>{{billing.plan}}</span>
+				</div>
+				<div class="col s6 m6">
+					<span>Amount</span>
+				</div>
+				<div class="col s6 m6">
+					<span>{{billing.amount}}</span>
+				</div>
+				<div class="col s6 m6">
+					<span>Payment Mode</span>
+				</div>
+				<div class="col s6 m6">
+					<span ng-show="billing.paymentMode!=''">{{billing.paymentMode}}</span>
+					<span ng-show="billing.paymentMode=='' || billing.paymentMode==null"> - </span>
+				</div>
+			</div>
+			
+				<div class="row" align="center" ng-init="hiddenDiv = false">
+				<button ng-click="hiddenDiv = !hiddenDiv" class="btn btn-blue review"> 
+				<span ng-show="hiddenDiv == true">  Show Less </span>
+				<span ng-show="hiddenDiv == false"> Show More </span>
+				</button>
+				</div>
+	            <div class="test" ng-show="hiddenDiv">
+
+	            	<div class="col s6 m6" >
+						<span>Payment Status</span>
+					</div>
+					<div class="col s6 m6">
+						<span ng-show="billing.paymentStatus!=''">{{billing.paymentStatus}}</span>
+						<span ng-show="billing.paymentStatus=='' || billing.paymentStatus==null"> - </span>
+					</div>
+
+					<div class="col s6 m6">
+						<span>Plan Details</span>
+					</div>
+					<div class="col s6 m6">
+						<span>{{billing.planDesc}}</span>
+					</div>
+
+					<div class="col s6 m6">
+						<span>From - </span>
+					</div>
+					<div class="col s6 m6">
+						<span>{{billing.plansubStart}}</span>
+					</div>
+
+					<div class="col s6 m6">
+						<span>To - </span>
+					</div>
+					<div class="col s6 m6">
+						<span>{{billing.plansubEnd}}</span>
+					</div>
+
+					<div class="col s6 m6">
+						<span>Period </span>
+					</div>
+					<div class="col s6 m6">
+						<span>{{billing.period}}</span>
+					</div>
+
+
+	            </div>
+
+				<hr class="hr">
+			
+			
+			
+		</div>
+	</div>
+</div>
+<div  ng-show="transactionBilling.length==0" style="text-align: center;">
+	<div class="col s12 m6" >
+		<div>
+		No Billing Found...!
+		</div>
+	</div>
+</div>
+<div class="row" align="center">
+<div ng-show="pageLoader">
+	<img src="images/loader.gif" width="50" height="50">
+ 	<p>Please wait...</p>
+</div>
+</div>
+
+
+
+
+

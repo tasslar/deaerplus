@@ -1,0 +1,52 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+max-width: 100% !important;
+max-height: 100% !important;
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+}
+	.md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+min-height: 500px !important;
+}
+</style>
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+<div class="fullscreen-dialog">
+	<md-toolbar>
+		<div class="md-toolbar-tools" style="background-color:#f2f2f2 !important;">
+			<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+			<md-icon style="color:#000; margin-top: 10px !important;" md-svg-src="images/search.svg"></md-icon>
+			<input ng-model="search" style="border-color:#999; margin-top: 10px !important;" placeholder="City" aria-label="City" type="text">
+			</md-input-container>
+			welcome <a href="#/basicInfo">back</a>
+			<md-button class="md-icon-button" ng-click="close()">
+			  	<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content >
+		<md-content>
+			<!-- row Title -->
+			<div layout layout-align="center">
+				<span class="md-padding" align="center"><b>Popular City</b></span>
+			</div>
+			<!-- row -->
+			<div ng-repeat="city in cities | filter:search"">
+				<div layout layout-align="left">
+					<span class="md-padding">{{city.city_name}}</span>
+				</div>
+				<hr class="hr-line">
+			</div>
+			
+		</md-content>
+	</md-dialog-content>
+</div>

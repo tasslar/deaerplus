@@ -1,0 +1,167 @@
+<style type="text/css">
+	md-radio-button{
+		display: inline-block !important;
+		padding-right: 8px !important;
+	}
+</style>
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+<div id="inputContainer" class="inputDemo" ng-cloak>
+		<!--PLAN-->
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="" style="height="100%">
+	    <div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+      		<md-card style="height="100%">
+				<div ng-cloak>
+					<md-content>
+						<md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+						 	<md-tab class="fnt-blue" label="{{plan.planname}}" id="tab{{$index+0}}" ng-repeat="plan in AllplanDetails">
+								<md-content >
+								
+								<div layout padding layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+									<div layout flex-xs flex-gt-xs="99" layout-align="left">
+									<md-radio-group ng-model="plan.answer" >
+									<md-radio-button style="padding-left:20px !important;" ng-value="planDetails.subscription_plan_id" class="md-primary" ng-repeat="planDetails in plan.plans">
+									<span class="md-subhead">
+									{{planDetails.frequency_desc}}
+									</span>
+									<span class="md-subhead"><b>RS {{planDetails.unit_cost}}</b></span>
+							</md-radio-button>
+							</md-radio-group>
+												
+									</div>	
+									</div>
+								</md-content>
+							</md-tab>
+
+							<!-- <md-tab label="gold">
+								<md-content >
+									<div layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+										<md-radio-group ng-model="Plan">
+											<md-radio-button value="Basic Plan RS 40000" class="md-primary">
+												<span class="md-subhead"> Basic Plan <b>Rs 40000 </b>
+												</span>												
+											</md-radio-button>
+
+											<md-radio-button value="Premium Plan RS 3000" class="md-primary">
+												<span class="md-subhead"> Premium Plan RS 30000 <b></b></span>
+											</md-radio-button>
+
+										</md-radio-group>
+									</div>
+								</md-content>
+							</md-tab>
+
+							<md-tab label="basic">
+								<md-content >
+									<div layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+										<md-radio-group ng-model="Plan">
+											<md-radio-button value="Basic Plan RS 50000" class="md-primary">
+												<span class="md-subhead"> Basic Plan <b>Rs 50000</b>
+												</span>												
+											</md-radio-button>
+
+											<md-radio-button value="Premium Plan RS 80000" class="md-primary">
+												<span class="md-subhead"> Premium Plan <b>RS 80000 </b></span>
+											</md-radio-button>
+
+										</md-radio-group>
+									</div>
+								</md-content>
+							</md-tab> -->
+							
+							<!-- <md-tab label="gold">
+								<md-content>
+									<div layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+										<md-radio-group ng-model="data.group1">
+											<a href="order.html">
+												<md-radio-button value="Basic" class="md-primary">
+													<span class="md-subhead">Basic Plan</span>
+													<span class="md-subhead"><b>Rs 40000</b></span>
+												</md-radio-button>
+											</a>
+										</md-radio-group>
+													
+										<md-radio-group ng-model="data.group1">
+											<a href="order.html">
+												<md-radio-button value="gold" class="md-primary">
+														<span class="md-subhead">Premium Plan</span>
+														<span class="md-subhead"><b>RS 30000</b></span>
+												</md-radio-button>
+											</a>
+										</md-radio-group>
+									</div>
+								</md-content>
+							</md-tab>	
+							
+							
+							<md-tab label="Premium">
+								<md-content>
+									<div layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+										<md-radio-group ng-model="data.group1">
+											<a href="order.html">
+												<md-radio-button value="Basic" class="md-primary">
+													<span class="md-subhead">Basic Plan</span>
+													<span class="md-subhead"><b>Rs 50000</b></span>
+												</md-radio-button>
+											</a>
+										</md-radio-group>
+													
+										<md-radio-group ng-model="data.group1">
+											<a href="order.html">
+												<md-radio-button value="gold" class="md-primary">
+													<span class="md-subhead">Premium Plan</span>
+													<span class="md-subhead"><b>RS 80000</b></span>
+												</md-radio-button>
+											</a>
+										</md-radio-group>
+									</div>
+								</md-content>
+							</md-tab> -->
+						</md-tabs>
+					</md-content>
+					<div flex-gt-xs-50 layout-padding>
+				<md-content >
+					<hr class="hr-line">
+					<div layout layout-align="center" >
+				        <md-title class="md-subhead fnt-blue">Vechicle Listing</md-title>
+			      	</div>
+					<hr class="hr-line">
+					<div layout layout-align="center" >
+				        <md-title class="md-subhead fnt-blue">Premium Listing</md-title>
+			      	</div>
+		  			<hr class="hr-line">
+					<div layout layout-align="center" >
+				        <md-title class="md-subhead fnt-blue">Loan Offers</md-title>
+			      	</div>
+	  				<hr class="hr-line">
+				  	<div layout layout-align="center" >
+			        	<md-title class="md-subhead fnt-blue">Contact Records upto 100</md-title>
+			      	</div>
+		 	 		<hr class="hr-line">
+				  	<div layout layout-align="center" >
+		        		<md-title class="md-subhead fnt-blue">Reports</md-title>
+			      	</div>
+					<br>
+				</md-content>
+				</div>
+			</div>
+		</md-card>
+	</section>	
+		
+		
+	<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" class="layout-wrap layout-sm-column layout-align-center-center layout-row">
+		<!--Payment & Trial-->
+		<div layout-gt-sm="row" class="layout-gt-sm-row" layout-padding layout-align="left">
+			<button class="md-warn md-raised md-hue-2 md-button md-ink-ripple btn-blue" type="button" ng-click="step2()"><span class="ng-scope">Payment Process</span></button>
+			<button class="md-accent md-raised md-hue-1 md-button md-ink-ripple btn-green" type="button"  ng-click="ConfirmTrial($event)"><span class="ng-scope">Trial</span></button>
+		</div>
+	</section>
+
+</div>

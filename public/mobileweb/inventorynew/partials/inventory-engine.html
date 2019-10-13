@@ -1,0 +1,766 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+.modal-content {
+    padding: 12px !important;
+}
+
+
+.modal .modal-content {
+    padding: 5px 10px 0px 10px !important;
+}
+
+.label-top { margin-top: 10px; }
+
+.tabs .tab a { text-overflow:inherit !important; }
+
+
+
+.collapsible-header i {
+   float: right !important;
+
+}
+
+
+.modal-padding { border-bottom: 1px solid #CCC; }
+
+
+/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+
+/* sathish code*/
+
+.positionTest{
+	top:0 !important;
+}
+
+</style>
+
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+        
+</script>
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+	   <div class="nav-wrapper">
+		   	<div class="col s12">
+			    <div class="row">
+			     <div class="col s2" align="center" ng-click="back()">
+			      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+			     </div>
+			     <div class="col s8" align="center">
+			   		<span style="font-weight: 600; font-size: 17px;">ENGINE & SPECIFICATION</span>
+			     </div>
+			     <div class="col s2">
+	   				<div class="col s2" align="center" ng-click="next()">
+		      			<img src="images/right-arrow.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+			     	</div>
+		     	</div>
+			    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div>
+
+<br><br><br>
+
+<!--Content-->
+<form id="engineDetails"> 
+<div>
+	<div id="content1">
+	<div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a href="#test1" class="active">Specification</a></li>
+	        <li class="tab col s3"><a href="#test2">Features</a></li>
+	        <li class="tab col s3"><a href="#test3">Overview</a></li>
+	      </ul>
+	    </div>
+	    <div id="test1" class="col s12">
+	    	 <ul class="collapsible" data-collapsible="accordion">
+	    	
+
+	  	 <!--Car Interior-->
+	    	<li>
+		      <div class="collapsible-body">
+	      		 <!--Car Interior-->
+	    		<li>
+	      			<div class="collapsible-header">Car Interior<i class="material-icons">keyboard_arrow_down</i></div>
+	     			 <div class="collapsible-body">
+	     			 		<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Gear Box']" name="gear_box">
+									<label for="Varient">Gear Box</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Drive type']" name="drive_type">
+									<label for="Varient">Drive Type</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Seating Capacity']" name="seating_capacity">
+									<label for="Varient">Seating Capacity</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Steering type']" name="steering_type">
+									<label for="Varient">Steering type</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Turning Radius']" name="turning_radius">
+									<label for="Varient">Turning Radius</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Top Speed']" name="top_speed">
+									<label for="Varient">Top Speed</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Acceleration']" name="acceleration">
+									<label for="Varient">Acceleration</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Specification'][0]['Tyre type']" name="tyre_type">
+									<label for="Varient">Tyre type</label>
+								</div>
+							</div>
+	    			 </div>
+	   			</li>
+
+	   	 <!--Engine-->
+	    	<li>
+		      <div class="collapsible-body">
+	       		<li>
+	      			<div class="collapsible-header">Engine Type<i class="material-icons">keyboard_arrow_down</i></div>
+	     			 	<div class="collapsible-body">
+	     			 		<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Displacement']" name="displacement">
+									<label for="Varient">Displacement</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text"  ng-model="engineData['Car Engine'][0]['Max Power']" name="max_power">
+									<label for="Varient">Max Power</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Max Torque']" name="max_torque">
+									<label for="Varient">Max Torque</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['No Of Cylinder']" name="no_of_cylinder">
+									<label for="Varient">No Of Cylinder</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Valves per Cylinder']" name="valves_per_cylinder">
+									<label for="Varient">Valves per Cylinder</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Valve configuration']" name="valve_configuration">
+									<label for="Varient">Valve configuration</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Fuel Supply System']" name="fuel_supply_system">
+									<label for="Varient">Fuel Supply System</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Turbo Charger']" name="turbo_charger">
+									<label for="Varient">Turbo Charger</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Car Engine'][0]['Super Charger']" name="super_charger">
+									<label for="Varient">Super Charger </label>
+								</div>
+							</div>
+	    			 </div>
+	   			</li>
+
+	   	 <!--Dinmensions-->
+	    	<li>
+		      <div class="collapsible-body">
+	    		<li>
+	      			<div class="collapsible-header">Dimensions<i class="material-icons">keyboard_arrow_down</i></div>
+	     			 <div class="collapsible-body">
+	     			 		<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Dimensions'][0]['Length']" name="length">
+									<label for="Varient">Length</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Dimensions'][0]['Width']" name="width">
+									<label for="Varient">Width</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Dimensions'][0]['Height']" name="height">
+									<label for="Varient">Height</label>
+								</div>
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Dimensions'][0]['Wheel Base']" name="wheel_base">
+									<label for="Varient">Wheel Base</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col s6 input-field">
+									<input type="text" ng-model="engineData['Dimensions'][0]['Gross Weight']" name="gross_weight">
+									<label for="Varient">Gross Weight</label>
+								</div>
+							</div>
+	    			 </div>
+	   			</li>
+	 </ul>
+	    </div>
+
+
+	    <!-- Features -->
+	   <div id="test2" class="col s12">
+	   		<ul class="collapsible" data-collapsible="accordion">
+	   	   		<li>
+		     	 <div class="collapsible-body">
+	      			<li>
+	      				<div class="collapsible-header">Car Interior<i class="material-icons">keyboard_arrow_down</i></div>
+	     				 <div class="collapsible-body" align="center">
+	     				 <br>
+	     				<div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Air Conditioner</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Interior'][0]['Air Conditioner']" ng-true-value="1" ng-false-value="0" name="air_conditioner" value="1">
+										<span class="lever" style="margin-top: 10px;"></span> {{engineData['Car Interior'][0]['Air Conditioner']}}
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Adjustable Steering</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Interior'][0]['Adjustable Steering']" ng-true-value="1" ng-false-value="0" name="adjustable_steering" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Leather Steering Wheel</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Interior'][0]['Leather Steering Wheel']" ng-true-value="1" ng-false-value="0" name="leather_steering_wheel" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch">
+    							<span>Heater</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Interior'][0]['Heater']" ng-true-value="1" ng-false-value="0" name="heater" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Digital Clock</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Interior'][0]['Digital Clock']" ng-true-value="1" ng-false-value="0" name="digital_clock" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+	       			 	</div>
+	   				</li>
+
+	   			<!--Car Combort-->
+	   			<li>
+		     	 <div class="collapsible-body">
+	      			<li>
+	      				<div class="collapsible-header">Car Comfort<i class="material-icons">keyboard_arrow_down</i></div>
+	     				 <div class="collapsible-body" align="center">
+	     				 <br>
+	     				<div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Power steering</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Power steering']" ng-true-value="1" ng-false-value="0" name="power_steering" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Power windows front</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Power windows front']" ng-true-value="1" ng-false-value="0" name="power_windows_front" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Power windows rear</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Power windows rear']" ng-true-value="1" ng-false-value="0" name="power_windows_rear" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Remote trunk opener</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Remote trunk opener']" ng-true-value="1" ng-false-value="0" name="remote_trunk_opener" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Remote fuel lid opener</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Remote fuel lid opener']" ng-true-value="1" ng-false-value="0" name="remote_fuel_lid_opener" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Low fuel warning light</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Low fuel warning light']" ng-true-value="1" ng-false-value="0" name="low_fuel_warning_light" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Rear reading lamp</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Rear reading lamp']" ng-true-value="1" ng-false-value="0" name="rear_reading_lamp" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Rear seat headrest</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Rear seat headrest']" ng-true-value="1" ng-false-value="0" name="rear_seat_headrest" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Rear seat centre arm rest</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Rear seat centre arm rest']" ng-true-value="1" ng-false-value="0" name="rear_seat_centre_arm_rest" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Height adjustable front seat belts</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Height adjustable front seat belts']" ng-true-value="1" ng-false-value="0" name="height_adjustable_front_seat_belts" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Cup holders front</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Cup holders front']" ng-true-value="1" ng-false-value="0" name="cup_holders_front" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Cup holders rear</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Cup holders rear']" ng-true-value="1" ng-false-value="0" name="cup_holders_rear" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Rear ac vents</span>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Rear ac vents']" ng-true-value="1" ng-false-value="0" name="rear_ac_vents" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Parking sensors</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Comfort'][0]['Parking sensors']" ng-true-value="1" ng-false-value="0" name="parking_sensors" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 						<br>
+	       			 	</div>
+	   				</li>
+
+	   			<!--Safty-->
+	   			<li>
+		     	 <div class="collapsible-body">
+	      			<li>
+	      				<div class="collapsible-header">Safety<i class="material-icons">keyboard_arrow_down</i></div>
+	     				 <div class="collapsible-body" align="center">
+	     				 <br>
+	     				<div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Anti lock braking system</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Anti lock braking system']" ng-true-value="1" ng-false-value="0" name="anti_lock_braking_system" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Central locking</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Central locking']" ng-true-value="1" ng-false-value="0" name="central_locking" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Child safety lock</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Child safety lock']" ng-true-value="1" ng-false-value="0" name="child_safety_lock" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Driver airbags</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Driver airbags']" ng-true-value="1" ng-false-value="0" name="driver_airbags" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Passenger airbag</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Passenger airbag']" ng-true-value="1" ng-false-value="0" name="passenger_airbag" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Rear seat belts</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Rear seat belts']" ng-true-value="1" ng-false-value="0" name="rear_seat_belts" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Seat belt warning</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Seat belt warning']" ng-true-value="1" ng-false-value="0" name="seat_belt_warning" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Adjustable seats</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Adjustable seats']" ng-true-value="1" ng-false-value="0" name="adjustable_seats" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Crash sensor</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Crash sensor']" ng-true-value="1" ng-false-value="0" name="crash_sensor" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Anti theft device</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Anti theft device']" ng-true-value="1" ng-false-value="0" name="anti_theft_device" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Immobilizer</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Safety'][0]['Immobilizer']" ng-true-value="1" ng-false-value="0" name="immobilizer" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      				    </div>
+      				    <br>
+	   				</li>
+
+	   			<!--Exterior-->
+	   			<li>
+		     	 <div class="collapsible-body">
+	      			<li>
+	      				<div class="collapsible-header">Exterior<i class="material-icons">keyboard_arrow_down</i></div>
+	     				 <div class="collapsible-body" align="center">
+	     				 <br>
+	     				<div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Adjustable head lights</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Adjustable head lights']" ng-true-value="1" ng-false-value="0" name="adjustable_head_lights" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Power adjustable exterior rear view mirror</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Power adjustable exterior rear view mirror']" ng-true-value="1" ng-false-value="0" name="power_adjustable_exterior_rear_view_mirror" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Electric folding rear view mirror</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Electric folding rear view mirror']" ng-true-value="1" ng-false-value="0" name="electric_folding_rear_view_mirror" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Rain sensing wipers</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Rain sensing wipers']" ng-true-value="'1'" ng-false-value="'0'" name="rain_sensing_wipers" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Rear window wiper</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Rear window wiper']" ng-true-value="1" ng-false-value="0" name="rear_window_wiper" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Alloy wheels</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Alloy wheels']" ng-true-value="1" ng-false-value="0" name="alloy_wheels" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					        <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Tinted glass</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Tinted glass']" ng-true-value="1" ng-false-value="0" name="tinted_glass" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Front fog lights</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Front fog lights']" ng-true-value="1" ng-false-value="0" name="front_fog_lights" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 					    <div class="row">
+      					 	<!-- <div class="col s6">
+    							<div class="switch"><span>Rear window wiper</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Rear window wiper']" ng-true-value="1" ng-false-value="0" name="adjustable_head_lights">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div> -->
+      						<div class="col s6">
+    							<div class="switch"><span>Rear window defogger</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Car Exterior'][0]['Rear window defogger']" ng-true-value="1" ng-false-value="0" name="rear_window_defogger" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 				
+	   				</li>
+
+	   				<!--Entertainment-->
+	   			<li>
+		     	 <div class="collapsible-body">
+	      			<li>
+	      				<div class="collapsible-header">Entertainment<i class="material-icons">keyboard_arrow_down</i></div>
+	     				 <div class="collapsible-body" align="center">
+	     				 <br>
+	     				<div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>CD Player</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Entertainment'][0]['CD Player']" ng-true-value="1" ng-false-value="0" name="cdplayer" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Radio</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Entertainment'][0]['Radio']" ng-true-value="1" ng-false-value="0" name="radio" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+ 					    <br>
+ 					    <div class="row">
+      					 	<div class="col s6">
+    							<div class="switch"><span>Audio</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Entertainment'][0]['Audio']" ng-true-value="1" ng-false-value="0" name="audio" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+      						<div class="col s6">
+    							<div class="switch"><span>Bluetooth</span><br>
+									<label>
+										<input type="checkbox" ng-model="engineData['Entertainment'][0]['Bluetooth']" ng-true-value="1" ng-false-value="0" name="bluetooth" value="1">
+										<span class="lever" style="margin-top: 10px;"></span>
+									</label>
+								</div>
+      						</div>
+ 					    </div>
+
+ 					    <br>
+ 				
+	   				</li>
+
+	   			
+			 </ul>
+	   </div>
+
+
+	   <div id="test3" class="col s12">
+	   		   	<textarea ng-model="engineData['Overview'][0]['Overview']" name="overviewdescription"></textarea>
+	   </div>
+	     <!--  <div id="test4" class="col s12">Test 4</div> -->
+	</div>
+</div>
+ </div>    
+
+
+<!--Footer-->
+
+<div id="footer-bottom" style="height: 50px;">
+	<div class="row">
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="back()">Back</button>
+		</div>
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="saveEngine()">Save</button>
+		</div>
+	</div>
+</div>
+
+</form>

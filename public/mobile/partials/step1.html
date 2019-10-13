@@ -1,0 +1,182 @@
+<style type="text/css">
+	.validation-error {
+  color: red;
+}
+.validation-pending {
+  color: orange;
+}
+
+.loaderExist{
+	padding: 3px;
+}
+
+</style>
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+<div id="inputContainer" class="inputDemo" ng-cloak>
+
+	<!--LOGO-->
+	<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+		<img src="images/logo.png" >
+	</section>
+		<!--Register-->
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="">
+    	<div flex-xs="" flex-gt-xs="50" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-50">
+	 		<form name="registerForm" accessible-form novalidate="" ng-submit="registerForm.$valid && step1()"><!-- 
+	 		<form name="registerForm" accessible-form novalidate="" ng-submit="registerForm.$valid && step1()"> -->
+	 			<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<md-icon style="color:#333;" md-svg-src="images/user-silhouette.svg"></md-icon>
+					<input style="border-color:#CCC;" name="dName" ng-pattern="/^[a-zA-Z0-9\-\s]+$/" ng-model="dName" md-maxlength="25" maxlength="25" placeholder="Name" aria-label="Name" type="text" no-special-char required>
+                    <div ng-messages="registerForm.dName.$error">
+         				<div ng-message="required">Enter Your Name</div>
+         				<div ng-message="pattern">Only Alphabets & numerics are Allowed..</div>
+        			</div>
+        			
+				</md-input-container>
+
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<md-icon style="color:#333;" md-svg-src="images/phone-call.svg"></md-icon>
+					<input style="border-color:#CCC;" name="dContact" ng-model="dContact" placeholder="Contact" aria-label="Contact" type="text" md-maxlength="10" ng-minlength="10" maxlength="10" required  numbers-only="numbers-only" autocomplete="off" no-Validator>
+					 
+					<div ng-messages="registerForm.dContact.$error"  ng-messages-multiple>
+         				<div ng-message="required">Enter Your Phone No.</div>
+         				<div ng-message="minlength">Invalid Mobile No.</div>
+         				<div ng-message="maxlength">Invalid Mobile No.</div>
+         				<div ng-message="dContact">Contact already in use</div>
+        			</div>
+
+
+        			<!-- <div ng-if="registerForm.$pending.usernameExists"><img src="images/loader/exist/spped1.gif"> Checking Availablity...</div>
+      				<div ng-if="registerForm.$error.usernameExists">username exists already</div> -->
+
+
+        			<div ng-if="registerForm.dContact.$valid">
+	        			<div ng-messages="{'required': true}"  ng-messages-multiple>
+	          				<div ng-message="required" style="color:green!important">
+	          					<img src="images/loader/exist/tick.png" class="loaderExist" />Phone Number is Available
+	          				</div>
+        				</div>
+        			</div>
+        			
+        			<!-- <div ng-messages="registerForm.dContact.$error">
+					    <div ng-message="dContact">That post code does not exist!</div>
+					</div> -->
+        			
+        			<div ng-if="registerForm.dContact.$dirty">
+						<div ng-messages="registerForm.dContact.$error"  ng-messages-multiple>
+		        			<div ng-messages="registerForm.dContact.$pending " class="validation-pending">
+	                        	<div ng-message="dContact">
+	                        		<img src="images/loader/exist/spped1.gif"> Checking Availablity...
+	                        	</div>
+		                    </div>
+	                    </div>
+                    </div>
+				</md-input-container>
+		
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<md-icon style="color:#333;" md-svg-src="images/envelope.svg"></md-icon>
+					<input style="border-color:#CCC;" name="dEmail" ng-model="dEmail" placeholder="Email Id" aria-label="Email Id" type="email" required="" ng-pattern="/^.+@.+\..+$/" username-validator  ng-model-options="{ updateOn: 'blur' }">
+					
+					<div ng-messages="registerForm.dEmail.$error">
+         				<div ng-message-exp="['required', 'pattern']">Enter Correct Email ID..!</div>
+     				 	<div ng-message="dEmail">Email already in use</div>
+        			</div>
+        		
+        			<div ng-if="registerForm.dEmail.$valid">
+	        			<div ng-messages="{'required': true}">
+	          				<div ng-message="required" style="color:green!important">
+	          					<img src="images/loader/exist/tick.png" class="loaderExist" />Email is Available
+	          				</div>
+        				</div>
+        			</div>
+
+        			<div ng-if="registerForm.dEmail.$dirty">
+        				<div ng-messages="registerForm.dEmail.$valid">
+     				 		<div ng-message="dEmail">Email Available</div>
+        				</div>
+						<div ng-messages="registerForm.dEmail.$error">
+		        			<div ng-messages="registerForm.dEmail.$pending" class="validation-pending">
+	                        	<div ng-message="dEmail">
+	                        		<img src="images/loader/exist/spped1.gif"> Checking Availablity...
+	                        	</div>
+		                    </div>
+	                    </div>
+                    </div>
+				</md-input-container>
+				
+			 	<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<md-icon style="color:#333;" md-svg-src="images/user-silhouette.svg"></md-icon>
+					<input style="border-color:#CCC;" name="dShipName" ng-model="dShipName" placeholder="Dealer Ship Name" md-maxlength="30" maxlength="30" ng-pattern="/^[a-zA-Z0-9\s]*$/" aria-label="Dealer Ship Name" type="text"  required="">
+					<div ng-messages="registerForm.dShipName.$error">
+         				<div ng-message="required">Enter Your Dealer Ship Name</div>
+         				<div ng-message="pattern">Only Alphabets & numerics are Allowed..</div>
+        			</div>
+				</md-input-container>
+		
+		  
+				<md-input-container class="md-block flex-gt-sm"  flex-gt-sm="">
+			  		<md-icon style="color:#333;" md-svg-src="images/place.svg"></md-icon>
+					<md-select placeholder="City" ng-model="dCity" name="dCity" style="min-width: 100px;"  required="">
+						<md-option ng-repeat="city in cities" ng-value="city.city_id" tabindex="0" class="md-ink-ripple" role="option" aria-selected="false" id="select_option_400">
+							<div class="md-text">{{city.city_name}}</div>
+						</md-option>
+				 	</md-select>
+				 	<div ng-messages="registerForm.dCity.$error">
+         				<div ng-message="required">Choose Your City...</div>
+        			</div>
+			  	</md-input-container>
+
+
+
+			  	<!-- <md-input-container class="md-block md-icon-left md-input-placeholder">
+     <md-icon style="color:#333;" md-svg-src="images/user-silhouette.svg"></md-icon>
+			  	<md-autocomplete
+          ng-disabled="ctrl.isDisabled"
+          md-no-cache="ctrl.noCache"
+          md-selected-item="ctrl.selectedItem"
+          md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+          md-search-text="ctrl.searchText"
+          md-selected-item-change="ctrl.selectedItemChange(item)"
+          md-items="item in ctrl.querySearch(ctrl.searchText)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="City">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No states matching "{{ctrl.searchText}}" were found.
+          <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+        </md-not-found>
+      </md-autocomplete>
+
+</md-input-container>
+ -->
+
+
+
+
+
+			  	<section layout="row" layout="column" layout-align="center center" layout-wrap="" >
+					<button  class="md-warn md-raised md-hue-2 md-button md-ink-ripple layout-padding btn-red" type="submit" >
+					<span style="color;#FFF !important;" >Continue</span></button>
+				 </section>
+		 	</form>
+		</div>
+ 	</section>
+
+ 	<!-- <div ng-repeat="n in news">
+      <textarea ng-model="n.theme"></textarea>
+    </div> -->
+    
+	
+
+</div>

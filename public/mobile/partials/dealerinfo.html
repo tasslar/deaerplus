@@ -1,0 +1,59 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+	max-width: 100% !important;
+	max-height: 100% !important;
+	width: 100% !important;
+	height: 100% !important;
+border-radius: 0 !important;
+}
+</style>
+
+<md-dialog class="fullscreen-dialog">
+<md-toolbar class="_md _md-toolbar-transitions">
+<div class="md-toolbar-tools">
+	<h2>Dealer info</h2>
+	<span class="flex" flex=""></span>
+	<md-button class="md-icon-button" ng-click="close()">
+	<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+	</md-button>
+</div>
+</md-toolbar>
+<!-- 
+<section layout-sm="column" layout-align="center center">
+	<div flex-gt-xs="99" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-99">
+		<md-content>
+		<md-card>
+		<md-image>
+		<a href="#"><img src="images/map.gif" class="md-card-image"></a>
+		</md-image>
+		</md-card>
+		</md-content>
+	</div>
+</section> -->
+<br>
+
+<section layout-sm="column" layout-align="center center" layout-wrap="">
+	<div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50" >
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button"  >
+		<md-icon style="color:#333;" md-svg-src="images/placeholder.svg"></md-icon>
+		</button>
+		<span class="md-body-1">{{ownerDetails.df['Dealer Address']}}</span>
+		</md-card-icon-actions>
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button"  >
+		<md-icon style="color:#333;" md-svg-src="images/mail.svg"></md-icon>
+		</button>
+		<span class="md-body-1">{{ownerDetails.dm['Car Owner Email']}}</span>
+		</md-card-icon-actions>
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button"  >
+		<md-icon style="color:#333;" md-svg-src="images/mobile-phone.svg"></md-icon>
+		</button>
+		<span class="md-body-1">{{ownerDetails.df['Mobile Number']}}</span>
+		</md-card-icon-actions>
+	</div>
+</section>
+
+</md-dialog>

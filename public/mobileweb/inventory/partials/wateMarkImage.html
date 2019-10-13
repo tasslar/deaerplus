@@ -1,0 +1,107 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+max-width: 100% !important;
+max-height: 100% !important;
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+
+
+}
+
+</style>
+
+<md-dialog class="fullscreen-dialog">
+
+	<input type="file" name="image" id="image">
+
+<section layout="row" layout="column" layout-align="center center">
+	<div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+		<md-card>
+		<div class="card-body card-padding">
+			<div class="lightbox photos">
+				<div class="lightbox-item p-item space">
+					<img src="images/car2.jpg">
+				</div>
+			</div>
+		</div>
+		</md-card>
+	</div>
+</section>
+
+<section layout="row" layout-sm="column" layout-align="center center" >
+	<div  flex-gt-xs="50" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-50">
+		<div flex-gt-xs="50" layout="column">
+			<div layout layout-align="left end">
+				<div flex="50">
+					<md-radio-group ng-model="data.group1">
+					<md-radio-button value="Top Left" class="md-primary">
+					<span class="md-subhead">Top Right</span>
+					</md-radio-button>
+					</md-radio-group>
+				</div>
+				<div flex="50">
+					<md-radio-group ng-model="data.group1">
+					<md-radio-button value="No1" class="md-primary">
+					<span class="md-subhead">Top Right</span>
+					</md-radio-button>
+					</md-radio-group>
+				</div>
+			</div>
+		</div>
+		<div flex-gt-xs="50" layout="column" >
+			<div layout layout-align="left end" >
+				<div flex="50">
+					<md-radio-group ng-model="data.group1">
+					<md-radio-button value="Bottom Left" class="md-primary">
+					<span class="md-subhead">Bottom Left</span>
+					</md-radio-button>
+					</md-radio-group>
+				</div>
+				<div flex="50">
+					<md-radio-group ng-model="data.group1">
+					<md-radio-button value="Bottom Right" class="md-primary">
+					<span class="md-subhead">Bottom Right</span>
+					</md-radio-button>
+					</md-radio-group>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <section layout="row" layout="column" layout-align="center center">
+	<div layout-padding flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+		<div layout-align="center">
+			<div class="dropify-wrapper" style="height: 250px;">
+				<div class="dropify-message" >
+					<img src="images/compare.jpg" width="100%" >
+					</div>
+				<input id="input-file-now" class="dropify" data-default-file="" type="file">
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<section layout="row" layout="column" layout-align="center center" layout-wrap="" >
+	<div flex-xs="" flex-gt-xs="99" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-99">
+		<md-button class="md-warn md-raised md-button md-ink-ripple btn-blue1" type="button">
+		<span class="ng-scope">Upload</span></md-button>
+	</div>
+</section>
+
+</md-dialog>
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $('#image').picEdit();
+    });
+    $('#image').picEdit({
+  imageUpdated: function(img){
+     alert('Image updated!');
+  }
+});
+</script>

@@ -1,0 +1,21 @@
+
+<md-toolbar class="_md _md-toolbar-transitions">
+<div class="md-toolbar-tools">
+	<h2>Car Video  </h2>
+	<span class="flex" flex=""></span>
+	<md-button class="md-icon-button" ng-click="close()">
+	<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+	</md-button>
+</div>
+
+</md-toolbar>
+
+<section layout-sm="column" layout-align="center center" layout-wrap="">
+		<div flex-xs="" flex-gt-xs="50" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-50">
+<div layout layout-padding layout-align="center" >
+	<video width="320" height="240" controls>
+		<source src="{{videoUrl}}" type="video/mp4">
+	</video>
+</div>
+</div>
+</section>

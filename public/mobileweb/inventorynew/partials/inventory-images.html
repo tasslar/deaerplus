@@ -1,0 +1,479 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+/*Nav Bar*/
+.header { 
+    position: fixed !important; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+</style>
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+         <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div>
+
+
+<div class="header" style="width:100%; top: 0; z-index: 999">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s8" align="center">
+		   		<span style="font-weight: 600; font-size: 17px;">Inventory Images</span>
+		     </div>
+		     <div class="col s2">
+		   		<div class="col s2" align="center" ng-click="next()">
+		      <img src="images/right-arrow.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     </div>
+		    </div>
+		   </div>
+		     
+		   </div>
+	 </nav>
+</div>
+
+
+<!-- <div class="header" style="width:100%; top: 0; z-index: 999">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s10" align="center" style="padding-right: 65px;" >
+		   
+		   		<span style="font-weight: 600; font-size: 17px;">Inventory Images</span>
+		     </div>
+		    </div>
+		   </div>
+		     
+		   </div>
+	 </nav>
+</div> -->
+
+
+
+<div id="rect">
+	<div id="content">
+		<!-- <div class="row">
+				<input type="file" name="image" id="image">
+		</div> -->
+		<div class="row" style="margin-top: 20px;">
+			<div class="col s12 m7">
+				<div class="card" >
+					<!-- <div class="card-image">
+						<img src="images/car1.jpg">
+					</div> -->
+					<div class="card-content" style="padding: 30px 5px 10px 8px !important;">
+						<h5>{{basicInfo.make}} {{basicInfo.model}} {{basicInfo.varient}}</h5>
+						<p>Rs {{basicInfo.price | roundup |  currency: "" : 0}}</p>
+						<p>{{basicInfo.kms_done}} Kms | {{basicInfo.fuel_type}} | {{basicInfo.registration_year}} | {{basicInfo.owner_type}} Owners</p>
+						<p>{{basicInfo.city}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- images/compare.jpg -->
+
+<!--Row 2-->
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.profile_pic.nameimage)">
+				<img ng-src="{{basicInfo.profile_pic.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Profile Pic</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.front_view.nameimage)">
+				<img src="{{basicInfo.front_view.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front View (bumper, bonnet..)</p>
+		</div>
+	</div>
+</div>
+
+
+<!--Row 1-->
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.front_wind.nameimage)">
+				<img src="{{basicInfo.front_wind.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Windscreen</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.front_underbody.nameimage)">
+				<img src="{{basicInfo.front_underbody.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Underbody</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.right_side.nameimage)">
+				<img src="{{basicInfo.right_side.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Right Side (fender, doors, qtr panel)</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.Right_quarter.nameimage)">
+				<img src="{{basicInfo.Right_quarter.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Right Quarter Panel</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.front_right.nameimage)">
+				<img src="{{basicInfo.front_right.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Right Side Interior View</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.rear.nameimage)">
+				<img src="{{basicInfo.rear.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Rear (bumper, dicky door, rr-windshield, tail lights)</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.left_side.nameimage)">
+				<img src="{{basicInfo.left_side.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Left Side (fender, doors, qtr Panel)</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.left_quarter.nameimage)">
+				<img src="{{basicInfo.left_quarter.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Left Quarter Panel</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.engine_compartment.nameimage)">
+				<img src="{{basicInfo.engine_compartment.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Engine Compartment</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.dashboard.nameimage)">
+				<img src="{{basicInfo.dashboard.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Dashboard ( from rear seat)</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.odometer.nameimage)">
+				<img src="{{basicInfo.odometer.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Odometer Reading (with engine on from driver seat)</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.ABCpedals.nameimage)">
+				<img src="{{basicInfo.ABCpedals.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>ABC Pedals ( from driver seat)</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.frontdoor.nameimage)">
+				<img src="{{basicInfo.frontdoor.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Door Trim</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.frontright_tyre.nameimage)">
+				<img src="{{basicInfo.frontright_tyre.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Right Tyre</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.rearright_tyre.nameimage)">
+				<img src="{{basicInfo.rearright_tyre.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Rear Right Tyre</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.Boot_Dicky.nameimage)">
+				<img src="{{basicInfo.Boot_Dicky.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Boot / Dicky</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.FrontLeft_Tyre.nameimage)">
+				<img src="{{basicInfo.FrontLeft_Tyre.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Front Left Tyre</p>
+		</div>
+	</div>
+
+	<div class="col s6 m7">
+		<div class="card-image">
+			<div class="dropify-wrapper modal-trigger" ng-click="watermarkPage(basicInfo.Odometer_reading.nameimage)">
+				<img src="{{basicInfo.Odometer_reading.image}}" width="100%">
+			</div>
+		</div>
+		<div class="row" align="center">
+			<!-- <button type="button" class="waves-effect waves-light btn btn-blue1">button</button> -->
+		</div>
+		<div class="card-content">
+			<p>Odometer Reading (with engine on from driver seat)</p>
+		</div>
+	</div>
+</div>
+
+	</div>
+</div>
+
+<div id="footer-bottom"  style="height: 50px; bottom: 0 !important; position: relative !important;">
+	<div class="row">
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="back()">Back</button>
+		</div>
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="next()">Next</button>
+		</div>
+	</div>
+</div> 
+
+
+
+<!-- <div id="modal1" class="modal" style="width:100%;height:100%;">
+
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Water Mark</h5>
+		</div>
+		<div class="col s2" style="padding-top: 15px;">
+			<img src="images/close.svg" width="18" height="18">
+		</div>
+	</div>
+
+	<input type="file" name="image" id="image">
+
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-image">
+					<img src="images/car1.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s6">
+			<input name="group1" type="radio" id="test1" />
+     		 <label for="test1">Top Left</label>
+		</div>
+		<div class="col s6">
+			<input name="group1" type="radio" id="test2" />
+     		 <label for="test2">Top Right</label>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col s6">
+			<input name="group1" type="radio" id="test3" />
+     		 <label for="test3">Bottom Left</label>
+		</div>
+		<div class="col s6">
+			<input name="group1" type="radio" id="test4" />
+     		 <label for="test4">Bottom Right</label>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col s12">
+			<button type="button" class="btn waves-effect waves-light btn-blue1 col s12">Cancel</button>
+		</div>
+	</div>
+	
+</div> -->
+
+<script type="text/javascript">
+    $(function() {
+        $('#image').picEdit();
+    });
+    $('#image').picEdit({
+  imageUpdated: function(img){
+     alert('Image updated!');
+  }
+});
+</script>

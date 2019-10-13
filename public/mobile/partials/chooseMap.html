@@ -1,0 +1,43 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+max-width: 100% !important;
+max-height: 100% !important;
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+
+
+}
+	.md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+min-height: 500px !important;
+}
+</style>
+
+ <div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+
+<md-dialog class="fullscreen-dialog">
+	<md-toolbar>
+	<div class="md-toolbar-tools">
+		<h2>Send Message to Dealer</h2>
+		<span class="flex" flex=""></span>
+		<md-button class="md-icon-button" ng-click="close()">
+	  		<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+		</md-button>
+	</div>
+	</md-toolbar>
+
+	<section layout-sm="column" layout-align="center center" layout-wrap="">
+		Map
+	</section>
+
+</md-dialog>
+

@@ -1,0 +1,111 @@
+<style type="text/css">
+	/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+</style>
+
+<div class="page-loader" ng-show="loader" style="z-index: 99999">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="backtoBasic()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s8" align="center">
+		   		<span style="font-weight: 600; font-size: 17px;">Hypotication & Insurance</span>
+		     </div>
+		       	<div class="col s2">
+	   				<div class="col s2" align="center" ng-click="next()">
+			      		<img src="images/right-arrow.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+			     	</div>
+		     	</div>
+		    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div> 
+
+<div id="rect" style="margin-top: 63px;">
+		
+<form name="addHypoInsurance" id="addHypoInsurance">
+	
+			
+			<h5 align="center">Hypotication</h5>
+			<br>
+			<div class="row">
+				<div class="col s12 input-field">
+					<input type="text" name="hypotype" ng-model="insuranceData.hypotype" no-special-char>
+					<label for="registernumber">Hypothacation Type</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="financiername" ng-model="insuranceData.financiername" no-special-char>
+					<label for="engineNumber">Finacier Name</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="fullname" ng-model="insuranceData.fullname" no-special-char>
+					<label for="chasisNumber">Full Name of Finacier</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" format="yyyy-mm-dd" id="parkFromDate" name="fromdate" input-date ng-model="insuranceData.from_date" class="datepicker" required="">
+					<label for="chasisNumber">From Date</label>
+				</div>
+				
+			</div>
+
+			<h5 align="center">Insurance</h5>
+			<br>
+			<div class="row">
+				<div class="col s12 input-field">
+					<input type="text" name="insurancecompany" ng-model="insuranceData.company" no-special-char>
+					<label for="registernumber">Insurance company</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="insurancename" ng-model="insuranceData.fullinsurname" no-special-char>
+					<label for="engineNumber">Insurance Name</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="insurancetype" ng-model="insuranceData.typedesc" no-special-char>
+					<label for="chasisNumber">Insurance_Type Desc</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" format="yyyy-mm-dd" name="frominsurancedate" input-date ng-model="insuranceData.frominsurance" class="datepicker" required="">
+					<label for="chasisNumber">Insurance From</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" format="yyyy-mm-dd" name="uptodate" input-date ng-model="insuranceData.uptoinsurance" class="datepicker" required="">
+					<label for="chasisNumber">Insurance Upto</label>
+				</div>
+				
+			</div>
+</form>
+		
+	</div>
+
+
+
+		<div class="row">
+			<div class="col s6">
+				<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="backtoBasic()">Back</button>
+			</div>
+			<div class="col s6">
+				<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="saveHypoInsurance()">Save</button>
+			</div>
+		</div>
+
+		
+

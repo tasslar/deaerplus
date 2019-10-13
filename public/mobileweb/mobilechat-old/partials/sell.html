@@ -1,0 +1,237 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+ html:not(.ismobile) .page-loader .preloader p {
+  
+    left: 6px !important;
+   
+}
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+/*.modal-content {
+    padding: 12px !important;
+}
+
+
+.modal .modal-content {
+    padding: 5px 10px 0px 10px !important;
+}
+*/
+
+/*
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ .scroll-height {
+    height: 500px;
+  overflow-y: scroll;
+ }}
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+    height: 510px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+    height: 582px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+    height: 600px;
+    height: 605px;
+    padding-top: 0px;
+  overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+    height: 675px;
+    padding-top: 0px;
+  overflow-y: scroll;
+ }}
+
+
+  @media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+ .scroll-height {
+    height: 675px;
+  
+  overflow-y: scroll;
+ }}
+
+
+   @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+ .scroll-height {
+    height: 920px;
+  
+  overflow-y: scroll;
+ }}
+
+*/
+
+.modal-padding { border-bottom: 1px solid #CCC; }
+
+
+
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+
+} 
+
+
+.positionTest{
+	top:0 !important;
+}
+
+</style>
+
+
+<div class="header" style="background-color: #173e84; color: #FFF; padding: 15px 0 10px 0; width: 100%; z-index: 999; top: 0; left: 0; right: 0; margin: 0 !important; ">
+  <nav style="left: 0px !important; top: 0px !important; bottom: 0px; left: 0; right: 0 !important; " >
+		   <div class="nav-wrapper">
+	   			<div class="media" style="margin-top: -8px; width: 100% !important; top:0 !important; top: 0 !important; right: 0 !important; margin: 0 !important;">
+		            <div class="pull-left" ng-click="back()">
+		                <img class="lv-img" style="width: 30px !important; height: 30px !important; padding-top: 10px;" src="images/back-white.svg" width="15" height="15" alt="">
+		            </div>
+		            <div class="pull-left" style="margin-top: 5px;">
+		                <img class="lv-img" style="width: 40px !important; height: 40px !important;" src="{{userDetails.carlogo}}" alt="">
+		            </div>
+		            <div class="media-body" ng-click="goToCarView()">
+		                <span style="font-size: 15px;">{{userDetails.model}} {{userDetails.variant}}</span>
+		                <br>
+		                <span><small>{{userDetails.location}} - {{userDetails.carposttime}}</small></span>
+		                 <br>
+		                <span><small>Rs {{userDetails.price}}</small></span>
+		            </div>
+		        </div>
+		   </div>
+	 	</nav>
+  	</div>
+
+<!-- 
+<div id="fixed" when-scrolled="loadMore()">
+  <ul>
+    <li ng-repeat="i in items[1]">{{i.message}}</li>
+  </ul>  
+</div>
+<a id="bottom"></a>
+<input type="text" ng-model="message" placeholder="Send Message" />
+<button ng-click="sendMessage()">Send</button> -->
+<!-- 
+<div id="fixed" when-scrolled="loadMore()">
+  <ul>
+    <li ng-repeat="i in items">{{i.message}}</li>
+  </ul>  
+</div>
+<a id="bottom"></a> -->
+
+<!-- <div z-infinite-scroll="loadMore" inverse="true" body-scroll="true">
+      <div smooth-scroll scroll-if="{{$last}}" duration="0" ng-repeat="obj in items">
+       {{obj.message}}
+      </div>
+    </div> -->
+<div class="page-loader" ng-show="status.mainLoader" style="background-image: url(images/intro.jpg);">
+    <div class="preloader pls-blue">
+    <img src="images/loader.gif" width="50" height="50">
+       <!--  <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg> -->
+
+        <p>Loading...</p>
+    </div>
+</div>
+
+<div id="container1">
+	<div id="container2" >
+		<br>
+		<div>
+		
+			<div ng-show="status.loading==true && status.lastMessage==false" style="text-align:center; margin-top: 40px; ">
+		
+					<img src="images/comment.gif" >
+					<h6>Loading...</h6>
+				</div>
+			<div _ngcontent-moy-131="" z-infinite-scroll="loadMore" inverse="true" body-scroll="true" style="margin-top: 70px;">
+			<!-- <div _ngcontent-moy-131="" z-infinite-scroll="loadMore" inverse="true" body-scroll="true" style="margin-top: 60px;"> -->
+				
+				<div smooth-scroll scroll-if="{{$last}}" duration="0" ng-repeat="message in items">
+					<div _ngcontent-moy-131="" class="chat-conversation-user them" ng-if="message.user_id!=userId">
+						<div _ngcontent-moy-131="" class="chat-conversation-message">
+							<p _ngcontent-moy-131="" class="fnt">{{message.message}}</p>
+							<small class="ms-date">{{message.date}}</small>
+						</div>
+					</div>
+					
+					
+					<div style="text-align: justify-all;" _ngcontent-moy-131="" class="chat-conversation-user me" ng-if="message.user_id==userId">
+						<div _ngcontent-moy-131="" class="chat-conversation-message">
+							<span _ngcontent-moy-131="" class="fnt" style="color:#333;">{{message.message}}</span>
+							<small class="ms-date2">{{message.date}}</small>
+						</div>
+					</div>
+				</div>
+				<div style="height:65px;">
+				<a id="bottom"></a></div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer-bottom" style="position: fixed;">
+	<div class="lv-footer ms-reply">
+		<!-- <form ng-submit="sendMessage()"> -->
+		<textarea id="inpmsg" ng-enter="sendMessage()" placeholder="Enter the Message" ng-model="sendMessageData" style="padding-right: 55px !important; line-height: 15px;"></textarea>
+		<!-- <button type="button" ng-click="sendMessage()"><md-icon style="color:#FFF;" md-svg-src="images/send-message.svg" ></md-icon></button> -->
+		<button type="button" ng-click="sendMessage()"><img src="images/send.png" width="30" height="30"></button>
+		<!-- </form> -->
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	if ('ontouchstart' in window) {
+	   
+	    var $body = $('body'); 
+
+	  
+	    $(document)
+	    .on('focus', '#inpmsg', function() {
+	        $body.addClass('fixfixed');
+	    })
+	    .on('blur', '#inpmsg', function() {
+	        $body.removeClass('fixfixed');
+	    });
+	}
+
+	
+</script>

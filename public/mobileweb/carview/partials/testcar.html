@@ -1,0 +1,1102 @@
+<style type="text/css">
+
+/*slider start*/
+  
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.menu-wrapper {
+  position: relative;
+  max-width: 320px;
+  height: 70px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.menu {
+  height: 70px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.menu .item {
+  display: inline-block;
+  width: 60px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.paddle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3em;
+}
+
+.left-paddle {
+  left: 0;
+}
+
+.right-paddle {
+  right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.print {
+  margin: auto;
+  max-width: 500px;
+}
+.print span {
+  display: inline-block;
+  width: 100px;
+}
+/*slider end*/
+
+.layout-wrap {
+flex-wrap: inherit !important;
+}
+
+.md-content.md-default-theme, md-content {
+    background-color: #FFF !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.md-icon {
+    fill: none !important;
+    height: 16px !important;
+    width: 16px !important;
+}
+
+
+
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+   height: 500px;
+   padding-top: 0px;
+  overflow: scroll;
+ }}
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+   height: 510px;
+  
+  overflow: scroll;
+ }}
+
+
+
+  @media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+    height: 582px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+   height: 610px;
+   padding-top: 0px;
+  overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+   height: 675px;
+   padding-top: 0px;
+  overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+ .scroll-height {
+    height: 675px;
+  
+  overflow-y: scroll;
+ }}
+
+  .close-icon { width: 20px !important; height: 20px !important; }
+
+
+ 
+   
+}
+
+html:not(.ismobile) .page-loader .preloader { top:45% !important; }
+html:not(.ismobile) .page-loader .preloader p {
+
+    left: 5px !important;
+    top: 9px !important;
+    color: #CCC !important;
+    font-size: 12px !important;
+    color: #333 !important;
+}
+
+
+</style>
+
+<div class="page-loader" ng-show="loader">
+  <div class="preloader pls-blue">
+    <img src="images/loader.gif" width="50" height="50">
+    <!-- <svg class="pl-circular" viewBox="25 25 50 50">
+      <circle class="plc-path" cx="50" cy="50" r="20" /></circle>
+    </svg> -->
+    <p>Loading...</p>
+  </div>
+</div>
+<!--Slider-->
+<div id="inputContainer" class="inputDemo" ng-cloak>
+  <md-toolbar style="background-color: #173e84 !important; font-family: Calibri, Trebuchet, sans-serif !important;">
+ <div class="md-toolbar-tools">
+ 
+ <md-button class="md-icon-button" ng-click="backToNative()">
+ <md-icon class="close-icon" md-svg-src="images/back-white.svg"></md-icon>
+ </md-button>
+ <span align="center" flex style="font-weight: 600; font-size: 17px;"> {{carDetails.carmodeldetails[0].Make}} {{carDetails.carmodeldetails[0].Model}} </span>
+ </div>
+</md-toolbar>
+<div class="scroll-height" style="overflow-y: scroll; top: 0; margin-top: 0;">
+  <section layout="row" layout-sm="row" layout-align="center" layout-wrap="" ng-if="$scope.carDetails.carimagesdetails.length!=0">
+    <div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+      <div class="carousel-demo">
+        <ul rn-carousel class="carousel1">
+          <li ng-repeat="slide in imageData" ng-class="'id-' + $index+0">
+            <div ng-style="{'background-image': 'url(' + slide+ ')'}"  class="bgimage">
+              <div flex-gt-xs="50" layout="column" >
+                <div layout layout-align="left">
+                  <div flex="50" align="left">
+                    <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="like" ng-click="showTabDialog($event,'partials/carvideo.html')" ng-hide="carDetails.carimagesdetails[0].video_url.length==0 ">
+                    <md-icon md-svg-icon="images/video-camera.svg"></md-icon>
+                    </md-button>
+                    
+                  </md-card-icon-actions></div>
+                  <div flex="50">{{$index+1}} / {{imageData.length}}</div>
+
+                </div>
+              </div>
+              <div flex="99" style="vertical-align: bottom; margin-top: 150px; padding: 5px 0 8px 0; background-color: #333; color: #FFF; opacity: 0.8; text-align: center;">{{imageName[$index+0]}}
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section layout="row" layout-sm="row" layout-align="center" layout-wrap="" ng-if="$scope.carDetails.carimagesdetails.length==0">
+    <div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+      <img src="images/nocar.jpg">
+    </div>
+  </section>
+  
+
+  <section layout="row" layout-sm="row" layout-align="center" class="layout-wrap" >
+    
+    <div flex-xs="" layout-padding flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+    <div ng-if="carDetails.carmodeldetails[0].dealer_id!=ownerDetails.user_id">
+      <div layout="row" layout-padding layout-align="center" class="car-space">
+              <div flex="30" class="ng-binding flex md-caption"><b>Listing Id</b></div>
+              <div flex="10" class="ng-binding flex md-caption">:</div>
+              <div flex="50" class="md-label md-caption">{{carDetails.carmodeldetails[0].listing_id}} </div>
+
+
+      </div>
+
+      <div layout="row" layout-padding layout-align="center" class="car-space">
+              <div flex="30" class="ng-binding flex md-caption"><b>Listing Date</b></div>
+              <div flex="10" class="ng-binding flex md-caption">:</div>
+              <div flex="50" class="md-label md-caption">{{carDetails.carmodeldetails[0].Date}} </div>
+
+              
+      </div>
+    </div>
+      <!-- <div layout layout-align="center end">
+        Listing Id: {{carDetails.carmodeldetails[0].listing_id}}  | Listing Date: {{carDetails.carmodeldetails[0].Date}}
+      </div> -->
+      <div layout layout-align="center end">
+        <b>{{carDetails.carmodeldetails[0].Make}} {{carDetails.carmodeldetails[0].Model}} {{carDetails.carmodeldetails[0].Variant}}</b>
+      </div>
+      <div layout layout-padding layout-align="center end">
+        <span class="md-body-1"> <b><img src="images/rupee.svg" width="12" height="12"> {{carDetails.carmodeldetails[0].Price| currency: " ":0 }}</b></span>
+      </div>
+      
+    </div>
+  </section>
+  
+  
+  <!--Links & Buttons-->
+  <section layout="row" layout-sm="row" layout-align="center" ng-if="carDetails.carmodeldetails[0].dealer_id!=ownerDetails.user_id">
+    <div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+      <div layout="row" layout-align="center" class="layout-align-center layout-row" style="height: 50px;">
+        
+        <!-- ng-hide="carDetails.carimagesdetails[0].video_url.length==0 " -->
+        <div flex="40" class="md-label md-caption" align="center" >
+          <md-button class="md-raised md-primary" type="button" ng-click="testDrive()"><md-icon md-svg-src="images/steering.svg"></md-icon>  Test Drive </md-button>
+        </div>
+       
+        <div flex="20" class="md-label md-caption" align="center">
+          <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="like" ng-click="saveCarFun()">
+            <md-icon md-svg-icon="{{heartin}}"></md-icon>
+            </md-button>
+            <!-- <md-button class="md-icon-button" aria-label="like" ng-show="saveCar!='' " ng-click="saveCarFun()">
+            <md-icon md-svg-icon="images/like-red.svg"></md-icon>
+            </md-button> -->
+                
+                   <span ng-show="savedCarLoader">Loading...</span>
+            </md-card-icon-actions>
+        </div>
+
+          <div flex="40" class="md-label md-caption" align="center">
+
+              <md-button class="md-raised md-primary" type="button" ng-click="testDrive()"><md-icon md-svg-src="images/steering.svg"></md-icon>  Test Drive </md-button>
+          </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <br>
+<div  flex-gt-xs="50" layout="row" class="layout-column flex-xs flex-gt-xs-50">
+  <div flex="10" style="padding: 8px 5px 5px 8px; "><img src="images/scroll-back.svg" width="15" height="15"></div>
+   <div flex="80">
+
+   <ul class="menu">
+
+    <li class="item"> 
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/km.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Mileage}}</span>
+      </div>
+     </li>
+
+
+      <li class="item"> 
+       <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <img src="images/kmpl.png" width="25" height="25">
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Kilometers}}</span>
+      </div>
+      </div>
+      </li>
+
+       <li class="item"> 
+     <div style="width:70px; height:50px;">
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='FIRST' ">
+        <img src="images/user1.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='SECOND' ">
+        <img src="images/user2.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='THIRD' ">
+        <img src="images/user3.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='FOUR' ">
+        <img src="images/user4.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='other' ">
+        <img src="images/user5.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Owner</span>
+      </div>
+      </li>
+
+
+        <li class="item"> 
+     <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/calendar.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Year}}</span>
+      </div>
+     </li>
+
+
+       <li class="item"> 
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/seat.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].SeatingCapacity}}</span>
+      </div>
+     </li>
+
+
+      <li class="item"> 
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/color.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Color</span>
+      </div>
+     </li>
+
+
+     <li class="item"> 
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/fuel.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Fuel</span>
+      </div>
+     </li>
+
+
+       <li class="item"> 
+    <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/transmission.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Transmission</span>
+      </div>
+     </li>
+
+ 
+
+
+
+  </ul></div>
+    <div flex="10" style="padding: 8px 8px 5px 5px; "><img src="images/scroll-right.svg" width="15" height="15"></div>
+</div>
+
+
+  <!--Links & Buttons-->
+   
+
+
+
+
+  
+  <!--<section layout="row" layout-sm="row" layout-align="center" >
+  <div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+<div class="carousel js-flickity">
+  <div class="carousel-cell"> </div>
+  
+  
+    <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs  layout="column">
+      <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/km.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Mileage}}</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+ 
+  
+ <div class="carousel-cell"> </div>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+   <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <img src="images/kmpl.png" width="25" height="25">
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Kilometers}}</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+
+
+ <div class="carousel-cell"> </div>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+     <div style="width:70px; height:50px;">
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='FIRST' ">
+        <img src="images/user1.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='SECOND' ">
+        <img src="images/user2.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='THIRD' ">
+        <img src="images/user3.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='FOUR' ">
+        <img src="images/user4.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%;" align="center" ng-if="carDetails.carmodeldetails[0].OwnerType=='other' ">
+        <img src="images/user5.png" width="25" height="25">
+      </div>
+
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Owner</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+<div class="carousel-cell"> </div>
+    <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+  <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/calendar.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].Year}}</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+    <div class="carousel-cell"> </div>
+    <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+  <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/seat.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">{{carDetails.carmodeldetails[0].SeatingCapacity}}</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+
+    <div class="carousel-cell"> </div>
+      <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+  <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/color.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Color</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+
+    <div class="carousel-cell"> </div>
+      <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+  <div style="width:70px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/fuel.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Fuel</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+
+    <div class="carousel-cell"> </div>
+     <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+  <div style="width:75px; height:50px;">
+      <div style="width:100%;" align="center">
+        <md-icon md-svg-src="images/transmission.svg"></md-icon>
+      </div>
+      <div style="width:100%; text-align:center !important;">
+        <span class="md-caption">Transmission</span>
+      </div>
+    </div>
+    </div>
+    </md-content>
+
+</div>
+</div>
+
+  </section>-->
+  
+  <br>
+
+  <!--Spefication & Features-->
+
+
+
+  <section layout="row" layout="column" layout-align="center center">
+    <div flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+      <div ng-cloak>
+        <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Specification">
+        <md-content class="md-padding">
+      <div class="md-padding" layout="column" layout-sm="column" layout-align="center">
+          <div layout="row" layout-padding layout-align="center" ng-repeat="(key, value) in carDetails.carspecification[0]" class="car-space">
+            <div class="ng-binding flex md-caption car-space">{{key}}</div>
+            <div class="md-label md-caption car-space" ng-if="value!=0">{{value}}</div>
+            <div class="md-label md-caption car-space" ng-if="value==0">N/A</div>
+            <div class="md-label md-caption car-space" ng-if="value==null">N/A</div>
+          </div>
+        </div>
+        </md-content>
+        <br>
+        </md-tab>
+
+
+        <md-tab label="Dimensions">
+        <md-content class="md-padding">
+          <div class="md-padding" layout="column" layout-sm="column" layout-align="center">
+          
+          <div layout="row" layout-padding layout-align="start center" ng-repeat="(key, value) in carDetails.cardiemention[0]"  class="car-space">
+            <div class="ng-binding flex md-caption car-space" >{{key}}</div>
+            <div class="md-label md-caption car-space" ng-if="value!=0">{{value}}</div>
+            <div class="md-label md-caption car-space" ng-if="value==0">N/A</div>
+            <div class="md-label md-caption car-space" ng-if="value==null">{{value}}</div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Gear Box</div>
+                          <div class="md-label">{{carDetails.carspecification[0].gear_box}}</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                            <div class="ng-binding flex">Drive type</div>
+                            <div class="md-label">{{carDetails.carspecification[0].drive_type}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Seating Capacity</div>
+                            <div class="md-label">{{carDetails.carspecification[0].seating_capacity}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Steering type</div>
+                            <div class="md-label">{{carDetails.carspecification[0].steering_type}}</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                            <div class="ng-binding flex">Turning Radius</div>
+                            <div class="md-label">{{carDetails.carspecification[0].turning_radius}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Acceleration</div>
+                            <div class="md-label">{{carDetails.carspecification[0].acceleration}}</div>
+          </div>
+          
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Tyre type</div>
+                            <div class="md-label">{{carDetails.carspecification[0].tyre_type}}</div>
+          </div>
+          
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">No of doors</div>
+                          <div class="md-label">{{carDetails.carspecification[0].no_of_doors}}</div>
+          </div>
+          -->
+          
+        </div>
+        </md-content>
+          <br>
+        </md-tab>
+        
+        
+        <md-icon src="images/add.svg"></md-icon>
+        <md-tab label="Engine">
+        <md-content class="md-padding">
+        <div class="md-padding" layout="column" layout-sm="column" layout-align="center">
+          <div layout="row" layout-padding  layout-align="start center" ng-repeat="(key, value) in carDetails.carenginedetails[0]" class="car-space">
+            <div class="ng-binding flex md-caption car-space">{{key}}</div>
+            
+            <div class="md-label md-caption car-space" ng-if="value!=0">{{value}} </div>
+            <div class="md-label md-caption car-space" ng-if="value==0">N/A</div>
+            <div class="md-label md-caption car-space" ng-if="value==null">N/A </div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Max Power</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].max_power}}</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Max Torque</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].max_torque}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">No Of Cylinder</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].no_of_cylinder}}</div>
+          </div>
+          
+          <div layout="row" layout-padding=""  layout-align="start center" >
+                          <div class="ng-binding flex">Valves per Cylinder</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].valves_per_cylinder}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Valve configuration</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].valve_configuration}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Fuel Supply System</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].fuel_supply_system}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Turbo Charger</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].Turbo Charger}}</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Super Charger</div>
+                          <div class="md-label">{{carDetails.carenginedetails[0].super_charger}}</div>
+          </div> -->
+        </div>
+        </md-content>
+      <br>
+        </md-tab>
+        
+        <md-tab label="Interior">
+        <md-content >
+        <div layout="column" layout-sm="column" layout-align="center">
+        <div layout="row" layout-padding  layout-align="start center" ng-repeat="(key, value) in carDetails.carinteriordetails[0]" class="car-space">
+            <div class="ng-binding flex md-caption car-space">{{key}}</div>
+            <div class="md-label car-space" >
+              
+              <md-icon class="ng-scope" aria-hidden="true" aria-label="tick" ng-if="value==1" style="color: #012a76;">check</md-icon>
+              
+            <md-icon class="ng-scope" aria-hidden="true" aria-label="close" ng-if="value==0 || value=='' " style="color:#FF0000;">close</md-icon>
+            </div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Adjustable Steering</div>
+                            <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Leather Steering Wheel</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Heater</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Digital Clock</div>
+                          <div class="md-label">-</div>
+          </div> -->
+        </div>
+        </md-content>
+        <br><br> 
+        </md-tab>
+        
+        
+        <md-tab label="Comfort">
+        <md-content class="md-padding">
+        <div class="md-padding" layout="column" layout-sm="column" layout-align="center">
+            <div layout="row" layout-padding  layout-align="start center" ng-repeat="(key, value) in carDetails.carcomportdetails[0]" class="car-space">
+            <div class="ng-binding flex car-space md-caption" >{{key}}</div>
+            <div class="md-label car-space" >
+            
+              <md-icon class="ng-scope" aria-label="tick" aria-hidden="true" ng-if="value==1" style="color: #012a76;">check</md-icon>
+              
+            
+              <md-icon class="ng-scope"  aria-label="close" aria-hidden="true"  ng-if="value==0 || value=='' " style="color:#FF0000;">close</md-icon>
+            </div>
+          </div>
+          
+          
+          <!-- <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Power windows front</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Power windows rear</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Remote trunk opener</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Remote fuel lid opener</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Low fuel warning light</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Rear reading lamp</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Rear seat centre arm rest</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Height adjustable front seat belts</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Cup holders front</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Rear ac vents</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          
+          <div layout="row" layout-padding=""  layout-align="start center" >
+                          <div class="ng-binding flex">Parking sensors</div>
+                          <div class="md-label">-</div>
+          </div> -->
+        </div>
+        </md-content>
+      <br>
+        </md-tab>
+        
+        <md-tab label="Safety">
+        <md-content class="md-padding">
+        <div class="md-padding" layout="column" layout-sm="column" layout-align="center">
+          <div layout="row" layout-padding  layout-align="start center"  ng-repeat="(key, value) in carDetails.carsafetydetails[0]" class="car-space">
+            <div class="ng-binding flex car-space md-caption" >{{key}}</div>
+            <div class="md-label car-space">
+
+            
+              <md-icon  class="ng-scope" aria-hidden="true" ng-if="value==1" style="color: #012a76;">check</md-icon>
+            
+              <md-icon  class="ng-scope" aria-hidden="true" ng-if="value==0 || value=='' " style="color:#FF0000;">close</md-icon>
+            </div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Central locking</div>
+                            <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                          <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Child safety lock</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Driver airbags</div>
+                          <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                        <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Passenger airbag </div>
+                          <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                        <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Rear seat belts</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Seat belt warning</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Adjustable seats</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Crash sensor</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Anti theft device</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Immobilizer</div>
+                          <div class="md-label">-</div>
+          </div> -->
+          
+        </div>
+        </md-content>
+        <br>
+        </md-tab>
+        
+        <md-tab label="exterior">
+        <md-content class="md-padding">
+        <div class="md-padding" layout="column" layout-sm="column" layout-align="center" >
+          <div layout="row" layout-padding  layout-align="start center"  ng-repeat="(key, value) in carDetails.carexteriordetails[0]" class="car-space">
+            <div class="ng-binding flex car-space md-caption" >{{key}}</div>
+            <div class="md-label car-space" >
+            
+              <md-icon  class="ng-scope" aria-label="tick" aria-hidden="true" ng-if="value==1" style="color: #012a76;">check</md-icon>
+              
+              <md-icon  class="ng-scope" aria-label="close" aria-hidden="true" ng-if="value==0 || value=='' " style="color:#FF0000;">close</md-icon>
+            </div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding  layout-align="start center" >
+                        <div class="ng-binding flex">Power adjustable exterior rear view mirror </div>
+                          <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                        <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Electric folding rear view mirror</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Rain sensing wipers</div>
+                          <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                        <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Rear window wiper</div>
+                          <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                        <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                          </div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Alloy wheels</div>
+                          <div class="md-label">-</div>
+          </div>
+                        
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Tinted glass</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding layout-align="start center" >
+                          <div class="ng-binding flex">Front fog lights</div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Rear window wiper </div>
+                          <div class="md-label">-</div>
+          </div>
+          
+          <div layout="row" layout-padding  layout-align="start center" >
+                          <div class="ng-binding flex">Rear window wiper </div>
+                          <div class="md-label">-</div>
+          </div>
+          -->
+          
+        </div>
+        </md-content>
+      <br> 
+        </md-tab>
+        
+        <md-tab label="Entertainment">
+        <md-content class="md-padding">
+        <div class="md-padding" layout="column" layout-sm="column" layout-align="center" >
+          <div layout="row" layout-padding layout-align="start center" ng-repeat="(key, value) in carDetails.carentertainmentdetails[0]" style="padding: 2px 8px 2px 8px; !important;">
+            <div class="ng-binding flex car-space md-caption" >{{key}}</div>
+            <div class="md-label car-space" >
+          
+              <md-icon  class="ng-scope" aria-label="tick" aria-hidden="true" ng-if="value==1" style="color: #012a76;">check</md-icon>
+              
+        
+              <md-icon  class="ng-scope" aria-label="tick" aria-hidden="true" ng-if="value==0 || value=='' " style="color:#FF0000;">close</md-icon>
+            </div>
+          </div>
+          
+          <!-- <div layout="row" layout-padding  layout-align="start center" >
+                            <div class="ng-binding flex">Radio</div>
+                              <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                            <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                            </div>
+            </div>
+            
+            <div flex="" layout="row" layout-padding layout-align="start center" >
+                            <div class="ng-binding flex">Audio</div>
+                            <div class="md-label">-</div>
+            </div>
+            
+            <div layout="row" layout-padding layout-align="start center" >
+                            <div class="ng-binding flex">Bluetooth</div>
+                            <div class="md-label"><button class="md-fab md-button md-warn md-ink-ripple" type="button"  aria-label="tick" style="width:35px; height:28px;" >
+                                          <md-icon class="ng-scope" aria-hidden="true">close</md-icon></button>
+                            </div>
+          </div> -->
+          
+          
+        </div>
+        </md-content>
+        <br> 
+        </md-tab>
+        </md-tabs>
+        
+        
+        <!--Scroll
+        <md-button class="md-fab md-fab-bottom-right docs-scroll-fab md-button md-ink-ripple scrolling" type="button"  docs-scroll-class="scrolling" ng-click="scrollTop()" aria-label="Back to Top">
+            <md-icon md-svg-src="images/up-arrow.svg" class="ng-scope" aria-hidden="true"></md-icon>
+        </md-button>-->
+        </md-content>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+</div>
+
+  <div  ng-if="carDetails.carmodeldetails[0].dealer_id!=ownerDetails.user_id" id="footer-bottom" style="height:38px !important; padding-bottom: 3px;border-top:1px solid #f2f2f2; z-index: 10;" >
+    <section layout="row" layout-sm="row" layout-align="center" layout-wrap="">
+      <div flex-xs="" flex-gt-xs="50" layout="row" class="layout-column flex-xs flex-gt-xs-50">
+        <md-icon style="cursor:pointer;" md-svg-src="images/message.svg" ng-click="showTabDialog($event,'partials/sendmessage.html','sendMessageDealerCtrl')"></md-icon>
+
+        <md-icon style="cursor:pointer;" md-svg-src="images/information.svg" ng-click="showTabDialog($event,'partials/dealerinfo.html','dealerInfoCtrl')"></md-icon>
+
+        <md-button style="margin-bottom: 10px; margin-top: -10px;" class="md-fab md-primary" ng-click="phoneDialler()">
+        <md-icon md-svg-src="images/telephone.svg"></md-icon>
+        </md-button>
+        
+        <md-icon style="cursor:pointer;" md-svg-src="images/share.svg" ng-click="showTabDialog($event,'partials/share.html','shareCtrl')"></md-icon>
+
+        <md-icon style="cursor:pointer;" md-svg-src="images/bank-card.svg" ng-click="showTabDialog($event,'partials/report.html','dealerInfoCtrl')"></md-icon>
+        
+      </div>
+    </section>
+  </div>
+
+
+<script type="text/javascript">
+  // duration of scroll animation
+var scrollDuration = 300;
+// paddles
+var leftPaddle = document.getElementsByClassName('left-paddle');
+var rightPaddle = document.getElementsByClassName('right-paddle');
+// get items dimensions
+var itemsLength = $('.item').length;
+var itemSize = $('.item').outerWidth(true);
+// get some relevant size for the paddle triggering point
+var paddleMargin = 20;
+
+// get wrapper width
+var getMenuWrapperSize = function() {
+  return $('.menu-wrapper').outerWidth();
+}
+var menuWrapperSize = getMenuWrapperSize();
+// the wrapper is responsive
+$(window).on('resize', function() {
+  menuWrapperSize = getMenuWrapperSize();
+});
+// size of the visible part of the menu is equal as the wrapper size 
+var menuVisibleSize = menuWrapperSize;
+
+// get total width of all menu items
+var getMenuSize = function() {
+  return itemsLength * itemSize;
+};
+var menuSize = getMenuSize();
+// get how much of menu is invisible
+var menuInvisibleSize = menuSize - menuWrapperSize;
+
+// get how much have we scrolled to the left
+var getMenuPosition = function() {
+  return $('.menu').scrollLeft();
+};
+
+// finally, what happens when we are actually scrolling the menu
+$('.menu').on('scroll', function() {
+
+  // get how much of menu is invisible
+  menuInvisibleSize = menuSize - menuWrapperSize;
+  // get how much have we scrolled so far
+  var menuPosition = getMenuPosition();
+
+  var menuEndOffset = menuInvisibleSize - paddleMargin;
+
+  // show & hide the paddles 
+  // depending on scroll position
+  if (menuPosition <= paddleMargin) {
+    $(leftPaddle).addClass('hidden');
+    $(rightPaddle).removeClass('hidden');
+  } else if (menuPosition < menuEndOffset) {
+    // show both paddles in the middle
+    $(leftPaddle).removeClass('hidden');
+    $(rightPaddle).removeClass('hidden');
+  } else if (menuPosition >= menuEndOffset) {
+    $(leftPaddle).removeClass('hidden');
+    $(rightPaddle).addClass('hidden');
+}
+
+  // print important values
+  $('#print-wrapper-size span').text(menuWrapperSize);
+  $('#print-menu-size span').text(menuSize);
+  $('#print-menu-invisible-size span').text(menuInvisibleSize);
+  $('#print-menu-position span').text(menuPosition);
+
+});
+
+// scroll to left
+$(rightPaddle).on('click', function() {
+  $('.menu').animate( { scrollLeft: menuInvisibleSize}, scrollDuration);
+});
+
+// scroll to right
+$(leftPaddle).on('click', function() {
+  $('.menu').animate( { scrollLeft: '0' }, scrollDuration);
+});
+</script>

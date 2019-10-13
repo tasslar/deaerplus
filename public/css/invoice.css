@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body { height: 100%;background: #f7f7f7;font-family: robotoregular;}
+body{font-family: robotoregular;}
+h4
+{
+    margin:10px 0px;
+}
+.container {width: 100%;padding: 0;float:left;}
+.content
+{
+    width:90%;
+    margin:0 5%;
+    float:left;
+        
+}
+.content .logo
+{
+    float:left;
+        width: 207px;
+}
+.top-head .head-1{text-transform: uppercase;text-align: center; font-size: 25px;    margin: 0px;}
+.table-invoice
+{
+    
+    width:100%;
+    border-collapse: collapse;
+}
+.table-invoice tr{
+    border-bottom: none;
+    
+}
+.table-invoice td, .table-invoice th{
+   padding: 5px 10px;
+    vertical-align: baseline;
+        border: none;
+    text-align: left;
+    font-size: 14px;
+}
+thead tr{
+        background-color: #183055;
+        padding:10px;
+        color:#fff;
+        text-align: center;
+}
+.span-data
+{
+    float: right;
+}
+.td-data
+{
+    text-align: left;
+}
+p
+{
+    font-size: 13px;
+    margin:0px;
+    line-height: 20px;
+}
+.table-invoice
+{
+    margin-top: 10px;
+}
+.body-invoice1
+{
+    text-align: right;
+}
+.detail-link
+{
+    margin-top:10px;
+}
+.border-none
+{
+    border:0px;
+}
+.td-data 
+{
+    margin:0px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.td-data h4{
+    color:#ff2222;
+    font-size: 14px;
+    margin: 0px;
+}
+.rupee-word
+{
+    font-weight: bold;
+}
+.content-text{
+    text-align:left;
+    margin-top:10px;
+}
+.bold-word{
+    font-weight: bold;
+    margin-top:10px;
+}

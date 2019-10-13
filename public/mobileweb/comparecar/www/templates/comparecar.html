@@ -1,0 +1,1701 @@
+<ion-view> 
+<ion-nav-title>
+        <span style="font-weight:600;align:center">Compare</span>
+     </ion-nav-title>
+	<ion-content class='has-panic' lazy-scroll overflow-scroll="true">
+
+
+<style type="text/css">
+	.center-align { text-align: center !important;}
+	blockquote { color: #000; border-left: 0px solid #FFF !important; margin: 10px; !important;
+}
+
+.btn-green { background-color:#84c542 !important; color:#FFF !important; width:auto;}
+ .btn-blue-light { background-color:#7986cb !important;}
+
+.compare-bar{
+border-bottom:1px solid #CCC;
+padding: 0px;
+margin-bottom: 15px;
+}
+
+.row { margin-bottom: 0 !important; }
+
+</style>
+
+
+   <div class="row" style="margin-top: 10px;">
+
+    <div class="col s6 m6 l6">
+   
+     <div style="margin: 0 !important; ">
+      <img class="full-image" src="images/vehicle-placeholder.png" ng-src="{{imageurl1.image_url}}">
+     </div>
+     <div class="left-align" class="col s12 m6 l6">
+      <p><span>{{imageurl1.Model}} {{imageurl1.Variant}} </span></p>
+      <p><b><img src="images/rupee.svg" width="12" height="12"> {{imageurl1.Price| currency: " ":0}} </b></p>
+     </div>
+     
+    </div>
+    <div class="col s6 m6 l6">
+     <div style="margin: 0 !important; ">
+      <img class="full-image" src="images/vehicle-placeholder.png" ng-src="{{imageurl2.image_url}}">
+     </div>
+     <div class="left-align" class="col s12 m6 l6">
+      <p><span>{{imageurl2.Model}} {{imageurl2.Variant}}</span></p>
+      <p><b><img src="images/rupee.svg" width="12" height="12"> {{imageurl2.Price| currency: " ":0}}</b></p>
+     </div>
+     
+    </div>
+   </div>
+
+
+
+<!-- <div class="row">
+		<div ng-repeat="carimage in carimagedetails" >
+			<div class="col s12">
+				<img src="images/vehicle-placeholder.png" class="full-image" ng-src="{{carimage.image_url}}">
+			</div>			
+				<div class="col s12">
+					<p>{{carimage.Model}} {{carimage.Variant}}</p>
+					<p><b>Rs {{carimage.Price}}</b></p>
+				</div>
+			</div>
+</div> -->
+
+	</div>
+
+		<div class="row">
+		
+		<div class="col s6">
+				<a ng-href="http://52.221.99.190/mobileweb/carview/index.html#/carview/{{cardata.session_user_id}}/{{imageurl1.listing_id}}/{{imageurl2.listing_id}}">
+     			<button type="button" class="btn waves-effect waves-light btn-green col s12" >Get Seller Details</button></a>
+			</div>
+			
+			<div class="col s6">
+				<a ng-href="http://52.221.99.190/mobileweb/carview/index.html#/carview/{{cardata.session_user_id}}/{{imageurl2.listing_id}}/{{imageurl1.listing_id}}">
+     			<button type="button" class="btn waves-effect waves-light btn-green col s12" >Get Seller Details</button></a>
+			</div>
+		
+		</div>
+<!--Comapre Car
+<div class="row">
+	<div class="col s12 m6 l6" >
+		<button type="button" class="btn waves-effect waves-light btn-blue col s12">Compare Cars</button>
+	</div>
+</div>-->
+
+
+<h3 class="col s12 center-align">Car Comparisons</h3>
+
+
+		<!--Overview-->
+			<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('1') ; expand(1)">
+						<div class="col s10" id="top">
+				  			<span >Overview</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('1') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='1'">
+					
+					      		<div class="row">
+									<div class="col s12 center-align">
+										<blockquote>Picture</blockquote>
+									</div>
+								</div>							
+								
+									<div ng-repeat="caroverview in carmodeldetails">
+									<div class="col s6">	
+										<div class="compare-bar" align="center">
+											<span>{{caroverview.imagecount}}</span><span ng-click="openmodal(caroverview.allimages)"> (View Now)</span>
+										</div>
+										</div>
+									</div>
+								
+
+								<!--Registration City-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Registration City</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if ="caroverview.Location!=0">{{caroverview.Location}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Location == 0">N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Location==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+								<!--Model Year-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Model Year</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.Year!=0">
+												{{caroverview.Year}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Year==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Year==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+								
+										
+
+									<!--No of Owners-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>No. of Owners</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.OwnerType!=0">
+												{{caroverview.OwnerType}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.OwnerType==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.OwnerType==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+									<!--KMs Driven-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>KMs Driven</blockquote>
+										</div>
+									</div>							
+								
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.Kilometers!=0">
+												{{caroverview.Kilometers}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Kilometers==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Kilometers==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+								
+
+
+									<!--Fuel Type-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Fuel Type</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.FuelType!=0">
+												{{caroverview.FuelType}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.FuelType==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.FuelType==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+
+									<!--Mileage-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Mileage</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.Mileage!=0">
+												{{caroverview.Mileage}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Mileage==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Mileage==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+
+									<!--Transmission-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Transmission</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.transmission!=0">
+												{{caroverview.transmission}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.transmission==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.transmission==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+									<!--Insurance-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Insurance</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.insurance!=0">
+												{{caroverview.insurance}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.insurance==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.insurance==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+
+									<!--Finance-->
+									<div class="row">
+										<div class="col s12 center-align">
+											<blockquote>Finance</blockquote>
+										</div>
+									</div>							
+									
+										<div ng-repeat="caroverview in carmodeldetails">
+										<div class="col s6">	
+											<div class="compare-bar" align="center">
+												<label class="label-font" id="disabled" ng-if="caroverview.Finance!=0">
+												{{caroverview.Finance}}</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Finance==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="caroverview.Finance==null">
+												N/A</label>
+											</div>
+											</div>
+										</div>
+									
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Specification-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('2') ; expand(2)">
+						<div class="col s10">
+				  			<span class="heading">Car Specification</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('2') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					 
+					<ion-item class="item-accordion" ng-if="shownGroup =='2'">
+					      	
+						<!--Color-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Color</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.Color!=0">{{carspec.Color}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.Color==0">
+												N/A</label>
+												<label class="label-font" id="disabled" ng-if="carspec.Color==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Gear Box-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Gear Box</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.GearBox!=0">{{carspec.GearBox}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.GearBox==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.GearBox==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+							<!--Drive type-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Drive type</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.DriveType!=0">{{carspec.DriveType}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.DriveType==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.DriveType==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Seating Capacity-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Seating Capacity</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="caroverview in carmodeldetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="caroverview.SeatingCapacity!=0">{{caroverview.SeatingCapacity}}</label>
+										<label class="label-font" id="disabled" ng-if="caroverview.SeatingCapacity==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="caroverview.SeatingCapacity==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Steering type-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Steering type</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.SteeringType!=0">{{carspec.SteeringType}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.SteeringType==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.SteeringType==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Turning Radius-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Turning Radius</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.TurningRadius!=0">{{carspec.TurningRadius}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.TurningRadius==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.TurningRadius==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Top Speed-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Top Speed</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.topspeed!=0">{{carspec.topspeed}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.topspeed==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.topspeed==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+							<!--Acceleration-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Acceleration</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.Acceleration!=0">{{carspec.Acceleration}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.Acceleration==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.Acceleration==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Tyre type-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Tyre type</blockquote>
+								</div>
+							</div>							
+						
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.TyreType!=0">{{carspec.TyreType}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.TyreType==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.TyreType==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+
+							<!--No of doors-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>No of doors</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carspec in carspecification">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carspec.Nofdoors!=0">{{carspec.Nofdoors}}</label>
+										<label class="label-font" id="disabled" ng-if="carspec.Nofdoors==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carspec.Nofdoors==null">
+												N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Engine-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('3') ; expand(3)">
+						<div class="col s10">
+				  			<span class="heading">Engine</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('3') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='3'">
+					   <!--Engine Type-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Engine Type</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.EngineType!=0">{{carengine.EngineType}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.EngineType==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.EngineType==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Displacement-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Displacement</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.Displacement!=0">{{carengine.Displacement}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Displacement==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Displacement==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Max Power-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Max Power</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.MaxPower!=0">{{carengine.MaxPower}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.MaxPower==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.MaxPower==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+							<!--Max Torque-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Max Torque</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.MaxTorque!=0">{{carengine.MaxTorque}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.MaxTorque==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.MaxTorque==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+							<!--No Of Cylinders-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>No Of Cylinders</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.Noofcylinder!=0">{{carengine.Noofcylinder}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Noofcylinder==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Noofcylinder==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Valves per Cylinder-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Valves per Cylinder</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.Valuespercylinder!=0">{{carengine.Valuespercylinder}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Valuespercylinder==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.Valuespercylinder==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+							<!--Valve configuration-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Valve configuration</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.ValueConfiguration!=0">{{carengine.ValueConfiguration}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.ValueConfiguration==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.ValueConfiguration==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+
+							<!--Fuel Supply System-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Fuel Supply System</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.FuelSupplySystem!=0">{{carengine.FuelSupplySystem}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.FuelSupplySystem==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.FuelSupplySystem==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Turbo Charger-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Turbo Charger</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.TurboCharger!=0">{{carengine.TurboCharger}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.TurboCharger==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.TurboCharger==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Super Charger-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Super Charger</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carengine in carenginedetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carengine.SuperCharger!=0">{{carengine.SuperCharger}}</label>
+										<label class="label-font" id="disabled" ng-if="carengine.SuperCharger==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carengine.SuperCharger==null">N/A</label>
+									</div>
+									</div>
+								</div>
+								
+				
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Dimensions-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('4') ; expand(1)">
+						<div class="col s10">
+				  			<span class="heading">Car Dimensions</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('4') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='4'">
+					  	<!--Length-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Length</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="cardimention in cardimentiondetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="cardimention.Length!=0">{{cardimention.Length}}</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Length==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Length==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Width-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Width</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="cardimention in cardimentiondetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="cardimention.Width!=0">{{cardimention.Width}}</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Width==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Width==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Height-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Height</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="cardimention in cardimentiondetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="cardimention.Height!=0">{{cardimention.Height}}</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Height==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.Height==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Wheel Base-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Wheel Base</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="cardimention in cardimentiondetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="cardimention.WheelBase!=0">{{cardimention.WheelBase}}</label>
+											<label class="label-font" id="disabled" ng-if="cardimention.WheelBase==0">N/A</label>
+											<label class="label-font" id="disabled" ng-if="cardimention.WheelBase==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Gross Weight-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Gross Weight</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="cardimention in cardimentiondetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="cardimention.GrossWeight!=0">{{cardimention.GrossWeight}}</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.GrossWeight==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="cardimention.GrossWeight==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Car Interior Features-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('5') ; expand(5)">
+						<div class="col s10">
+				  			<span class="heading">Car Interior Features</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('5') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='5'">
+					  <!--Air Conditioner-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Air Conditioner</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carinterior in carinteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carinterior.AirConditioner!=0">{{carinterior.AirConditioner}}</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.AirConditioner==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.AirConditioner==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Adjustable Steering-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Adjustable Steering</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carinterior in carinteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carinterior.AdjustableSteering!=0">{{carinterior.AdjustableSteering}}</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.AdjustableSteering==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.AdjustableSteering==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Leather Steering Wheel-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Leather Steering Wheel</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carinterior in carinteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carinterior.LeatherSteeringWheel!=0">{{carinterior.LeatherSteeringWheel}}</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.LeatherSteeringWheel==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.LeatherSteeringWheel==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Heater-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Heater</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carinterior in carinteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carinterior.Heater!=0">{{carinterior.Heater}}</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.Heater==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.Heater==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Digital Clock-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Digital Clock</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carinterior in carinteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carinterior.DigitalClock!=0">>{{carinterior.DigitalClock}}</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.DigitalClock==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carinterior.DigitalClock==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Comfort-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('6') ; expand(6)">
+						<div class="col s10">
+				  			<span class="heading">Car Comfort</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('6') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='6'">
+					  
+						<!--Power steering-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Power steering</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerSteering!=0">{{carcomfort.PowerSteering}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerSteering==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerSteering==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Power windows front-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Power windows front</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerWindowsFront!=0">{{carcomfort.PowerWindowsFront}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerWindowsFront==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerWindowsFront==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Power windows rear-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Power windows rear</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled"  ng-if="carcomfort.PowerWindowsear!=0">{{carcomfort.PowerWindowsear}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerWindowsear==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.PowerWindowsear==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Remote trunk opener-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Remote trunk opener</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteTrunkOpener!=0">{{carcomfort.RemoteTrunkOpener}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteTrunkOpener==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteTrunkOpener==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Remote fuel lid opener-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Remote fuel lid opener</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteFuellidopener!=0">{{carcomfort.RemoteFuellidopener}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteFuellidopener==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RemoteFuellidopener==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Low fuel warning light-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Low fuel warning light</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.LowFuelWarningLight!=0">{{carcomfort.LowFuelWarningLight}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.LowFuelWarningLight==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.LowFuelWarningLight==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Rear reading lamp-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear reading lamp</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearReadingLamp!=0">{{carcomfort.RearReadingLamp}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearReadingLamp==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearReadingLamp==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Rear seat headrest-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear seat headrest</blockquote>
+								</div>
+							</div>							
+						
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.rear_seat_headrest!=0">{{carcomfort.rear_seat_headrest}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.rear_seat_headrest==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.rear_seat_headrest==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Rear seat center arm rest-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear seat center arm rest</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearSeatCentreArmRest!=0">{{carcomfort.RearSeatCentreArmRest}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearSeatCentreArmRest==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearSeatCentreArmRest==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Height adjustable front seat belts-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Height adjustable front seat belts</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.HeightAdjustableFrontSeatBelts!=0">{{carcomfort.HeightAdjustableFrontSeatBelts}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.HeightAdjustableFrontSeatBelts==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.HeightAdjustableFrontSeatBelts==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Cup holders front-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Cup holders front</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.CupHoldersFront!=0">{{carcomfort.CupHoldersFront}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.CupHoldersFront==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.CupHoldersFront==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Cup holders rear-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Cup holders rear</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled"  ng-if="carcomfort.cup_holders_rear!=0">{{carcomfort.cup_holders_rear}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.cup_holders_rear==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.cup_holders_rear==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Rear a/c vents-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear a/c vents</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearAcvents!=0">{{carcomfort.RearAcvents}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearAcvents==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.RearAcvents==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Parking sensors-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Parking sensors</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carcomfort in carcomfortdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carcomfort.ParkingSensors!=0">{{carcomfort.ParkingSensors}}</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.ParkingSensors==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carcomfort.ParkingSensors==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Safety-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('7') ; expand(7)">
+						<div class="col s10">
+				  			<span class="heading">Car Safety</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('7') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='7'">
+					  <!--Anti lock braking system-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Anti lock braking system</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiLockBrakingSystem!=0">{{carsafety.AntiLockBrakingSystem}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiLockBrakingSystem==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiLockBrakingSystem==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Central locking-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Central locking</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.CentralLocking!=0">{{carsafety.CentralLocking}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.CentralLocking==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.CentralLocking==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Driver airbags-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Driver Airbags</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.DriverAirbags!=0">{{carsafety.DriverAirbags}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.DriverAirbags==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.DriverAirbags==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Passenger airbag-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Passenger Airbag</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.PassengerAirbag!=0">{{carsafety.PassengerAirbag}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.PassengerAirbag==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.PassengerAirbag==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Rear seat belts-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear seat belts</blockquote>
+								</div>
+							</div>							
+						
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.RearSeatBelts!=0">{{carsafety.RearSeatBelts}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.RearSeatBelts==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.RearSeatBelts==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Seat belt warning-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Seat belt warning</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.SeatBeltWarning!=0">{{carsafety.SeatBeltWarning}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.SeatBeltWarning==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.SeatBeltWarning==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Adjustable seats-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Adjustable seats</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.AdjustableSeats!=0">{{carsafety.AdjustableSeats}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AdjustableSeats==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AdjustableSeats==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Crash sensor-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Crash sensor</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled"  ng-if="carsafety.CrashSensor!=0">{{carsafety.CrashSensor}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.CrashSensor==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.CrashSensor==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Anti theft device-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Anti theft device</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiTheftDevice!=0">{{carsafety.AntiTheftDevice}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiTheftDevice==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.AntiTheftDevice==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+							<!--Immobilizer-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Immobilizer</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carsafety in carsafetydetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carsafety.Immobilizer!=0">{{carsafety.Immobilizer}}</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.Immobilizer==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carsafety.Immobilizer==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Exterior-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('8') ; expand(1)">
+						<div class="col s10">
+				  			<span class="heading">Car Exterior</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('8') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='8'">
+					  <!--Adjustable Head lights-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Adjustable Head lights</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.AdjustableHeadLights!=0">{{carexterior.AdjustableHeadLights}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.AdjustableHeadLights==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.AdjustableHeadLights==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Power adjustable exterior rear view mirror-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Power adjustable exterior rear view mirror</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.RearViewMirror!=0">{{carexterior.RearViewMirror}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RearViewMirror==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RearViewMirror==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Electric folding rear view mirror-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Electric folding rear view mirror</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.ElectricFoldingRearMirror!=0">{{carexterior.ElectricFoldingRearMirror}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.ElectricFoldingRearMirror==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.ElectricFoldingRearMirror==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						<!--Rain sensing wipers-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rain sensing wipers</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled"  ng-if="carexterior.RainSensingWipers!=0">{{carexterior.RainSensingWipers}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RainSensingWipers==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RainSensingWipers==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+
+						
+							
+
+						<!--Alloy wheels-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Alloy wheels</blockquote>
+								</div>
+							</div>							
+						
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.AlloyWheels!=0">{{carexterior.AlloyWheels}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.AlloyWheels==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.AlloyWheels==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Tinted glass-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Tinted glass</blockquote>
+								</div>
+							</div>							
+								
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.tinted_glass!=0">{{carexterior.tinted_glass}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.tinted_glass==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.tinted_glass==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Front fog lights-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Front fog lights</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.FrontFogLights!=0">{{carexterior.FrontFogLights}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.FrontFogLights==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.FrontFogLights==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Rear window wiper-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear window wiper</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled"  ng-if="carexterior.RearWindowWiper!=0">{{carexterior.RearWindowWiper}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RearWindowWiper==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.RearWindowWiper==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Rear window defogger-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Rear window defogger</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carexterior in carexteriordetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carexterior.rear_window_defogger!=0">{{carexterior.rear_window_defogger}}</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.rear_window_defogger==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carexterior.rear_window_defogger==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+					</ion-item>
+				</div>
+			</div>
+		</div>
+
+		<!--Car Entertinment-->
+		<div class="row">
+			<div class="col s12">
+				<div class="list">
+					<ion-item class="black_box" ng-click="toggleGroup('9') ; expand(9)">
+						<div class="col s10">
+				  			<span class="heading">Car Entertinment</span>
+						</div>
+						<div class="col"><div class="item-icon-right"><i class="icon" ng-class="isGroupShown('9') ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'">
+						</i></div>
+						</div>
+				     </ion-item>
+					<ion-item class="item-accordion" ng-if="shownGroup =='9'">
+					  
+						<!--CD Player-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>CD Player</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carentertainment in carentertainmentdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carentertainment.Cdplayer!=0">{{carentertainment.Cdplayer}}</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Cdplayer==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Cdplayer==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Radio-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Radio</blockquote>
+								</div>
+							</div>							
+									
+								<div ng-repeat="carentertainment in carentertainmentdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carentertainment.Radio!=0">{{carentertainment.Radio}}</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Radio==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Radio==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Audio-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Audio</blockquote>
+								</div>
+							</div>							
+							
+								<div ng-repeat="carentertainment in carentertainmentdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carentertainment.Audio!=0">{{carentertainment.Audio}}</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Audio==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Audio==null">N/A</label>
+									</div>
+									</div>
+								</div>
+						
+
+						<!--Bluetooth-->
+							<div class="row">
+								<div class="col s12 center-align">
+									<blockquote>Bluetooth</blockquote>
+								</div>
+							</div>							
+						
+								<div ng-repeat="carentertainment in carentertainmentdetails">
+								<div class="col s6">	
+									<div class="compare-bar" align="center">
+										<label class="label-font" id="disabled" ng-if="carentertainment.Bluetooth!=0">{{carentertainment.Bluetooth}}</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Bluetooth==0">N/A</label>
+										<label class="label-font" id="disabled" ng-if="carentertainment.Bluetooth==null">N/A</label>
+									</div>
+									</div>
+								</div>
+							
+					</ion-item>
+					<br>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+</ion-content>
+<!-- <ion-footer>
+ <div class="fixed-action-btn">
+    	<a class="btn-floating indigo darken-4">
+     		 <i class="large material-icons">swap_horiz</i>
+    	</a>
+	    <ul>
+	      <li ng-click="backward()"><a class="btn-floating red"><img src="images/floating-back-arrow.svg" width="25" height="38"></a></li>
+	      <li ng-click="forward()"><a class="btn-floating blue"><img src="images/floating-right-arrow.svg" width="25" height="40"></a></li>
+	     
+	    </ul>
+  	</div>
+</ion-footer> -->
+</ion-view>

@@ -1,0 +1,1292 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+.modal-content {
+    padding: 12px !important;
+}
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ .scroll-height {
+ 		height: 500px;
+ 	overflow-y: scroll;
+ }
+.chkprice { margin-top: 50px; }
+
+}
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+ 		height: 520px;
+ 		scroll-behavior: smooth;
+ 	
+ 	overflow-y: scroll;
+ }
+
+ .chkprice { margin-top: 50px; }
+}
+
+  @media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+ 		height: 590px;
+ 		scroll-behavior: smooth;
+ 	overflow-y: scroll;
+ }
+
+.chkprice { margin-top: 50px; }
+}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+ 		/*height: 600px;*/
+ 		height: 620px;
+ 		padding-top: 0px;
+ 		scroll-behavior: smooth;
+ 	overflow-y: scroll;
+ }
+.chkprice { margin-top: 0px; }
+}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+ 		height: 680px;
+ 		padding-top: 0px;
+ 	overflow-y: scroll;
+ 	scroll-behavior: smooth;
+ }
+.chkprice { margin-top: 10px; }
+
+}
+
+
+
+
+  @media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+ .scroll-height {
+ 		height: 675px;
+ 	scroll-behavior: smooth;
+ 	overflow-y: scroll;
+ }
+
+ .chkprice { margin-top: 70px; }
+
+
+}
+
+
+/*   @media only screen 
+and (min-device-width : 1080px) 
+and (max-device-height : 1920px) {
+ .scroll-height {
+    height: 800px;
+  
+  overflow-y: scroll;
+ }
+
+ .chkprice { margin-top: 70px; }
+}
+*/
+
+
+
+.bordered { border-bottom:1px solid #CCC; }
+
+td { font-size: 12px; } 
+
+.model-font { margin-left: 50px; font-size: 17px; font-weight: 600; padding-top: 3px;"  }
+
+/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+
+
+
+</style>
+
+<!--Loader-->
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+          <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div>
+
+
+<!--Header-->
+
+<!--Page-->
+
+
+	<div class="header" style="width:100%; top: 0; z-index: 999;">
+		<nav>
+			   <div class="nav-wrapper">
+			   <div class="col s12">
+			    <div class="row">
+			     <div class="col s2" align="center" ng-click="BackToBasic()">
+			      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+			     </div>
+			     <div class="col s8" align="center" >
+			    		<span style="font-weight: 600; font-size: 17px;">Add Inventory Price</span>
+
+			     </div>
+			     <div class="col s2" align="center">
+	    		</div>
+
+			    </div>
+			   </div>
+			     
+			   </div>
+		 </nav>
+	</div>
+
+
+
+<!-- 	<div class="header" style="width:100%; top: 0; z-index: 999">
+		<nav>
+			   <div class="nav-wrapper">
+			   <div class="col s12">
+			    <div class="row">
+			     <div class="col s2" align="center" ng-click="BackToBasic()">
+			      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+			     </div>
+			     <div class="col s10" align="center" style="padding-right: 65px;" >
+			    
+			   		<span style="font-weight: 600; font-size: 17px;">Add Inventory Price</span>
+			     </div>
+			    </div>
+			   </div>
+			     
+			   </div>
+		 </nav>
+	</div> -->
+<br>
+<div id="mycontntent" style="padding-bottom: 0px !important; position: relative;"> 
+
+
+
+	<!-- <div align="center" class="row chkprice">
+		<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="chkPriceModal()">Check Price</button>
+	</div> -->
+	<div id="rect">
+	<div id="content1" style="padding-bottom: 10px !important;">
+
+		<div class="row chkprice">
+				<div class="col s12 m12">
+				<div class="row">
+					<div class="col s3" align="center">
+				</div>
+				<div class="col s6">
+					<button  type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="chkPriceModal()">Check Price</button>
+				</div>
+				<div class="col s3">
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top:10px">
+			<div class="col s12 m12">
+				<form name="priceForm" price-form novalidate ng-submit="priceForm.$valid && check()" id="priceForm">
+					<div class="row">
+						<div class="col s12">
+							<h5 align="left">Type Of Inventory</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s6">
+							<p><input name="group1" type="radio" ng-model="inventoryType" value="own" id="test2" />
+								<label for="test2">Own</label>
+							</p>
+						</div>
+						<div class="col s6">
+							<p>
+								<input name="group1" ng-model="inventoryType" type="radio" value="park"  id="test1" />
+								<label for="test1">Park and Sell</label>
+							</p>
+						</div>
+					</div>
+					<br>
+					<div class="row" style="margin-bottom: 15px;">
+						<div class="col s6">
+							<h5>Test Drive</h5>
+						</div>
+						<div class="col s6" style="padding-top: 20px;">
+							<div class="switch" align="right">
+								<label>
+									<input type="checkbox" name="testSwit" ng-model="testswitch" ng-true-value="'1'" ng-false-value="'0'" checked>
+									<span class="lever"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row" >
+						<div ng-show="testswitch=='1'" >
+							<div class="col s6">
+								<input type="checkbox" id="test5" ng-model="dealerpoint" ng-true-value="'1'" ng-false-value="'0'"/>
+								<label for="test5">Dealer Point </label>
+							</div>
+							<div class="col s6">
+								<input type="checkbox" id="test6" ng-model="doorStep" ng-true-value="'1'" ng-false-value="'0'"/>
+								<label for="test6">Door Step </label>
+							</div>
+						</div>
+						<div ng-show="testswitch=='0'">
+							<div class="col s6">
+								<input type="checkbox" id="test7" disabled="disabled" />
+								<label for="test7">Dealer Point </label>
+							</div>
+							<div class="col s6">
+								<input type="checkbox" id="test8" disabled="disabled" />
+								<label for="test8">Door Step </label>
+							</div>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col s12">
+							<h5 align="left">Purchase Information</h5>
+						</div>
+					</div>
+					<div class="row">
+						<!-- park -->
+						<div ng-if="inventoryType=='park' ">
+							<div class="input-field col s12">
+								<input id="parkrecievedfrom" name="Recieved From" type="text" ng-model="customerTypePark" data-target="parkRecievedFrom" class="validate" readonly="" required="" modal>
+								<label for="parkrecievedfrom">Received From</label>
+
+								<!-- <div ng-if="(submitted && priceForm.customerTypePark.$error.required) || priceForm.customerTypePark.$dirty || priceForm.customerTypePark.$touched">
+									<span ng-if="priceForm.customerTypePark.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="input-field col s12">
+								<input chips type="text" name="Name" id="autocomplete Received" ng-model="obj.parkName" class="autocomplete" required="" no-special-char>
+								<label for="Received">Name</label>
+								<!-- <div ng-if="(submitted && priceForm.parkName.$error.required) || priceForm.parkName.$dirty || priceForm.parkName.$touched">
+									<span ng-if="priceForm.parkName.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<br><br><br><br><br><br>
+							<div class="input-field col s12">
+								<input type="text" format="yyyy-mm-dd" id="parkFromDate" name="From Date" input-date ng-model="obj.parkFromDate" class="datepicker" min="{{ minDate }}" max="{{ maxDate }}" required="">
+								<label for="parkFromDate">From Date</label>
+
+								<!-- <div ng-if="(submitted && priceForm.parkFromDate.$error.required) || priceForm.parkFromDate.$dirty || priceForm.parkFromDate.$touched">
+									<span ng-if="priceForm.parkFromDate.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="input-field col s12">
+								<input ng-model="obj.startingKm" id="startingKm" name="starting Km" type="tel" class="validate" required=""   pattern="[0-9]*" maxlength="7" no-special-char>
+								<label for="startingKm">Starting Km</label>
+
+								<!-- <div ng-if="(submitted && priceForm.startingKm.$error.required) || priceForm.startingKm.$dirty || priceForm.startingKm.$touched">
+									<span ng-if="priceForm.startingKm.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="col s12">
+								<ul class="collection">
+									<li class="collection-item">
+										<div class="switch">
+											<label>
+												<input type="checkbox" name="fuelIndication" ng-model="obj.fuelIndication" ng-true-value="'YES'" ng-false-value="'NO'">
+												<span class="lever"></span>
+											</label>
+											<span>Fuel Indication - {{obj.fuelIndication}}</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="input-field col s12">
+								<input ng-model="obj.customerAskPrice" id="customerAskPrice" name="Customer Ask Price" type="tel" class="validate" required=""   pattern="[0-9]*" maxlength="7" no-special-char>
+								<label for="customerAskPrice">Customer Asking Price</label>
+
+								<!-- <div ng-if="(submitted && priceForm.customerAskPrice.$error.required) || priceForm.customerAskPrice.$dirty || priceForm.customerAskPrice.$touched">
+									<span ng-if="priceForm.customerAskPrice.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="input-field col s12">
+								<input type="tel" name="Dealer Markup Price" id="dmp" ng-model="obj.dealerMarkPrice" class="validate" ng-required="inventoryType=='park'"  pattern="[0-9]*" maxlength="7" no-special-char>
+								<label for="dmp">Dealer Markup Price</label>
+
+								<!-- <div ng-if="(submitted && priceForm.dealerMarkPrice.$error.required) || priceForm.dealerMarkPrice.$dirty || priceForm.dealerMarkPrice.$touched">
+									<span ng-if="priceForm.dealerMarkPrice.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<br>
+							<div class="row">
+								<ul class="collection">
+									<li class="collection-item">
+										<div class="row">
+											<div class="col s6" align="center">
+												<span>Key Received</span>
+											</div>
+											<div class="col s6" align="center">
+											<span>Document Received</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s6" >
+												<div class="switch" align="center" style="padding-top: 10px;">
+														<label>
+															<input type="checkbox" name="pk" ng-model="obj.parkKey" ng-true-value="'yes'" ng-false-value="'no'" checked>
+															<span class="lever"></span>
+														</label>
+													</div>
+													<!-- {{obj.parkKey}} -->
+											</div>
+											<div class="col s6" style="padding-top: 5px;">
+											<div class="switch" align="center">
+														<label>
+															<input type="checkbox" name="pd" ng-model="obj.parkDocument" ng-true-value="'yes'" ng-false-value="'no'" checked>
+															<span class="lever"></span>
+														</label>
+													</div>
+													<!-- {{obj.parkDocument}} -->
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s6" align="center" style="padding-top: 10px;">
+												<span>{{obj.parkKey}}</span>
+											</div>
+											<div class="col s6" align="center" style="padding-top: 10px;">
+											<span>{{obj.parkDocument}}</span>
+											</div>
+										</div>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- own -->
+						<div ng-if=" inventoryType=='own' ">
+							<div class="input-field col s12">
+								<input type="text" name="Customer Type" id="cto" ng-model="customerTypeOwn" data-target="ownPurchasedFrom" class="validate" readonly="" required="" modal>
+								<label for="cto">Purchased From</label>
+
+								<!-- <div ng-if="(submitted && priceForm.customerTypeOwn.$error.required) || priceForm.customerTypeOwn.$dirty || priceForm.customerTypeOwn.$touched">
+									<span ng-if="priceForm.customerTypeOwn.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="input-field col s12">
+								<input type="text" name="Name" id="autocomplete oname" ng-model="obj.ownName" class="autocomplete" required="" no-special-char>
+								<label for="oname">Name</label>
+								<!-- <div ng-if="(submitted && priceForm.ownName.$error.required) || priceForm.ownName.$dirty || priceForm.ownName.$touched">
+									<span ng-if="priceForm.ownName.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<br>	<br>	<br>	<br>	<br><br>
+							<div class="input-field col s12">
+								<input type="tel" name="Purchase Price" id="op" ng-model="obj.ownPrice" class="validate" required="" maxlength="7" no-special-char  pattern="[0-9]*">
+								<label for="op">Purchase Price</label>
+
+								<!-- <div ng-if="(submitted && priceForm.ownPrice.$error.required) || priceForm.ownPrice.$dirty || priceForm.ownPrice.$touched">
+									<span ng-if="priceForm.ownPrice.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+							<div class="input-field col s12">
+								<input type="text" format="yyyy-mm-dd" name="Purchase Date" id="pdate" input-date ng-model="obj.ownPurchaseDate" class="datepicker" min="{{ minDate }}" max="{{ maxDate }}" required="">
+								<label for="pdate">Purchased Date</label>
+								<!-- <div ng-if="(submitted && priceForm.ownPurchaseDate.$error.required) || priceForm.ownPurchaseDate.$dirty || priceForm.ownPurchaseDate.$touched">
+									<span ng-if="priceForm.ownPurchaseDate.$error.required" class="error">field is mandotory</span>
+								</div> -->
+							</div>
+						
+							<div class="row">
+								<ul class="collection">
+									<li class="collection-item">
+										<div class="row">
+											<div class="col s6" align="center">
+												<span>Key Received</span>
+											</div>
+											<div class="col s6" align="center">
+											<span>Document Received</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s6" >
+												<div class="switch" align="center" style="padding-top: 10px;">
+														<label>
+															<input type="checkbox" name="pk" ng-model="obj.ownKey" ng-true-value="'yes'" ng-false-value="'no'" checked>
+															<span class="lever"></span>
+														</label>
+													</div>
+													<!-- {{obj.parkKey}} -->
+											</div>
+											<div class="col s6" style="padding-top: 5px;">
+											<div class="switch" align="center">
+														<label>
+															<input type="checkbox" name="pd" ng-model="obj.ownDocument" ng-true-value="'yes'" ng-false-value="'no'" checked>
+															<span class="lever"></span>
+														</label>
+													</div>
+													<!-- {{obj.parkDocument}} -->
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s6" align="center" style="padding-top: 10px;">
+												<span>{{obj.ownKey}}</span>
+											</div>
+											<div class="col s6" align="center" style="padding-top: 10px;">
+											<span>{{obj.ownDocument}}</span>
+											</div>
+										</div>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+						<!-- expense -->
+						<div class="row">
+							<div class="col s12">
+								<h5 class="center-align">Expenses</h5>
+							</div>
+						</div>
+						<div input-field  class="col s12">
+							<input type="tel" name="Refurbishment Cost" id="rc" class="validate" ng-model="obj.refurbishment" maxlength="7" no-special-char required=""  pattern="[0-9]*" >
+							<label for="rc">Refurbishment Cost</label>
+							<!-- <div ng-if="(submitted && priceForm.refurbishment.$error.required) || priceForm.refurbishment.$dirty || priceForm.refurbishment.$touched">
+								<span ng-if="priceForm.refurbishment.$error.required" class="error">field is mandotory</span>
+							</div> -->
+						</div>
+						<div input-field class="col s12">
+							<input type="tel" name="Transport Cost" id="tc" class="validate" ng-model="obj.transport" required="" maxlength="7" no-special-char  pattern="[0-9]*" >
+							<label for="tc">Transport Cost</label>
+
+							<!-- <div ng-if="(submitted && priceForm.transport.$error.required) || priceForm.transport.$dirty || priceForm.transport.$touched">
+								<span ng-if="priceForm.transport.$error.required" class="error">field is mandotory</span>
+							</div> -->
+						</div>
+						<div input-field class="col s12">
+							<input type="text" name="othercost" value="{{expenseRow | sumExpense }}" id="oc" class="validate" ng-click="openExpense()" data-target="otherExp" modal readonly="">
+							<label for="oc">Other Expense</label>
+
+							<!-- <div ng-if="(submitted && priceForm.transport.$error.required) || priceForm.transport.$dirty || priceForm.transport.$touched">
+								<span ng-if="priceForm.transport.$error.required" class="error">field is mandotory</span>
+							</div> -->
+						</div>
+						
+						
+						<div class="row">
+							<div class="col s12">
+								<h5 align="left">Markup Price</h5>
+							</div>
+						</div>
+						<!-- plark and sell -->
+						<div ng-if="inventoryType=='park' ">
+							<div class="row">
+								<div class="col s5">
+									<p>
+										<input name="markuppark" ng-model="obj.parkMarkupBtn" value="option1" type="radio" id="markupPercentpark"  />
+										<label for="markupPercentpark">Percentage </label>
+									</p>
+								</div>
+								<div class="col s4">
+									<p>
+										<input name="markuppark" ng-model="obj.parkMarkupBtn" value="option2" type="radio" id="markupAbsolutepark" />
+										<label for="markupAbsolutepark">Absolute</label>
+									</p>
+								</div>
+							</div>
+
+							<div ng-if="obj.parkMarkupBtn=='option1' ">
+								<div class="row">
+									<div class="input-field col s12">
+										<input type="tel" name="Percentage" id="pmb" ng-model="obj.parkpercent" class="validate" ng-required="true"  pattern="[0-9]*" maxlength="3">
+										<label for="pmb">% With in 100</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col s12">
+										<div class="col s4">
+										<span class="total-font">Total -</span>
+											
+										</div>
+										<div class="col s8">
+											Rs. <span class="total-font1" id="ParkmarkupPercent">{{ (expenseRow | parkPercent : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkpercent) | roundup |  currency: "" : 0 }}</span>
+										</div>
+									</div>
+								</div>
+								
+								<!-- <div class="input-field col s6">
+									<input type="text" class="validate" id="ParkmarkupPercent" value="{{ (expenseRow | parkPercent : obj.dealerMarkPrice : refurbishment : transport : obj.parkpercent) }}" placeholder="Sales Price" readonly="">
+								</div> -->
+							</div>
+							<div ng-if="obj.parkMarkupBtn=='option2' ">
+								<div class="row">
+									<div class="input-field col s12">
+										<input type="tel" name="Absolute Value" id="prs" ng-model="obj.parkabsolute" class="validate" ng-required="true" pattern="[0-9]*" maxlength="7">
+										<label for="prs">Rs.</label>
+
+										<!-- <div ng-if="(submitted && priceForm.parkabsolute.$error.required) || priceForm.parkabsolute.$dirty || priceForm.parkabsolute.$touched">
+											<span ng-if="priceForm.parkabsolute.$error.required" class="error">field is mandotory</span>
+										</div> -->
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col s12">
+										<div class="col s4">
+											<span class="total-font">Total -</span>
+										</div>
+										<div class="col s8">
+											Rs. <span class="total-font1" id="ParkmarkupAbsolute">{{ (expenseRow | parkAbsolute : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkabsolute) | roundup |  currency: "" : 0}}</span>
+										</div>
+									</div>
+								</div>
+								
+								<!-- <div class="input-field col s6">
+									<input type="text" id="ParkmarkupAbsolute" class="validate" value="{{ (expenseRow | parkAbsolute : obj.dealerMarkPrice : refurbishment : transport : obj.parkabsolute) }}" placeholder="Sales Price" readonly="">
+								</div> -->
+							</div>
+						</div>
+						<!-- own -->
+						<div ng-if="inventoryType=='own' ">
+							<div class="row">
+								<div class="col s5">
+									<p>
+										<input name="markupown" ng-model="obj.ownMarkupBtn" value="option1" type="radio" id="markupPercentown" />
+										<label for="markupPercentown">Percentage </label>
+									</p>
+								</div>
+								<div class="col s4">
+									<p>
+										<input name="markupown" ng-model="obj.ownMarkupBtn" value="option2" type="radio" id="markupAbsoluteown" />
+										<label for="markupAbsoluteown">Absolute</label>
+									</p>
+								</div>
+							</div>
+							<div ng-if="obj.ownMarkupBtn=='option1' ">
+								<div class="row">
+								<!-- <span id="status" style="background: yellow; width: auto;">closed</span> -->
+									<div class="input-field col s12">
+
+										<input type="tel" name="Percentage" id="omp" ng-model="obj.ownpercent" class="validate" ng-required="true"  pattern="[0-9]*" maxlength="3">
+										<!-- <input type="number" name="text-basic" id="text-basic" value=""  onclick="xfocus()" onblur="xblur()"> -->
+										<label for="omp">% With in 100</label>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col s12">
+										<div class="col s4">
+											<span class="total-font">Total -</span>
+										</div>
+										<div class="col s8">
+											Rs. <span class="total-font1" id="ownmarkupPercent">{{ (expenseRow | ownPercentage : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownpercent) | roundup |  currency: "" : 0}}</span>
+										</div>
+									</div>
+								</div>
+								<!-- correct -->      <!-- {{  ((ownPrice * 1) + (refurbishment * 1) + (transport * 1) + (expenseRow|ownPercentage) *1) + (((ownPrice * 1) + (refurbishment * 1) + (transport * 1) + (expenseRow|ownPercentage) *1) * ((ownpercent * 1) / 100))  }} -->
+								<!-- {{ (expenseRow | ownPercentage : ownPrice : refurbishment : transport : ownpercent) }} -->
+							</div>
+							<div ng-if="obj.ownMarkupBtn=='option2' ">
+								<div class="row">
+									<div class="input-field col s12">
+										<input type="tel" id="oma" name="Absolute Value" ng-model="obj.ownabsolute" class="validate" ng-required="true"  pattern="[0-9]*" maxlength="7">
+										<label for="oma">Rs.</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col s12">
+										<div class="col s4">
+											<span class="total-font">Total :</span>
+										</div>
+										<div class="col s8">
+											Rs. <span class="total-font1" id="ownmarkupAbsolute">{{ (expenseRow | ownAbsolute : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownabsolute) | roundup |  currency: "" : 0}}</span>
+										</div>
+									</div>
+								</div>
+								
+								<!-- <div class="input-field col s6">
+									<input type="text" id="ownmarkupAbsolute" class="validate" value="{{ (expenseRow | ownAbsolute : obj.ownPrice : refurbishment : transport : obj.ownabsolute) }}" placeholder="Sales Price" readonly="">
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<br>
+					 <!-- <span id="status" style="background: yellow; width: auto;">closed</span>
+					<input type="text" name="text-basic" id="text-basic" value=""  onclick="xfocus()" onblur="xblur()"> -->
+				<div id="footer-bottom" style="height: 5px; bottom: 0 !important; position: relative !important;">
+							<div id="footer-bottom" style="height: 10px; bottom: 0 !important; position: relative !important;">
+						<div class="row">
+							<div class="col s6">
+								<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="BackToBasic()">Back</button>
+							</div>
+							<!-- ng-click="submitted=true" -->
+							<div class="col s6">
+							<!-- duplicate -->
+							<!-- <button type="button" class="btn waves-effect waves-light btn-blue1 col s12"  ng-click="check()">Save</button> -->
+								 <button type="submit" class="btn waves-effect waves-light btn-blue1 col s12"  ng-click="submitted=true">Save</button>
+							</div>
+						</div>
+						</div>
+				</div>
+				</form>	
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- park recieved from -->
+<div id="parkRecievedFrom" class="modal modal-center">
+	<div class="row model-header" style="background-color: #173E84 !important;">
+		<!-- <div class="col s10">
+			<h5 align="center">Customer Type</h5>
+		</div> -->
+		<div class="col s10" align="center" style="padding: 10px;">
+		<span class="model-font">Customer Type</span>
+			
+		</div>
+		<div class="col s1" style="margin-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="16" height="16" >
+		</div>
+	</div>
+	<div class="modal-content">
+		<div ng-show="customerTypeData.length!=0">
+			<div class="col s12" ng-repeat="type in customerTypeData">
+				<p ng-click="pickCustomerTypePark(type.id,type.nametype)">{{type.nametype}}</p>
+			</div>
+		</div>
+		<div ng-show="customerTypeData.length==0" style="text-align: center">
+			No Data Found...
+		</div>
+	</div>
+</div>
+
+<!-- own recieved from -->
+<div id="ownPurchasedFrom" class="modal modal-center">
+	<div class="row model-header" style="background-color: #173E84 !important;" >
+
+	<div class="col s10" align="center" style="padding: 10px;">
+		<span style="margin-left: 50px; font-size: 17px; font-weight: 600; padding-top: 3px;">Customer Type</span>
+	</div>
+		<div class="col s1" style="margin-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="16" height="16">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div ng-show="customerTypeData.length!=0">
+			<div class="col s12" ng-repeat="type in customerTypeData">
+				<p ng-click="pickCustomerTypeOwn(type.id,type.nametype)">{{type.nametype}}</p>
+			</div>
+		</div>
+		<div ng-show="customerTypeData.length==0" style="text-align: center">
+			No Data Found...
+		</div>
+	</div>
+</div>
+
+<div id="otherExp" class="modal modal-fixed-footer" style="width: 100%; height:100%;">
+	<div class="row model-header" style="background-color: #173E84 !important;" >
+		<div class="col s10" align="center" style="padding: 10px;" >
+			<span style="margin-left: 10px; font-size: 17px; font-weight: 600; padding-top: 3px;">Add Expense</span>
+		</div>
+		<div class="col s2" style="padding-top: 15px;" ng-click="checkExpence()">
+			<img src="images/tick-white.svg" class="" width="20" height="20" >
+		</div>
+	</div>
+	<div class="modal-content">
+		<ng-form name="expenseForm">
+			<div class="row">
+				<div class="col s12">
+					
+					<div ng-repeat="row in expenseRow">
+						<div class="input-field col s5">
+							<input type="text" name="expenseName[]" ng-model="row.expenseName" class="validate modalInp" placeholder="Expense Name" required="" maxlength="15" no-special-char>
+						</div>
+						<div class="input-field col s4">
+							<input type="tel" name="expensePrice[]" ng-model="row.expensePrice" class="validate modalInp" placeholder="Rs" required=""  pattern="[0-9]*" maxlength="7" no-special-char>
+						</div>
+						<div class="col s3">
+							<button style="margin-top: 15px;" class="btn-floating waves-effect waves-light red" ng-disabled="$first && $last" ng-click="removeExpence($index+0)"><i class="material-icons">close</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fixed-action-btn horizontal">
+				<a class="btn-floating btn blue" style="margin-top:-85px !important;" ng-click="dynamicExpence()" ng-disabled="expenseForm.$invalid">
+					<i class="material-icons">add</i>
+				</a>
+			</div><br>
+		</ng-form><br>
+	</div>
+	<br>
+	
+	<div class="modal-footer" style="z-index: 100;">
+		<div class="row">
+			<div class="col s6">
+				<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="clearExpence()">Clear</button>
+			</div>
+			<div class="col s6">
+				<button type="submit"  class="btn waves-effect waves-light btn-blue1 col s12" ng-click="checkExpence()">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="preview" class="modal modal-fixed-footer" style="width: 100%; height:100%">
+	<div class="row model-header" style="background-color: #173E84 !important;" >
+		<div class="col s10" align="center" style="padding: 10px;">
+			<!-- <h5 align="center" style="padding-left: 50px;">Add Inventory</h5> -->
+			<span class="model-font">Price Information</span>
+		</div>
+		<div class="col s2">
+			<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 16px;">
+		</div>
+	</div>
+	
+		<div class="scroll-height">
+			<div class="card">
+				<div style="padding: 0 5px;">
+					<h5 class="center-align">{{basicdataName.make}} {{basicdataName.modal}} {{basicdataName.vaient}}</h5>
+				</div>
+			</div>
+			<div class="row" >
+			    <div class="col s12" style="background-color: #f2f2f2 !important;">
+			        <ul tabs reload="allTabContentLoaded" style="background-color: #f2f2f2 !important;">
+			            
+			            <li class="tab col s3"><a class="" id="basicId" href="#test3" style="color:black !important">Basic Info</a></li>
+			            <li class="tab col s3"><a href="#test4" style="color:black !important">Price Info</a></li>
+			        </ul>
+			    </div>
+	    
+			    <div id="test3" class="col s12">
+			    	 <table class="bordered">
+					        <tbody>
+				        		<tr>
+						            <td>Register</td>
+						            <td>{{basicdataName.registerYear}}</td>
+					          	</tr>
+								<tr>
+									<td>Make</td>
+									<td>{{basicdataName.make}}</td>
+								</tr>
+								<tr>
+									<td>Model</td>
+									<td>{{basicdataName.modal}}</td>
+								</tr>
+								<tr>
+									<td>Varient</td>
+									<td>{{basicdataName.vaient}}</td>
+								</tr>
+								<tr>
+									<td>Body Type</td>
+									<td>{{basicdataName.bodyType}}</td>
+								</tr>
+								<tr>
+									<td>Transmission</td>
+									<td>{{basicdataName.transmissionId}}</td>
+								</tr>
+								<tr>
+									<td>Total Distance</td>
+									<td>{{basicdataName.totalDistance}}</td>
+								</tr>
+								<tr>
+									<td>Millege</td>
+									<td>{{basicdataName.millege}}</td>
+								</tr>
+								<tr>
+									<td>OwnerShip</td>
+									<td>{{basicdataName.ownerShip}}</td>
+								</tr>
+								<tr>
+									<td>Car Status</td>
+									<td>{{basicdataName.carStatus}}</td>
+								</tr>
+								<tr>
+									<td>Color</td>
+									<td>{{basicdataName.color}}</td>
+								</tr>
+								<tr>
+									<td>City</td>
+									<td>{{basicdataName.city}}</td>
+								</tr>
+								<tr>
+									<td>Branch</td>
+									<td ng-show="basicdataName.branch!=''">{{basicdataName.branch}}</td>
+									<td ng-show="basicdataName.branch==''"> - </td>
+								</tr>
+								<tr>
+									<td>Fuel Type</td>
+									<td>{{basicdataName.fuelType}}</td>
+								</tr>
+
+					        </tbody>
+			      	</table>
+			    </div>
+
+		    	<div id="test4" class="col s12">
+		    		<table class="bordered" ng-if="inventoryType=='park'">
+				        <tbody>
+			        		<tr>
+					            <td>Inventory Type</td>
+					            <td>{{inventoryType}}</td>
+				          	</tr>
+							<tr>
+								<td>Test Drive</td>
+								<td>
+									<span ng-if="testswitch==1">Yes</span>
+									<span ng-if="testswitch==0">No</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Received From</td>
+								<td>{{customerTypePark}}</td>
+							</tr>
+							<tr>
+								<td>Name</td>
+								<td>{{obj.parkName}}</td>
+							</tr>
+							<tr>
+								<td>From Date</td>
+								<td>{{obj.parkFromDate}}</td>
+							</tr>
+							<tr>
+								<td>Starting Kilometer</td>
+								<td>{{obj.startingKm}} KM</td>
+							</tr>
+							<tr>
+								<td>Fuel Indication</td>
+								<td>{{obj.fuelIndication}}</td>
+							</tr>
+							<tr>
+								<td>Customer Ask Price</td>
+								<td>Rs. {{obj.customerAskPrice}}</td>
+							</tr>
+							<tr>
+								<td>Dealer Markup Price</td>
+								<td>Rs. {{obj.dealerMarkPrice}}</td>
+							</tr>
+							<tr>
+								<td>Key & Document</td>
+								<td>{{obj.parkKey}} & {{obj.parkDocument}}</td>
+							</tr>
+							<tr>
+								<td>Refurbishment Cost</td>
+								<td>{{obj.refurbishment | roundup |  currency: "" : 0}}</td>
+							</tr>
+							<tr>
+								<td>Transport Cost</td>
+								<td>{{obj.transport | roundup |  currency: "" : 0}}</td>
+							</tr>
+							<tr>
+								<td>other Expense</td>
+								<td>{{expenseRow | sumExpense | roundup |  currency: "" : 0}}</td>
+							</tr>
+
+				        </tbody>
+			      	</table>
+
+			      	<table class="bordered" ng-if="inventoryType=='own'">
+				        <tbody>
+			        		<tr>
+					            <td>Inventory Type</td>
+					            <td>{{inventoryType}}</td>
+				          	</tr>
+							<tr>
+								<td>Test Drive</td>
+								<td>
+									<span ng-if="testswitch==1">Yes</span>
+									<span ng-if="testswitch==0">No</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Purchased From</td>
+								<td>{{customerTypeOwn}}</td>
+							</tr>
+							<tr>
+								<td>Name</td>
+								<td>{{obj.ownName}}</td>
+							</tr>
+							<tr>
+								<td>Purchased Price</td>
+								<td>{{obj.ownPrice}}</td>
+							</tr>
+							<tr>
+								<td>Purchased Date</td>
+								<td>{{obj.ownPurchaseDate}}</td>
+							</tr>
+							<tr>
+								<td>Key & Document</td>
+								<td>{{obj.ownKey}} & {{obj.ownDocument}}</td>
+							</tr>
+							<tr>
+								<td>Refurbishment Cost</td>
+								<td>{{obj.refurbishment | roundup |  currency: "" : 0}}</td>
+							</tr>
+							<tr>
+								<td>Transport Cost</td>
+								<td>{{obj.transport | roundup |  currency: "" : 0}}</td>
+							</tr>
+							<tr>
+								<td>other Expense</td>
+								<td>{{expenseRow | sumExpense | roundup |  currency: "" : 0}}</td>
+							</tr>
+
+				        </tbody>
+			      	</table>
+		    	</div>
+			</div>
+
+	<div style="z-index: 100; height: 120px; background-color: #FFF !important;">
+		<div class="row">
+			<div class="col s12" style="padding: 5px 0 5px 0;">
+						<!-- park -->
+					<div ng-if="inventoryType=='park'">
+
+						<div class="col s12">
+							<div class="row" ng-show="obj.parkMarkupBtn=='option1'">
+								<div class="col s6">
+									<div class="row" align="center">
+									<span class="total-font">Percentage</span>
+									</div>
+									<div class="row" align="center">
+										<span class="total-font1"> {{obj.parkpercent}} %</span>
+									</div>
+								</div>
+								<div class="col s6">
+									<div class="row" align="center">
+										
+										<span class="total-font">Total</span>
+									</div>
+									<div class="row" align="center">
+										<span class="total-font1"> Rs. {{ (expenseRow | parkPercent : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkpercent) | roundup |  currency: "" : 0 }} </span>
+									</div>
+								</div>
+							</div>
+							<div class="row" ng-show="obj.parkMarkupBtn=='option2'">
+								<div class="col s6">
+									<div class="row" align="center">
+									<span class="total-font">Absolute</span>
+										
+									</div>
+									<div class="row" align="center">
+									<span class="total-font1">Rs. {{obj.parkabsolute}}</span>
+										
+									</div>
+								</div>
+								<div class="col s6">
+									<div class="row" align="center">
+									<span class="total-font">Total</span>
+									
+									</div>
+									<div class="row" align="center">
+										<span class="total-font1"> Rs. {{ (expenseRow | parkAbsolute : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkabsolute) | roundup |  currency: "" : 0 }} </span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- <div class="row">
+							<h5 ng-show="obj.parkMarkupBtn=='option1'">Percentage - {{obj.parkpercent}} %</h5>
+							<h5 ng-show="obj.parkMarkupBtn=='option2'">Absolute - Rs. {{obj.parkabsolute}}</h5>
+						</div>
+						<div class="row" ng-show="obj.parkMarkupBtn=='option1'">
+							<h5>Total -  Rs. {{ (expenseRow | parkPercent : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkpercent) }}</h5>
+						</div>
+						<div class="row" ng-show="obj.parkMarkupBtn=='option2'">
+							<h5>Total -  Rs. {{ (expenseRow | parkAbsolute : obj.dealerMarkPrice : obj.refurbishment : obj.transport : obj.parkabsolute) }}</h5>
+						</div> -->
+					</div>
+				<!-- own -->
+				<div ng-if="inventoryType=='own'">
+				<div class="col s12">
+					<div class="row" ng-show="obj.ownMarkupBtn=='option1'">
+						<div class="col s6">
+							<div class="row" align="center">
+							<span class="total-font">Percentage</span>
+							
+							</div>
+							<div class="row" align="center">
+							 	<span class="total-font1"> {{obj.ownpercent}} %</span>
+							</div>
+						</div>
+						<div class="col s6">
+							<div class="row" align="center">
+							<span class="total-font">Total</span>
+							</div>
+							<div class="row" align="center">
+								<span class="total-font1"> Rs. {{ (expenseRow | ownPercentage : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownpercent) | roundup |  currency: "" : 0 }} </span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" ng-show="obj.ownMarkupBtn=='option2'">
+						<div class="col s6">
+							<div class="row" align="center">
+							<span class="total-font">Absolute</span>
+							</div>
+							<div class="row" align="center">
+							<span class="total-font1">Rs. {{obj.ownabsolute}}</span>
+							
+							</div>
+						</div>
+						<div class="col s6">
+							<div class="row" align="center">
+							<span class="total-font">Total</span>
+							
+							</div>
+							<div class="row" align="center">
+							 <span class="total-font1"> Rs. {{ (expenseRow | ownAbsolute : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownabsolute) | roundup |  currency: "" : 0 }} </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+					
+						<!--<div class="row">
+							<h5 ng-show="obj.ownMarkupBtn=='option1'">Percentage - {{obj.ownpercent}} %</h5>
+							<h5 ng-show="obj.ownMarkupBtn=='option2'">Absolute - Rs. {{obj.ownabsolute}}</h5>
+						</div>
+						<div class="row" ng-show="obj.ownMarkupBtn=='option1'">
+							<h5>Total -  Rs. {{ (expenseRow | ownPercentage : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownpercent) }}</h5>
+						</div>
+						<div class="row" ng-show="obj.ownMarkupBtn=='option2'">
+							<h5>Total -  Rs. {{ (expenseRow | ownAbsolute : obj.ownPrice : obj.refurbishment : obj.transport : obj.ownabsolute) }}</h5>
+						</div>-->
+						<br>
+					</div>
+				
+							<div class="col s12" style="margin-top: 10px;">
+							<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="priceSubmit()">Save</button>
+							</div>
+					
+			</div>
+		</div>
+	</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="chkPrice" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+
+		<div class="row model-header" style="background-color: #173E84 !important;" >
+		<div class="col s2" align="center">
+	    		</div>
+		<div class="col s8" align="center" style="padding: 10px;">
+			<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Price Analysis</span>
+		</div>
+		<div class="col s2" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="15">
+		</div>
+	</div>
+
+	<div class="modal-content" align="center">
+<br>
+<span style="text-align:center;font-weight: bold;font-size:20px">IBB Pricing</span><img class="full-image" src="images/indianbluebook.png">
+
+<br>
+<br>
+<div id="tab_show" style="display:none">
+
+<table>
+        <thead>
+          <tr>
+              <th>Price Type</th>
+              <th>Fair</th>
+              <th>Good</th>
+			  <th>Great</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="bordered">
+            <td>Private Price</td>
+            <td >{{private1}}</td>
+			<td>{{private2}}</td>
+			<td>{{private3}}</td>
+            
+          </tr>
+          <tr class="bordered">
+            <td>Retail Price</td>
+            <td>{{retail1}}</td>
+            <td>{{retail2}}</td>
+			<td>{{retail3}}</td>
+          </tr>
+          <tr class="bordered">
+            <td>Trade In Price</td>
+            <td>{{trade1}}</td>
+            <td>{{trade2}}</td>
+			<td>{{trade3}}</td>
+          </tr>
+		  <tr class="bordered">
+            <td>CPO Price</td>
+            <td>{{cpo1}}</td>
+            <td>{{cpo2}}</td>
+			<td>{{cpo3}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+<div id="nodata" style="display:none;text-align:center;font-weight: bold;font-size:20px">
+
+<span>No Data Available</span>
+
+</div>
+	</div>
+	
+	</div>
+
+		<script type="text/javascript">
+			
+		$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15, // Creates a dropdown of 15 years to control year
+		minDate : 0
+		});
+
+		 $('ul.tabs').tabs('select_tab', 'tab_id');
+		 $(document).ready(function(){
+		    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		    $('.modal').modal();
+		  });
+		 
+		</script>
+
+		<script type="text/javascript">
+	if ('ontouchstart' in window) {
+	    /* cache dom references */ 
+	    var $body = $('body'); 
+
+	    /* bind events */
+	    $(document)
+	    .on('focus', '.modalInp', function() {
+	        $body.addClass('fixfixed');
+	    })
+	    .on('blur', '.modalInp', function() {
+	        $body.removeClass('fixfixed');
+	    });
+	}
+
+</script>
+
+<script type="text/javascript">
+	/*$(document).on("focus", "#text-basic", function(event){
+    var boxheight =  $(window).height() - 1000;
+    $("#mycontntent").append("<div id='blank' style='height:"+boxheight+"px;'"+"></div>");
+$('html, body').animate({scrollTop: $('#text-basic').offset().top - 250}, 500); 
+});*/
+
+/*$(document).on("blur", "#text-basic", function(event){
+	console.log(1);
+	alert('1');
+$('#blank').remove();
+});*/
+
+/* function checkFun()
+ {
+ 	alert('blur');
+	$('#blank').remove();
+ }*/
+
+/*$('#text-basic').blur(function(){
+	alert('blur');
+	$('#blank').remove();
+})*/
+
+	/*function xfocus(dataId) {
+       // setTimeout(function() {
+          height_old = window.innerHeight;
+          window.addEventListener('resize', xresize);
+          document.getElementById('status').innerHTML = 'opened'; // do something instead this
+         // var boxheight =  $(window).height() - 1000;
+		    $("#mycontntent").append("<div id='blank' style='height:100px;'"+"></div>");
+			$('html, body').animate({scrollTop: $('#'+dataId).offset().top - 250}, 500);
+       // }, 500);
+      }
+      function xresize() {
+        height_new = window.innerHeight;
+        var diff = Math.abs(height_old - height_new);
+        var perc = Math.round((diff / height_old) * 100);
+        if (perc > 50) {
+          xblur();
+          window.removeEventListener('resize', xresize);
+        }
+      }
+      function xblur() {
+        window.removeEventListener('resize', xresize);
+        document.getElementById('status').innerHTML = 'closed'; // do something instead this
+        $('#blank').remove();
+      }*/
+
+     /* if(/Android 4\.[0-3]/.test(navigator.appVersion)){
+   window.addEventListener("resize", function(){
+      if(document.activeElement.tagName=="INPUT"){
+         window.setTimeout(function(){
+            document.activeElement.scrollIntoViewIfNeeded();
+         },0);
+      }
+   })
+}*/
+
+/*function focusFun()
+	{
+		setTimeout(function() {
+        	document.activeElement.scrollIntoViewIfNeeded();
+    	}, 100);
+	}*/
+</script>
+
+
+<!-- <script type="text/javascript">
+      function xfocus() {
+        setTimeout(function() {
+          height_old = window.innerHeight;
+          window.addEventListener('resize', xresize);
+          document.getElementById('status').innerHTML = 'opened'; // do something instead this
+        }, 500);
+      }
+      function xresize() {
+        height_new = window.innerHeight;
+        var diff = Math.abs(height_old - height_new);
+        var perc = Math.round((diff / height_old) * 100);
+        if (perc > 50) {
+          xblur();
+          window.removeEventListener('resize', xresize);
+        }
+      }
+      function xblur() {
+        window.removeEventListener('resize', xresize);
+        document.getElementById('status').innerHTML = 'closed'; // do something instead this
+      }
+    </script> -->

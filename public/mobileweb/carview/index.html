@@ -1,0 +1,60 @@
+<html lang="en" ng-app="CarDealer">
+   <head>
+		<title>Car View Details</title>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	    
+		<link rel="stylesheet" href="css/angular-material.min.css">
+		<link rel="stylesheet" href="css/angular-material.layouts.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="css/style2.css"> 
+		<link href="css/app.min.2.css" rel="stylesheet">
+	
+		<link href='css/angular-carousel.css' rel='stylesheet' type='text/css'>
+		<link href='css/demo.css' rel='stylesheet' type='text/css'>
+
+		<style type="text/css">
+			
+		md-toast {
+			position:fixed !important;
+		}
+
+
+		</style>
+		
+  		
+		
+	</head>
+
+	<body layout="column">
+		
+		
+	<!-- <md-content> -->
+    	<ng-view></ng-view>
+   <!--  </md-content> -->
+    	
+	  	
+	  	
+
+    	<script src="js/jquery.min.js"></script>
+    
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.js"></script>
+		<script src="js/angular-animate.min.js"></script>
+		<script src="js/angular-aria.min.js"></script>
+		<script src="js/angular-messages.min.js"></script>
+		<script src="js/angular-material.min.js"></script>
+		<script src="js/app.js?r=<%= session.getId()%"></script>
+		<script src="js/controller.js"></script>
+		
+
+		<script src="js/angular-touch.min.js"></script>
+    	<script src="js/angular-carousel.min.js"></script>
+    	<script src="js/angular-cache-buster.js"></script>
+
+
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDha2y052jNjpVKFYewNSOE0wEzgIu1ccI&sensor=false&libraries=places"></script>
+			 
+ 	</body>
+</html>

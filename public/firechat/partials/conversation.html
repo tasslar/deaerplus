@@ -1,0 +1,50 @@
+
+<style type="text/css">
+	body {
+    font-size:14px;
+    font-family:calibri;
+}
+#mapBox {
+    width: 400px;
+    height: 300px;
+}
+#dragStatus {
+    padding-top: 10px;
+}
+</style>
+
+<div id='mapBox'></div>
+<div id="dragStatus"></div>
+
+
+<script type="text/javascript">
+	//Dragable Marker In Google Map....
+
+var center = new google.maps.LatLng(-33.013803, -71.551498);
+
+var map = new google.maps.Map(document.getElementById('mapBox'), {
+    zoom: 18,
+    center: center,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+});
+
+var myMarker = new google.maps.Marker({
+    position: center,
+    draggable: true,
+    map: map
+});
+
+google.maps.event.addListener(myMarker, 'dragend', function () {
+    map.setCenter(this.getPosition()); // Set map center to marker position
+    updatePosition(this.getPosition().lat(), this.getPosition().lng()); // update position display
+});
+
+google.maps.event.addListener(map, 'dragend', function () {
+    myMarker.setPosition(this.getCenter()); // set marker position to map center
+    updatePosition(this.getCenter().lat(), this.getCenter().lng()); // update position display
+});
+
+function updatePosition(lat, lng) {
+    document.getElementById('dragStatus').innerHTML = '<p> Current Lat: ' + lat.toFixed(4) + ' Current Lng: ' + lng.toFixed(4) + '</p>';
+}
+</script>

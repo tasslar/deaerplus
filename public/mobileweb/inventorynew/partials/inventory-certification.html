@@ -1,0 +1,216 @@
+
+<style type="text/css">
+	/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+</style>
+
+<div class="page-loader" ng-show="loader" style="z-index: 99999">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+			   <div class="col s12">
+				    <div class="row">
+			     		<div class="col s2" align="center" ng-click="backtoBasic()">
+				      		<img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+				     	</div>
+				     	<div class="col s8" align="center">
+					   		<span style="font-weight: 600; font-size: 17px;">CERTIFICATION & WARRANTY</span>
+				     	</div>
+				       	<div class="col s2">
+			   				<div class="col s2" align="center" ng-click="next()">
+				      			<img src="images/right-arrow.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+					     	</div>
+				     	</div>
+				    </div>
+			   </div>
+	     </div>
+	 </nav>
+</div> 
+
+<!-- Body -->
+
+<div id="rect" style="margin-top: 50px;">
+	
+	<form name="addCertification" id="addCertification">
+
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="card">
+						<div class="row">
+							<div class="col s12">
+								<h5 class="center-align">Certification Report</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+								<input type="text" ng-model="certificateData.inspectionagency" readonly=""  data-target='insAngent' modal>
+								<label for="insdate">Inspection Agency</label>
+							</div>
+							<div class="col s12 input-field">
+								<!-- <input ng-model="certificateData.inspectiondate" format="yyyy-mm-dd" input-date type="text" placeholder="Inspection Date" name="insdate" class="datepicker"> -->
+								<input type="text" input-date id="insdate"  format="yyyy-mm-dd" name="inspectiondate" ng-model="certificateData.inspectiondate" class="datepicker">
+								<label for="insdate">Inspection Date</label>
+							</div>
+							<div class="col s12 input-field">
+								<input type="text" name="certificateid" ng-model="certificateData.certificateid" >
+								<label for="insdate">Certificate Id</label>
+							</div>
+							<div class="col s12 input-field">
+								<input type="text" name="certificateurl" ng-model="certificateData.certificateurl" >
+								<label for="insdate">Certificate Url</label>
+							</div>
+							<div class="col s12">
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<div class="row">
+											<img src="images/upload.svg" width="25" height="25">
+										</div>
+										<div class="row">
+											<span class="md-caption img-text-height">Certificate Report</span>
+										</div>
+										<br>
+									</div>
+									<input id="creportImg" name="certificatereport" type="file">
+								</div>
+								<div class="row" align="center">
+									<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('creportImg','Certificate Report')">Remove</button>
+								</div>
+
+								<div class="card-content" align="center">
+									<p class="md-caption"> 
+									<div class="col s12">
+										<span id="outputcreportImg">
+											<span ng-if="certificateData.certificatereport == '' "> Select Certificate Report </span>
+										</span> 
+									</div>
+										<div class="col s12">
+										<a ng-if="certificateData.certificatereport != '' " href="{{certificateData.certificatereport}}" style="color:lightblue !important;" download>Click to Download</a>
+										</div>
+									</p> 
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<h5 class="center-align">Service Warranty Report</h5>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col s12 input-field">
+								<input type="text" name="serviceAgencyName" ng-model="certificateData.serviceagency" readonly=""  data-target='servAgency' modal>
+								<label for="insdate">Service Agency</label>
+							</div>
+							<div class="col s12 input-field">
+								<input ng-model="certificateData.servicedate" format="yyyy-mm-dd" input-date type="text" class="datepicker" name="servicedate">
+								<label for="insdate">Inspection Date</label>
+							</div>
+							<div class="col s12 input-field">
+								<input type="text" name="serviceid" ng-model="certificateData.serviceid">
+								<label for="insdate">Certificate Id</label>
+							</div>
+							<div class="col s12 input-field">
+								<input type="text" ng-model="certificateData.serviceurl" name="serviceurl">
+								<label for="insdate">Certificate Url</label>
+							</div>
+							<div class="col s12">
+								<div class="dropify-wrapper">
+									<div class="dropify-message">
+										<div class="row">
+											<img src="images/upload.svg" width="25" height="25">
+										</div>
+										<div class="row">
+											<span class="md-caption img-text-height">Certificate Report</span>
+										</div>
+									</div>
+									<input id="swreportImage" name="servicereport" type="file">
+								</div>
+								<div class="row" align="center">
+									<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('creportImg','Certificate Report')">Remove</button>
+								</div>
+								<div class="card-content" align="center">
+									<p class="md-caption">
+									<div class="col 12">
+										<span id="outputswreportImage">
+											<span ng-if="certificateData.servicereport == '' "> Select Certificate Report </span>
+										</span>
+									</div> 
+										<a ng-if="certificateData.servicereport != '' " href="{{certificateData.servicereport}}" style="color:lightblue !important;" download>Click to Download</a>
+									</p> 
+								</div>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</form>
+
+	
+</div>
+
+
+	<div class="row">
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-red col s12" ng-click="backtoBasic()">Cancel</button>
+		</div>
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="saveCertification()">Save</button>
+		</div>
+	</div>
+<br>
+
+
+
+<!-- Model -->
+<div id="insAngent" class="modal modal-center">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Inspection Agency</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12">
+			<p ng-click="pickInsAgency('1','Self')">Self</p>
+			<p ng-click="pickInsAgency('2','TrustMark')">TrustMark</p>
+			<p ng-click="pickInsAgency('3','Others')">Others</p>
+		</div>
+	</div>
+</div>
+
+<div id="servAgency" class="modal modal-center">
+	<div class="row model-header" >
+		<div class="col s10">
+			<h5 align="center">Inspection Agency</h5>
+		</div>
+		<div class="col s1" style="padding-top: 15px;">
+			<img src="images/close.svg" class="modal-close" width="18" height="18">
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="col s12">
+			<p ng-click="pickSerAgency('1','Self')">Self</p>
+			<p ng-click="pickSerAgency('2','Others')">Others</p>
+		</div>
+	</div>
+</div>
+
+
+

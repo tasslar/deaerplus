@@ -1,0 +1,80 @@
+<style type="text/css">
+	md-dialog.fullscreen-dialog {
+max-width: 100%;
+max-height: 100%;
+width: 100%;
+height: 100%;
+border-radius: 0;
+}
+</style>
+<md-dialog class="fullscreen-dialog">
+<md-toolbar class="_md _md-toolbar-transitions">
+<div class="md-toolbar-tools">
+	<h2>Test Drive</h2>
+	<span class="flex" flex=""></span>
+	<md-button class="md-icon-button" ng-click="close()">
+	<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+	</md-button>
+</div>
+</md-toolbar>
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="" >
+	<div  flex-gt-xs="50" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-50">
+		<div layout layout-align="center" >
+			<div flex>
+			{{testDriveDS}}
+				<md-radio-group ng-model="testDriveDS">
+				<md-radio-button value="doorstep" class="md-primary" ng-disabled="ownerDetails.testdrive_doorstep==1 && ownerDetails.testdrive_dealerpoint==0">
+					<span class="md-subhead">Test Drive At Door Step </span>
+				</md-radio-button>
+				</md-radio-group>
+			</div>
+		</div>
+		
+		<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+		<input style="border-color:#CCC;" placeholder="Address" aria-label="Contact" type="text" ng-model="address">
+		{{errorFlag}}
+		
+		<button  ng-click="showTabDialog($event,'partials/chooseMap.html','mapCtrl')">Open Map</button>
+		
+		</md-input-container>
+	</div>
+</section>
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+	<div  flex-gt-xs="50" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-50">
+		<div layout layout-align="center" >
+			<div flex>
+				<md-radio-group ng-model="testDriveDS">
+				<md-radio-button value="dealerpoint" class="md-primary" ng-disabled="ownerDetails.testdrive_dealerpoint==1 && ownerDetails.testdrive_doorstep==0">
+					<span class="md-subhead">Test Drive Dealer Point</span>
+				</md-radio-button>
+				</md-radio-group>
+			</div>
+		</div>
+		
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button">
+		<md-icon style="color:#333;" md-svg-src="images/placeholder.svg"></md-icon>
+		</button>
+		<span class="md-caption">{{ownerDetails.df['Dealer Address']}}</span>
+		</md-card-icon-actions>
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button"  >
+		<md-icon style="color:#333;" md-svg-src="images/mail.svg"></md-icon>
+		</button>
+		<span class="md-caption">{{ownerDetails.dm['Car Owner Email']}}</span>
+		</md-card-icon-actions>
+		<md-card-icon-actions>
+		<button class="md-icon-button md-button  md-ink-ripple" type="button"  >
+		<md-icon style="color:#333;" md-svg-src="images/mobile-phone.svg"></md-icon>
+		</button>
+		<span class="md-caption">{{ownerDetails.df['Mobile Number']}}</span>
+		</md-card-icon-actions>
+	</div>
+</section>
+<section layout="row" layout="column" layout-align="center center" layout-wrap="" >
+	<div flex-xs="" flex-gt-xs="99" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-99">
+		<button layout-padding="" class="md-warn md-raised md-hue-2 md-button md-ink-ripple layout-padding btn-red" type="button" ng-click="applyTestDrive()">
+		<span class="ng-scope">Apply Test Drive</span></button>
+	</div>
+</section>
+</md-dialog>

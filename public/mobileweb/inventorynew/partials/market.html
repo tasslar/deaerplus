@@ -1,0 +1,351 @@
+<style type="text/css">
+
+html:not(.ismobile) .page-loader .preloader {
+       top: 33% !important;
+ }
+
+html:not(.ismobile) .page-loader {
+     top: 60px !important;
+}
+
+.modal-content {
+    padding: 12px !important;
+}
+
+
+.modal .modal-content {
+    padding: 5px 10px 0px 10px !important;
+}
+
+
+.label-font
+{
+	color: #333 !important;
+}
+
+
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ .scroll-height {
+    height: 500px;
+  overflow-y: scroll;
+ }}
+
+
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+ .scroll-height {
+    height: 510px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+ .scroll-height {
+    height: 582px;
+  
+  overflow-y: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .scroll-height {
+    /*height: 600px;*/
+    height: 605px;
+    padding-top: 0px;
+  overflow: scroll;
+ }}
+
+  @media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+ .scroll-height {
+    height: 675px;
+    padding-top: 0px;
+  overflow-y: scroll;
+ }}
+
+
+  @media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+ .scroll-height {
+    height: 675px;
+  
+  overflow-y: scroll;
+ }}
+
+
+   @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+ .scroll-height {
+    height: 920px;
+  
+  overflow-y: scroll;
+ }}
+
+
+
+/*   @media only screen 
+and (min-device-width : 1080px) 
+and (max-device-height : 1920px) {
+ .scroll-height {
+    height: 800px;
+  
+  overflow-y: scroll;
+ }}
+*/
+
+.modal-padding { border-bottom: 1px solid #CCC; }
+
+
+/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+
+/* sathish code*/
+
+.positionTest{
+	top:0 !important;
+}
+
+</style>
+
+
+<div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s8" align="center">
+		   		<span style="font-weight: 600; font-size: 17px;">Market</span>
+		     </div>
+		       <div class="col s2">
+		   		
+		     </div>
+		    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div> 
+
+ 
+		
+		<div  style="padding-bottom: 0px !important; margin-top: 60px; position: relative;">
+
+			<!-- <div class="row">
+				<div class="col s12 m12">
+					<h5>Market</h5>
+					<hr class="hr-line">
+				</div>
+			</div> -->
+			<div class="row">
+		        <div class="col s12 m7">
+		          <div class="card">
+		            <div class="card-image">
+		              <img ng-src="{{marketView.image}}">
+		             </div>
+		            <div class="card">
+		             <h6><b>{{marketView.model}} {{marketView.varient}} {{marketView.registration_year}}</b></h6>
+		             <p>Rs. {{marketView.price |  currency: "" : 0}}</p>
+		            </div>
+		          </div>
+		        </div>
+      		</div>
+
+      	
+      			<div class="col s12 m12">
+      				<div class="row" align="center">
+      					<div class="col s3 m3">
+      						<h6><img src="images/fuel.svg" width="20" height="20"></h6>
+      						<span>{{marketView.fuel_type}}</span>
+      					</div>
+      					<div class="col s3 m3">
+      						<h6><img src="images/km.svg" width="20" height="20"></h6>
+      						<span>{{marketView.kms_done}}</span>
+      					</div>
+      					<div class="col s3 m3">
+      						<h6><img src="images/mileage.svg" width="20" height="20"></h6>
+      						<span>{{marketView.millege}}</span>
+      					</div>
+      					<div class="col s3 m3">
+      						<h6><img src="images/seat.svg" width="20" height="20"></h6>
+      						<span>{{marketView.seatnos}}</span>
+      					</div>
+
+      				</div>
+      			</div>
+      			<br>
+      			<div class="row">
+					<div class="col s12 m12">
+						<h5>SMS / EMAIL</h5>
+						<hr class="hr-line">
+					</div>
+				</div>
+
+				
+				<div class="col s12 m12">
+						<div class="row">
+							<div class="col s6 m6">
+								<span class="total-font">SMS</span>
+							</div>
+							<div style="margin-top:5px;" class="col s6 m6" align="right ">
+									<div class="switch">
+							    <label>
+							        <input type="checkbox" ng-model="smsSwitch" ng-true-value="'on'" ng-false-value="'off'"" ng-change="disableSmsSwitch()">
+							     	<span class="lever"></span>
+							     
+							    </label>
+							  </div>
+							</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12 m12">
+						<form action="#">
+						 <p ng-repeat="(key, value) in smsData" ng-if="smsSwitch=='on'">
+						      <input type="checkbox" ng-model="smsObj.smscheck[$index+0]" id="sms{{$index+0}}" ng-true-value="true" />
+						      <label class="label-font" for="sms{{$index+0}}">{{value.contact_type}} ({{value.count}})</label>
+						    </p>
+
+						    <p ng-repeat="(key, value) in smsData" ng-if="smsSwitch=='off'">
+						      <input type="checkbox" id="sms{{$index+0}}" ng-disabled="true" />
+						      <label class="label-font" for="sms{{$index+0}}">{{value.contact_type}} ({{value.count}})</label>
+						    </p>
+						    <!-- <p>
+						      <input type="checkbox" id="test2" />
+						      <label class="label-font" for="test2">Lead(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test3" />
+						      <label class="label-font" for="test3">Vendor(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test4" />
+						      <label class="label-font" for="test4">Broker(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test5" />
+						      <label class="label-font" for="test5">Dealer(0)</label>
+						    </p> -->
+						</form>
+        			</div>
+				</div>
+	<div class="col s12 m12">
+						<div class="row">
+							<div class="col s6 m6">
+								<span class="total-font">Email</span>
+							</div>
+							<div style="margin-top:5px;" class="col s6 m6" align="right ">
+									<div class="switch">
+							    <label>
+							        <input type="checkbox" ng-model="emailSwitch" ng-true-value="'on'" ng-false-value="'off'"" ng-change="disableEmailSwitch()">
+							     	<span class="lever"></span>
+							     
+							    </label>
+							  </div>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m12">
+						<form action="#">
+						    <p ng-repeat="(key, value) in emailData" ng-if="emailSwitch=='on'">
+						      <input type="checkbox" ng-model="smsObj.emailcheck[$index+0]" id="email{{$index+0}}" />
+						      <label class="label-font" for="email{{$index+0}}">{{value.contact_type}} ({{value.count}}) </label>
+						    </p>
+
+						    <p ng-repeat="(key, value) in emailData" ng-if="emailSwitch=='off'">
+						      <input type="checkbox" ng-disabled="true" id="email{{$index+0}}" />
+						      <label class="label-font" for="email{{$index+0}}">{{value.contact_type}} ({{value.count}})</label>
+						    </p>
+						    <!-- <p>
+						      <input type="checkbox" id="test2" />
+						      <label class="label-font" for="test2">Lead(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test3" />
+						      <label class="label-font" for="test3">Vendor(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test4" />
+						      <label class="label-font" for="test4">Broker(0)</label>
+						    </p>
+						     <p>
+						      <input type="checkbox" id="test5" />
+						      <label class="label-font" for="test5">Dealer(0)</label>
+						    </p> -->
+						</form>
+        			</div>
+				</div>
+
+
+				<div class="col s12 m12">
+					<div class="row">
+						<div class="col s3 m3">
+						</div>
+						<div class="col s6 m6">
+							<button type="button" ng-disabled="smsSwitch=='off' && emailSwitch=='off'" class="btn waves-effect waves-light btn-red col s12" ng-click="submit()">submit</button>
+						</div>
+						<div class="col s3 m3">
+						</div>		
+					</div><br>
+				</div>
+
+
+            
+		</div>
+	
+
+	
+
+
+
+
+<!-- <script type="text/javascript">
+	if ('ontouchstart' in window) {
+	    /* cache dom references */ 
+	    var $body = $('body'); 
+
+	    /* bind events */
+	    $(document)
+	    .on('focus', 'input', function() {
+	        $body.addClass('fixfixed');
+	    })
+	    .on('blur', 'input', function() {
+	        $body.removeClass('fixfixed');
+	    });
+	}
+
+	
+</script> -->
+
+
+

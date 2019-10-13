@@ -1,0 +1,394 @@
+<style type="text/css">
+	/*Nav Bar*/
+.header { 
+    position: fixed; 
+} 
+ 
+.fixfixed .header{ 
+    position: absolute; 
+} 
+</style>
+
+<div class="page-loader" ng-show="loader" style="z-index: 99999">
+    <div class="preloader pls-blue">
+        <img src="images/loader.gif" width="50" height="50">
+
+        <p>Please wait...</p>
+    </div>
+</div> 
+
+
+<div class="header" style="width:100%; top: 0; z-index: 999;">
+	<nav>
+		   <div class="nav-wrapper">
+		   <div class="col s12">
+		    <div class="row">
+		     <div class="col s2" align="center" ng-click="back()">
+		      <img src="images/back-white.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     </div>
+		     <div class="col s8" align="center">
+		   		<span style="font-weight: 600; font-size: 17px;">DOCUMENTS</span>
+		     </div>
+		       <div class="col s2">
+		   		<div class="col s2" align="center" ng-click="next()">
+		      		<img src="images/right-arrow.svg" align="left" width="20" height="20" style="margin-top: 18px;" >
+		     	</div>
+		     </div>
+		    </div>
+		   </div>
+	     </div>
+	 </nav>
+</div> 
+
+<div id="rect" style="margin-top: 50px;">
+	<div>
+
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card">
+					<!-- <div class="card-image">
+						<img src="images/car1.jpg" style="position: relative;">
+					</div> -->
+					<div class="card-content">
+						<h5>{{additionalDetails.model}} {{additionalDetails.Varient}}</h5>
+						<p>Rs - {{additionalDetails.price}}</p>
+						<p>{{additionalDetails.kms}} Kms | {{additionalDetails.fuel_type}} | {{additionalDetails.regYear}} | {{additionalDetails.owner}} Owner</p>
+						<p>{{additionalDetails.city}} 	<img src="images/edit.svg" width="15" height="15" style="margin-left: 10px;"></p>
+						<br>
+						<div class="row" align="center">
+						
+						<!-- <button class="waves-effect waves-light btn btn-blue-light">Edit</button><br><br> -->
+						<span class="error"> Note : * Maximum File Size 2MB </span>
+						
+					</div>
+					</div>
+
+					<!-- <div class="card-action">
+             	 			
+                         </div> -->
+				</div>
+			</div>
+		</div>
+
+	<form name="addDocument" id="addDocument" ng-submit="documentUpload()">
+		<!--Row 1-->
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">Register Certificate</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">Registration Certificate</span>
+							</div>
+						</div>
+						<input id="regCer" name="document[0]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('regCer','Registration Certificate',0)">Remove</button>
+				</div>
+				
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7"> 
+						<span id="outputregCer">
+							<span ng-if="viewDocument[0].documentdownload == '' ">Choose Registration Certificate</span>
+							<span ng-if="viewDocument[0].documentdownload != '' ">You Choosed : {{viewDocument[0].documentname}} </span>
+						</span> 
+					</div>
+						<a ng-if="viewDocument[0].documentdownload != '' " href="{{viewDocument[0].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+			</div>
+		</div>
+
+
+		<!--Row 2-->
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">Insurance</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">Insurance</span>
+							</div>
+						</div>
+						<input id="Insurance" name="document[1]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('Insurance','Insurance',1)">Remove</button>
+				</div>
+
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7">  
+						<span id="outputInsurance">
+							<span ng-if="viewDocument[1].documentdownload == '' ">Choose Insurance</span>
+							<span ng-if="viewDocument[1].documentdownload != '' ">You Choosed : {{viewDocument[1].documentname}} </span>
+						</span> 
+					</div>
+						<a ng-if="viewDocument[1].documentdownload != '' " href="{{viewDocument[1].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+				
+				<!-- <div class="card-content" align="center" id="outputInsurance">
+					<p class="md-caption img-text-height"> 
+						<span id="outputInsurance">Choose Insurance </span>
+						<a ng-if="viewDocument[1].documentdownload != '' " href="{{viewDocument[1].documentdownload}}" style="color:black !important" download>Download</a>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- row 3 -->
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">Regional transport Office</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">Regional transport Office</span>
+							</div>
+						</div>
+						<input id="rto" name="document[2]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('rto','Regional transport Office',2)">Remove</button>
+				</div>
+
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7"> 
+						<span id="outputrto">
+							<span ng-if="viewDocument[2].documentdownload == '' ">Choose Regional transport Office</span>
+							<span ng-if="viewDocument[2].documentdownload != '' ">You Choosed : {{viewDocument[2].documentname}} </span>
+						</span>
+						</div>
+						<a ng-if="viewDocument[2].documentdownload != '' " href="{{viewDocument[2].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+				
+				<!-- <div class="card-content" align="center" id="outputInsurance">
+					<p class="md-caption img-text-height"> 
+						<span id="outputrto">Choose Regional transport Office </span> 
+						<a ng-if="viewDocument[2].documentdownload != '' " href="{{viewDocument[2].documentdownload}}" style="color:black !important" download>Download</a>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- row 4 -->
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">FC</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">FC</span>
+							</div>
+						</div>
+						<input id="fc" name="document[3]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('fc','fc',3)">Remove</button>
+				</div>
+
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7"> 
+						<span id="outputfc">
+							<span ng-if="viewDocument[3].documentdownload == '' ">Choose FC</span>
+							<span ng-if="viewDocument[3].documentdownload != '' ">You Choosed : {{viewDocument[3].documentname}} </span>
+						</span> 
+					</div>
+						<a ng-if="viewDocument[3].documentdownload != '' " href="{{viewDocument[3].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+				
+				<!-- <div class="card-content" align="center" id="outputInsurance">
+					<p class="md-caption img-text-height"> 
+						<span id="outputfc">Choose FC </span> 
+						<a ng-if="viewDocument[3].documentdownload != '' " href="{{viewDocument[3].documentdownload}}" style="color:black !important" download>Download</a>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- row5 -->
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">NOC</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">NOC</span>
+							</div>
+						</div>
+						<input id="noc" name="document[4]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('noc','NOC',4)">Remove</button>
+				</div>
+
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7">  
+						<span id="outputnoc">
+							<span ng-if="viewDocument[4].documentdownload == '' ">Choose NOC</span>
+							<span ng-if="viewDocument[4].documentdownload != '' ">You Choosed : {{viewDocument[4].documentname}} </span>
+						</span>
+					</div>
+						<a ng-if="viewDocument[4].documentdownload != '' " href="{{viewDocument[4].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+				
+				<!-- <div class="card-content" align="center" id="outputInsurance">
+					<p class="md-caption img-text-height"> 
+						<span id="outputnoc">Choose NOC </span> 
+						<a ng-if="viewDocument[4].documentdownload != '' " href="{{viewDocument[4].documentdownload}}" style="color:black !important" download>Download</a>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12 m7">
+				<div class="card-image">
+					<h5 align="center">Permit Document</h5>
+					
+					<div class="dropify-wrapper">
+						<div class="dropify-message">
+							<div class="row">
+								<img src="images/upload.svg" width="25" height="25">
+							</div>
+							<div class="row">
+								<span class="md-caption img-text-height">Permit Document</span>
+							</div>
+						</div>
+						<input id="pd" name="document[5]" type="file">
+					</div>
+				</div>
+				<div class="row" align="center">
+					<button type="button" class="waves-effect waves-light btn btn-blue" ng-click="removeDoc('pd','Permit Document',5)">Remove</button>
+				</div>
+
+				<div class="card-content" align="center">
+					<p class="md-caption">
+					<div class="col s12 m7"> 
+						<span id="outputpd">
+							<span ng-if="viewDocument[5].documentdownload == '' ">Choose Permit Document</span>
+							<span ng-if="viewDocument[5].documentdownload != '' ">You Choosed : {{viewDocument[5].documentname}} </span>
+						</span> 
+					</div>
+						<a ng-if="viewDocument[5].documentdownload != '' " href="{{viewDocument[5].documentdownload}}" style="color:lightblue !important;" download>Click to Download</a>
+					</p> 
+				</div>
+				
+				<!-- <div class="card-content" align="center" id="outputInsurance">
+					<p class="md-caption img-text-height"> 
+						<span id="outputpd">Choose Permit Document </span> 
+						<a ng-if="viewDocument[5].documentdownload != '' " href="{{viewDocument[5].documentdownload}}" style="color:black !important" download>Download</a>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+
+
+
+	<div class="row">
+		<div class="col s6">
+			<button type="button" class="btn waves-effect waves-light btn-red col s12"  ng-click="back()">Back</button>
+		</div>
+		<div class="col s6">
+			<button type="submit" class="btn waves-effect waves-light btn-blue1 col s12" ng-click="documentUpload()">Save</button>
+		</div>
+	</div>
+<br>
+
+<!-- Hypotication -->
+ <div id="hypo" class="modal modalfulscreen" style="width: 100%; height: 100%;">
+	 <nav>
+	    <div class="nav-wrapper">
+	    	<div class="row">
+	    	<div class="col s2" align="center">
+	    		</div>
+				<div class="col s8" align="center">
+					<span style="font-size: 17px; font-weight: 600; padding-top: 3px;">Hypotication & Insurance</span>
+			
+				 	
+				</div>
+				<div class="col s2">
+			 		<img src="images/close.svg" class="modal-close" width="18" height="15" style="margin-top: 22px;">
+				</div>
+			</div>
+		</div>
+	 </nav>
+
+  	<div class="scroll-height">
+		<div class="modal-content">
+			<h5 align="center">Hypotication</h5>
+			<div class="row">
+				<div class="col s12 input-field">
+					<input type="text" name="Register Number" ng-model="regNum" id="registernumber" no-special-char>
+					<label for="registernumber">Hypothacation Type</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="Engine Number" ng-model="engineNumber" id="engineNumber" no-special-char>
+					<label for="engineNumber">Finacier Name</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" name="Chassis Number" ng-model="chasisNumber" id="chasisNumber" no-special-char>
+					<label for="chasisNumber">Full Name of Finacier</label>
+				</div>
+				<div class="col s12 input-field">
+					<input type="text" format="yyyy-mm-dd" id="parkFromDate" name="From Date" input-date ng-model="parkFromDate" class="datepicker" required="">
+					<label for="chasisNumber">From Date</label>
+				</div>
+				
+			</div>
+			<div class="col s6" style="margin-top:10px;">
+				<button type="button" class="btn waves-effect waves-light btn-blue col s12">Reset</button>
+			</div>
+			<div class="col s6" style="margin-top:10px;">
+				<button type="button" class="btn waves-effect waves-light btn-green col s12" ng-click="fetch()">Fetch</button>
+			</div>
+		</div>
+  	</div>
+</div> 
+
+</form>
+

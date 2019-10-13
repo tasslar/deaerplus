@@ -1,0 +1,69 @@
+
+
+<!-- 
+<div id="fixed" when-scrolled="loadMore()">
+  <ul>
+    <li ng-repeat="i in items[1]">{{i.message}}</li>
+  </ul>  
+</div>
+<a id="bottom"></a>
+<input type="text" ng-model="message" placeholder="Send Message" />
+<button ng-click="sendMessage()">Send</button> -->
+<!-- 
+<div id="fixed" when-scrolled="loadMore()">
+  <ul>
+    <li ng-repeat="i in items">{{i.message}}</li>
+  </ul>  
+</div>
+<a id="bottom"></a> -->
+
+<!-- <div z-infinite-scroll="loadMore" inverse="true" body-scroll="true">
+      <div smooth-scroll scroll-if="{{$last}}" duration="0" ng-repeat="obj in items">
+       {{obj.message}}
+      </div>
+    </div> -->
+
+
+<div id="container1">
+	<div id="container2" >
+		<br>
+		<div>
+			<div ng-show="status.loading" style="text-align:center;">
+					<img src="images/comment.gif" >
+					<h6>Loading...</h6>
+				</div>
+			<div _ngcontent-moy-131="" z-infinite-scroll="loadMore" inverse="true" body-scroll="true">
+				
+				<div smooth-scroll scroll-if="{{$last}}" duration="0" ng-repeat="message in items">
+					<div _ngcontent-moy-131="" class="chat-conversation-user them" ng-if="message.user_id!=userId">
+						<div _ngcontent-moy-131="" class="chat-conversation-message">
+							<p _ngcontent-moy-131="" class="fnt">{{message.message}}</p>
+							<!-- <small class="ms-date"><span ng-bind="convertToDate(message.date) | date:'dd/MM/yyyy'"></span> {{$index+1}}  at {{message.time}}</small> -->
+						</div>
+					</div>
+					
+					
+					<div style="text-align: justify-all;" _ngcontent-moy-131="" class="chat-conversation-user me" ng-if="message.user_id==userId">
+						<div _ngcontent-moy-131="" class="chat-conversation-message">
+							<span _ngcontent-moy-131="" class="fnt" style="color:#333;">{{message.message}}</span>
+							<!-- <small class="ms-date2"><span ng-bind="convertToDate(message.date) | date:'dd, MMMM yyyy'"></span> {{$index+1}} at {{message.time}}</small> -->
+						</div>
+					</div>
+				</div>
+				<div style="height:65px;">
+				<a id="bottom"></a></div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer-bottom" style="position: fixed;">
+	<div class="lv-footer ms-reply">
+		<!-- <form ng-submit="sendMessage()"> -->
+		<textarea id="inpmsg" ng-enter="sendMessage()" placeholder="Enter the Message" ng-model="sendMessageData" style="padding-right: 55px !important; line-height: 15px;"></textarea>
+		<!-- <button type="button" ng-click="sendMessage()"><md-icon style="color:#FFF;" md-svg-src="images/send-message.svg" ></md-icon></button> -->
+		<button type="button" ng-click="sendMessage()"><img src="images/send.png" width="30" height="30"></button>
+		<!-- </form> -->
+	</div>
+</div

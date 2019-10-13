@@ -1,0 +1,75 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+max-width: 100% !important;
+max-height: 100% !important;
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+background-color: #FFF !important;
+}
+
+.md-backdrop.md-opaque.md-default-theme, .md-backdrop.md-opaque {
+    background-color:#FFF !important;
+}
+
+html:not(.ismobile) .page-loader .preloader { top:45% !important; }
+html:not(.ismobile) .page-loader .preloader p {
+
+    left: 5px !important;
+    top: 9px !important;
+    color: #CCC !important;
+    font-size: 12px !important;
+    color: #333 !important;
+}
+
+
+.close-icon { width: 16px !important; height: 16px !important; }
+
+</style>
+<div class="page-loader" ng-show="loader">
+	<div class="preloader pls-blue">
+		<img src="images/loader.gif" width="50" height="50">
+		<p>Please wait...</p>
+	</div>
+</div>
+<md-dialog class="fullscreen-dialog">
+<md-toolbar style="background-color: #173e84 !important; font-family: Calibri, Trebuchet, sans-serif !important;">
+	<div class="md-toolbar-tools">
+	<h3 align="center" flex>Send Message to Dealer</h3>
+	<md-button class="md-icon-button" ng-click="close()">
+	<md-icon class="close-icon" md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+	</md-button>
+	</div>
+</md-toolbar>
+
+<div>
+<form name="messageForm" id="messageForm" accessible-form novalidate="" ng-submit="messageForm.$valid && sendMessage()">
+	<section layout-sm="column" layout-align="center center" layout-wrap="">
+		<div flex-xs="" flex-gt-xs="99" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-99">
+			
+			<md-input-container style="padding:0 8px 0 8px !important; margin-bottom:-5px !important; " md-no-float="" class="md-block md-icon-left md-input-placeholder">
+			<input style="border-color:#CCC;"  placeholder="Name" aria-label="Name" name="dName" ng-model="dName" type="text" no-special-char readonly="">
+			</md-input-container>
+			
+			<md-input-container style="padding:0 8px 0 8px !important; margin-bottom: -5px !important; " md-no-float="" class="md-block md-icon-left md-input-placeholder">
+			<input style="border-color:#CCC;" placeholder="Email Id" aria-label="Email Id" ng-model="email" name="email" readonly="">
+			</md-input-container>
+			
+			<md-input-container style="padding:0 8px 0 8px !important; margin-bottom: -5px !important; " md-no-float="" class="md-block md-icon-left md-input-placeholder">
+			<textarea style="border-color:#CCC;" name="message" ng-model="message" placeholder="Message" aria-label="textarea" type="text" required=""></textarea>
+			<div ng-messages="messageForm.message.$error">
+				<div ng-message="required">Enter Your Message</div>
+			</div>
+			</md-input-container>
+		</div>
+	</section>
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="" >
+		<div flex-xs="" flex-gt-xs="99" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-99">
+			<md-button class="md-warn md-raised md-button md-ink-ripple btn-red" type="submit">
+			<span class="ng-scope">Send</span></md-button>
+		</div>
+	</section><br>
+</form><br>
+</div>
+</md-dialog>

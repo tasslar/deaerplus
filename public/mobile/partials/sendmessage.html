@@ -1,0 +1,66 @@
+<style type="text/css">
+	
+	.fullscreen-dialog {
+max-width: 100% !important;
+max-height: 100% !important;
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+
+
+}
+	.md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+min-height: 500px !important;
+}
+</style>
+
+ <div class="page-loader" ng-show="loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+
+<md-dialog class="fullscreen-dialog">
+	<md-toolbar>
+	<div class="md-toolbar-tools">
+		<h2>Send Message to Dealer</h2>
+		<span class="flex" flex=""></span>
+		<md-button class="md-icon-button" ng-click="close()">
+	  		<md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+		</md-button>
+	</div>
+	</md-toolbar>
+<form name="messageForm" id="messageForm" accessible-form novalidate="" ng-submit="messageForm.$valid && sendMessage()">
+	<section layout-sm="column" layout-align="center center" layout-wrap="">
+		<div flex-xs="" flex-gt-xs="99" layout-padding  layout="column" class="layout-column flex-xs flex-gt-xs-99">
+				
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<input style="border-color:#CCC;"  placeholder="Name" aria-label="Name" name="dName" ng-model="dName" type="text" no-special-char readonly="">
+				</md-input-container>
+				
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<input style="border-color:#CCC;" placeholder="Email Id" aria-label="Email Id" ng-model="email" name="email" readonly="">
+				</md-input-container>
+				
+				<md-input-container md-no-float="" class="md-block md-icon-left md-input-placeholder">
+					<textarea style="border-color:#CCC;" name="message" ng-model="message" placeholder="Message" aria-label="textarea" type="text" required=""></textarea>
+					<div ng-messages="messageForm.message.$error">
+         				<div ng-message="required">Enter Your Name</div>
+        			</div>
+				</md-input-container>
+			</div>
+	</section>
+
+	<section layout="row" layout="column" layout-align="center center" layout-wrap="" >
+		 	<div flex-xs="" flex-gt-xs="99" layout-padding layout="column" class="layout-column flex-xs flex-gt-xs-99">
+				<button layout-padding="" class="md-warn md-raised md-hue-2 md-button md-ink-ripple layout-padding btn-red" type="submit">
+				<span class="ng-scope">Send</span></button>
+			</div>
+	</section>
+</form>
+</md-dialog>
+
